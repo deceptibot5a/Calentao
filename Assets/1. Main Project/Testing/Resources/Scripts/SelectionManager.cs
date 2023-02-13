@@ -46,6 +46,7 @@ public class SelectionManager : MonoBehaviour
                 highlight = null;
             }
         }
+
     }
 }
     
