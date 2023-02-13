@@ -77,6 +77,8 @@ namespace Calentao.PlayerContol
 
         }
         
+        
+        
         private void CamMovements()
         {
             if(!_hasAnimator) return;

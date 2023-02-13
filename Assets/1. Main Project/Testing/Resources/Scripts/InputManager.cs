@@ -27,6 +27,7 @@ namespace Calentao.PlayerContol
 
         private void Awake()
         {
+            HideCursor();
             _currentMap = PlayerInput.currentActionMap;
             _moveAction = _currentMap.FindAction("Move");
             _lookAction = _currentMap.FindAction("Look");
@@ -40,6 +41,13 @@ namespace Calentao.PlayerContol
             _lookAction.canceled += onLook;
             _runAction.canceled += onRun; 
         }
+        
+        private void HideCursor()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked; 
+        }
+        
         
         private  void onMove(InputAction.CallbackContext context)
         {
