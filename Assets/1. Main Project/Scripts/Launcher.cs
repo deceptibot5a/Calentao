@@ -11,12 +11,12 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
     public override void OnConnectedToMaster() {
-        Debug.Log("Connected to Master");
+        //Debug.Log("Connected to Master");
         PhotonNetwork.JoinRandomOrCreateRoom();
     }
-    public override void OnJoinedRoom() {
+    /*public override void OnJoinedRoom() {
         Debug.Log("Joined a room successfully!");
         PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity);
-    }
+    }*/
 
 }
