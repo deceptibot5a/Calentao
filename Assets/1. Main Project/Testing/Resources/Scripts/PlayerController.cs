@@ -7,7 +7,17 @@ namespace Calentao.PlayerContol
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float AnimBlendSpeed = 8.9f; 
+        [SerializeField] private float AnimBlendSpeed = 8.9f;
+
+        [SerializeField] private Transform CameraRoot; 
+        
+        [SerializeField] private Transform Camera;
+        
+        [SerializeField] private  float UpperLimit = -40f;
+
+        [SerializeField] private float BottomLimit = 70f; 
+        
+        [SerializeField] private float MouseSensitivity = 21.9f; 
         
         private Rigidbody _playerRigidbody;
         private InputManager _inputManager;
@@ -18,6 +28,8 @@ namespace Calentao.PlayerContol
 
         private int _xVelHash;
         private int _yVelHash;
+
+        private float _xRotation; 
 
         private const float _walkSpeed = 2f; 
         
@@ -40,6 +52,11 @@ namespace Calentao.PlayerContol
             Move();
         }
 
+        private void LateUpdate()
+        {
+            CamMovements();
+        }
+
         private void Move()
         {
             if (!_hasAnimator) return;
@@ -58,6 +75,21 @@ namespace Calentao.PlayerContol
             _animator.SetFloat(_xVelHash , _currentVelocity.x);
             _animator.SetFloat(_yVelHash, _currentVelocity.y);
 
+        }
+        
+        private void CamMovements()
+        {
+            if(!_hasAnimator) return;
+
+            var Mouse_X = _inputManager.Look.x;
+            var Mouse_y = _inputManager.Look.y;
+            Camera.position = CameraRoot.position;
+
+            _xRotation -= Mouse_y * MouseSensitivity * Time.deltaTime;
+            _xRotation = Mathf.Clamp(_xRotation, UpperLimit, BottomLimit);
+
+            Camera.localRotation = Quaternion.Euler(_xRotation, 0, 0);
+            transform.Rotate(Vector3.up, Mouse_X * MouseSensitivity * Time.deltaTime);
         }
     }
 }
