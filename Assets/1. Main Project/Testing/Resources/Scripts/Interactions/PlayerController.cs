@@ -7,6 +7,7 @@ namespace Calentao.PlayerContol
 {
     public class PlayerController : MonoBehaviour
     {
+
         [SerializeField] private float AnimBlendSpeed = 8.9f;
 
         [SerializeField] private Transform CameraRoot; 

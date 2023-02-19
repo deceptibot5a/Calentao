@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private float distance = 3f;
     private Transform highlight;
     private Transform selection;
-
+    public ButtonPuzzle puzzle;
 
     void Update()
     {
@@ -19,7 +20,7 @@ public class SelectionManager : MonoBehaviour
             highlight.gameObject.GetComponent<Outline>().enabled = false;
             highlight = null;
         }
-        
+
         Ray ray = new Ray(camera.transform.position, camera.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
 
@@ -27,7 +28,7 @@ public class SelectionManager : MonoBehaviour
         if (Physics.Raycast(ray, out hitinfo, distance))
         {
             highlight = hitinfo.transform;
-            if (highlight.CompareTag("Selectable") && highlight != selection)
+            if (highlight.CompareTag("Selectable"))
             {
                 if (highlight.gameObject.GetComponent<Outline>() != null)
                 {
@@ -47,7 +48,21 @@ public class SelectionManager : MonoBehaviour
             }
         }
 
+        if (highlight != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            selection = highlight;
+            //Debug.Log("Selected: " + selection.name);
+            if (selection.gameObject.GetComponent<ButtonManager>() != null)
+            {
+                selection.gameObject.GetComponent<ButtonManager>().interacted();
+            }
+        }
+        else if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            selection = null;
+        }
     }
 }
-    
+
+
 
