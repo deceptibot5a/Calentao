@@ -9,8 +9,8 @@ namespace Calentao.PlayerContol
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float AnimBlendSpeed = 8.9f;
-        [SerializeField] private Transform CameraRoot;
-        [SerializeField] private Transform Camera;
+        [SerializeField] private Transform cameraRoot;
+        [SerializeField] private Transform camera;
         [SerializeField] private float UpperLimit = -40f;
         [SerializeField] private float BottomLimit = 70f;
         [SerializeField] private float MouseSensitivity = 21.9f;
@@ -18,6 +18,8 @@ namespace Calentao.PlayerContol
         [SerializeField] private float Dis2Ground = 0.8f;
         [SerializeField] private LayerMask GroundCheck;
         [SerializeField] private float AirResistance = 0.8f;
+        [SerializeField] private GameObject cam;
+        [SerializeField] private GameObject virtualCam;
         private Rigidbody _playerRigidbody;
         private InputManager _inputManager;
         private Animator _animator;
@@ -57,8 +59,10 @@ namespace Calentao.PlayerContol
             _crouchHash = Animator.StringToHash("Crouch");
             if (!PV.IsMine)
             {
-                Destroy(GetComponentInChildren<Camera>().gameObject);
-                Destroy(_playerRigidbody);
+                //Destroy(GetComponentInChildren<Camera>().gameObject);
+                //cam.SetActive(false);
+                virtualCam.SetActive(false);
+                //Destroy(_playerRigidbody);
             }
         }
 
@@ -117,13 +121,13 @@ namespace Calentao.PlayerContol
 
             var Mouse_X = _inputManager.Look.x;
             var Mouse_Y = _inputManager.Look.y;
-            Camera.position = CameraRoot.position;
+            camera.position = cameraRoot.position;
             
             
             _xRotation -= Mouse_Y * MouseSensitivity * Time.deltaTime;
             _xRotation = Mathf.Clamp(_xRotation, UpperLimit, BottomLimit);
 
-            Camera.localRotation = Quaternion.Euler(_xRotation, 0 , 0);
+            camera.localRotation = Quaternion.Euler(_xRotation, 0 , 0);
             transform.Rotate(Vector3.up, Mouse_X * MouseSensitivity * Time.deltaTime); 
         }
 

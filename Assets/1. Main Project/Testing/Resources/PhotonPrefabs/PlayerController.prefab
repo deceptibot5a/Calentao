@@ -1223,7 +1223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3998471633022511743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.7, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2003,7 +2003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6370252437961627434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.7, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2474,8 +2474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimBlendSpeed: 8.9
-  CameraRoot: {fileID: 3160866389790668882}
-  Camera: {fileID: 6370252437961627435}
+  cameraRoot: {fileID: 3518091893422440336}
+  camera: {fileID: 6370252437961627435}
   UpperLimit: -40
   BottomLimit: 70
   MouseSensitivity: 20
@@ -2485,6 +2485,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   AirResistance: 0.8
+  cam: {fileID: 3998471633022511743}
+  virtualCam: {fileID: 6370252437961627434}
 --- !u!114 &4071324920524161482
 MonoBehaviour:
   m_ObjectHideFlags: 0
