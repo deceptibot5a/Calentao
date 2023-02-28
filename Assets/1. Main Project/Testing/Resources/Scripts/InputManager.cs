@@ -22,7 +22,9 @@ namespace Calentao.PlayerContol
         private InputAction _lookAction;
         private InputAction _runAction;
         private InputAction _jumpAction;
-        private InputAction _crouchAction;
+        private InputAction _crouchAction;  
+        
+        
 
         private void Awake() {
             HideCursor();

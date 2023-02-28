@@ -1,19 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using Photon.Pun;
 using UnityEngine;
+using Photon.Pun;
 using UnityEngine.SceneManagement;
-
+using System.IO;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance;
 
-    private void Awake()
+    void Awake()
     {
-        if (Instance)
+        if(Instance)
         {
             Destroy(gameObject);
             return;
@@ -21,22 +19,22 @@ public class RoomManager : MonoBehaviourPunCallbacks
         DontDestroyOnLoad(gameObject);
         Instance = this;
     }
-    
+
     public override void OnEnable()
     {
-        PhotonNetwork.AddCallbackTarget(this);
+        base.OnEnable();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    
+
     public override void OnDisable()
     {
-        PhotonNetwork.RemoveCallbackTarget(this);
+        base.OnDisable();
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if (scene.buildIndex == 1) // 1 ES LA ESCENA DEL JUEGO
+        if(scene.buildIndex == 1) // We're in the game scene
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
         }

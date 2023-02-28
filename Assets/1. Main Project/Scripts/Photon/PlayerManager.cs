@@ -1,23 +1,29 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using Photon.Pun;
-using Unity.Mathematics;
+using Photon.Realtime;
+using System.Linq;
+using System.IO;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerManager : MonoBehaviour
 {
     PhotonView PV;
 
-    private void Awake()
+    GameObject controller;
+
+    int kills;
+    int deaths;
+
+    void Awake()
     {
         PV = GetComponent<PhotonView>();
     }
 
-    private void Start()
+    void Start()
     {
-        if (PV.IsMine)
+        if(PV.IsMine)
         {
             CreateController();
         }
@@ -25,10 +31,11 @@ public class PlayerManager : MonoBehaviour
 
     void CreateController()
     {
-        
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), Vector3.zero, Quaternion.identity);
+        controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), Vector3.zero,Quaternion.identity);
     }
     
-    
-    
+    public static PlayerManager Find(Player player)
+    {
+        return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x.PV.Owner == player);
+    }
 }
