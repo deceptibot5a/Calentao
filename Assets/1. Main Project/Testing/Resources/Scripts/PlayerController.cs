@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 namespace Calentao.PlayerContol
@@ -17,8 +18,8 @@ namespace Calentao.PlayerContol
 
         [SerializeField] private float BottomLimit = 70f; 
         
-        [SerializeField] private float MouseSensitivity = 21.9f; 
-        
+        [SerializeField] private float MouseSensitivity = 21.9f;
+
         private Rigidbody _playerRigidbody;
         private InputManager _inputManager;
 
@@ -35,8 +36,15 @@ namespace Calentao.PlayerContol
         
         private const float _runSpeed = 6f;
 
-        private Vector2 _currentVelocity; 
+        private Vector2 _currentVelocity;
         
+        PhotonView PV;
+
+        private void Awake()
+        {
+            PV = GetComponent<PhotonView>();
+        }
+
         void Start()
         {
             _hasAnimator = TryGetComponent<Animator>(out _animator);
@@ -47,9 +55,21 @@ namespace Calentao.PlayerContol
             _yVelHash = Animator.StringToHash("Y_Velocity"); 
         }
 
+        private void Update()
+        {
+            if (!PV.IsMine)
+            {
+                return;
+            }
+        }
+
         private void FixedUpdate()
         {
             Move();
+            if (!PV.IsMine)
+            {
+                return;
+            }
         }
 
         private void LateUpdate()
