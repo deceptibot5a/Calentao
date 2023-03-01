@@ -4,39 +4,86 @@ using UnityEngine;
 
 public class ButtonPuzzle : MonoBehaviour
 {
+
+    // Numero del boton presionado:
+    public int sequenceIndex;
+    // GameObject de la puerta:
+    public GameObject door;
+    // Tiempo entre cambios de lista:
+    public float timeBetweenLists = 12f;
+    // Tiempo restante hasta el siguiente cambio de lista:
+    [SerializeField] private float timeRemaining;
+
+    private bool iscomplete = false;
+
+    [SerializeField] private int RangeStart;
+    [SerializeField] private int RangeEnd;
+
     // lista de secuencia correcta:
     public int[] solution;
     // Lista de secuencia de usuario:
     public int[] currentSequence;
-    // Numero del boton presionado:
-    public int sequenceIndex;
-
-
-    public GameObject door;
 
     void Start()
     {
         currentSequence = new int[solution.Length];
+        timeRemaining = timeBetweenLists;
+
+        GenerateRandomList();
+    }
+
+    void Update()
+    {
+        if (!iscomplete)
+        {
+            timeRemaining -= Time.deltaTime;
+            if (timeRemaining <= 0)
+            {
+                GenerateRandomList();
+                timeRemaining = timeBetweenLists;
+            }
+        }
+
     }
 
     public void ButtonPressed(int buttonNumber)
     {
         currentSequence[sequenceIndex] = buttonNumber;
+        sequenceIndex++;
 
-        if (currentSequence[sequenceIndex] != solution[sequenceIndex])
+        if (sequenceIndex == solution.Length)
         {
-            Debug.Log("sequencia incorrecta reiniciando..");
+            // El jugador ingreso la lista entonces verifica que este correcto
+            bool sequenceCorrect = true;
+            for (int i = 0; i < currentSequence.Length; i++)
+            {
+                if (currentSequence[i] != solution[i])
+                {
+                    sequenceCorrect = false;
+                    break;
+                }
+            }
 
-            ResetSequence();
+            if (sequenceCorrect)
+            {
+                PuzzleComplete();
+            }
+            else
+            {
+                Debug.Log("Sequencia incorrecta, reiniciando...");
+                ResetSequence();
+            }
         }
-        else if (sequenceIndex == solution.Length - 1)
-        {
-            PuzzleComplete();
-        }
-        else
-        {
-            sequenceIndex++;
-        }
+    }
+
+    public int[] GetMySolution()
+    {
+        return solution;
+    }
+
+    public int[] GetMyCurrent()
+    {
+        return currentSequence;
     }
 
     void ResetSequence()
@@ -50,7 +97,17 @@ public class ButtonPuzzle : MonoBehaviour
 
     void PuzzleComplete()
     {
+        iscomplete = true;
         Debug.Log("Puzzle completado!");
         door.SetActive(false);
+    }
+
+    void GenerateRandomList()
+    {
+        for (int i = 0; i < solution.Length; i++)
+        {
+            solution[i] = Random.Range(RangeStart, RangeEnd);
+        }
+        ResetSequence();
     }
 }
