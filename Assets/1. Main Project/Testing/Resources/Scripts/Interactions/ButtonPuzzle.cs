@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class ButtonPuzzle : MonoBehaviour
@@ -13,12 +14,13 @@ public class ButtonPuzzle : MonoBehaviour
     public float timeBetweenLists = 12f;
     // Tiempo restante hasta el siguiente cambio de lista:
     [SerializeField] private float timeRemaining;
+    
 
     private bool iscomplete = false;
 
     [SerializeField] private int RangeStart;
     [SerializeField] private int RangeEnd;
-
+    [SerializeField] PhotonView PV;
     // lista de secuencia correcta:
     public int[] solution;
     // Lista de secuencia de usuario:
@@ -28,8 +30,7 @@ public class ButtonPuzzle : MonoBehaviour
     {
         currentSequence = new int[solution.Length];
         timeRemaining = timeBetweenLists;
-
-        GenerateRandomList();
+        PV.RPC("UpdateSequence", RpcTarget.All, solution);
     }
 
     void Update()
@@ -104,10 +105,20 @@ public class ButtonPuzzle : MonoBehaviour
 
     void GenerateRandomList()
     {
-        for (int i = 0; i < solution.Length; i++)
+        int[] newSequence = new int[solution.Length];
+        for (int i = 0; i < newSequence.Length; i++)
         {
-            solution[i] = Random.Range(RangeStart, RangeEnd);
+            newSequence[i] = Random.Range(RangeStart, RangeEnd);
         }
+        PV.RPC("UpdateSequence", RpcTarget.All, newSequence);
+    }
+    
+    [PunRPC]
+    void UpdateSequence(int[] newSequence)
+    {
+        solution = newSequence;
         ResetSequence();
     }
+    
+  
 }

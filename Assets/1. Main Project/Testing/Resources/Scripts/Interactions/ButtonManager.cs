@@ -16,11 +16,10 @@ public class ButtonManager : MonoBehaviour
         //luz = gameObject.GetComponent<Animator>();
     }
 
-    public void interacted()
+    public void Interacted()
     {
         puzzleController.ButtonPressed(buttonNumber);
         //animator.SetTrigger("pressed");
         //luz.SetBool("light", true);
-
     }
 }

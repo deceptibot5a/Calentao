@@ -1896,6 +1896,7 @@ GameObject:
   - component: {fileID: 1403165528169950598}
   - component: {fileID: 5679874643195407683}
   - component: {fileID: 3333320222708361371}
+  - component: {fileID: -3789489417137926675}
   m_Layer: 8
   m_Name: PlayerController
   m_TagString: Player
@@ -2054,7 +2055,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -3789489417137926675}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2073,6 +2075,22 @@ MonoBehaviour:
   camera: {fileID: 2829140611100726719}
   distance: 3
   puzzle: {fileID: 0}
+--- !u!114 &-3789489417137926675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679874643195407682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &5755256836542707601
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,9 @@ public class SelectionManager : MonoBehaviour
     private Transform selection;
     public ButtonPuzzle puzzle;
 
+    // Variable booleana que indica si el objeto ya ha sido seleccionado.
+    private bool alreadySelected = false;
+
     void Update()
     {
         if (highlight != null)
@@ -48,21 +51,29 @@ public class SelectionManager : MonoBehaviour
             }
         }
 
-        if (highlight != null && Mouse.current.leftButton.wasPressedThisFrame)
+        Mouse mouse = InputSystem.GetDevice<Mouse>();
+        if (highlight != null && mouse.leftButton.wasPressedThisFrame && !alreadySelected)
         {
             selection = highlight;
             //Debug.Log("Selected: " + selection.name);
             if (selection.gameObject.GetComponent<ButtonManager>() != null)
             {
-                selection.gameObject.GetComponent<ButtonManager>().interacted();
+                selection.gameObject.GetComponent<ButtonManager>().Interacted();
+                //Debug.Log("presione el boton ");
             }
+
+            // Establece alreadySelected en verdadero para indicar que el objeto ya ha sido seleccionado.
+            alreadySelected = true;
         }
-        else if (Mouse.current.leftButton.wasPressedThisFrame)
+        else if (mouse.leftButton.wasPressedThisFrame)
         {
             selection = null;
         }
+
+        // Si el botón izquierdo del mouse se suelta, establece alreadySelected en falso para permitir que otro jugador seleccione el objeto.
+        if (mouse.leftButton.wasReleasedThisFrame)
+        {
+            alreadySelected = false;
+        }
     }
 }
-
-
-
