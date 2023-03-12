@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ public class MenuManager_Test : MonoBehaviour
     public static MenuManager_Test Instance;
     
     [SerializeField] private Menu_test[] menus;
-
+    [SerializeField] private GameObject player1, player2;
+    
 
     private void Awake()
     {
@@ -46,5 +48,14 @@ public class MenuManager_Test : MonoBehaviour
     public void CloseMenu(Menu_test menu)
     {
         menu.Close();
+    }
+    
+    public void Player1Selected()
+    {
+        Destroy(player2);
+    }
+    public void Player2Selected()
+    {
+        Destroy(player1);
     }
 }
