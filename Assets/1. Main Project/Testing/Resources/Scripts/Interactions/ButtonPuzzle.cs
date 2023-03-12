@@ -44,7 +44,6 @@ public class ButtonPuzzle : MonoBehaviour
                 timeRemaining = timeBetweenLists;
             }
         }
-
     }
 
     public void ButtonPressed(int buttonNumber)

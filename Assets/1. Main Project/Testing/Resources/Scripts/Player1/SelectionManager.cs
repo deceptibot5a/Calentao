@@ -11,8 +11,7 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private float distance = 3f;
     private Transform highlight;
     private Transform selection;
-    public ButtonPuzzle puzzle;
-
+    
     // Variable booleana que indica si el objeto ya ha sido seleccionado.
     private bool alreadySelected = false;
 
@@ -49,31 +48,6 @@ public class SelectionManager : MonoBehaviour
             {
                 highlight = null;
             }
-        }
-
-        Mouse mouse = InputSystem.GetDevice<Mouse>();
-        if (highlight != null && mouse.leftButton.wasPressedThisFrame && !alreadySelected)
-        {
-            selection = highlight;
-            //Debug.Log("Selected: " + selection.name);
-            if (selection.gameObject.GetComponent<ButtonManager>() != null)
-            {
-                selection.gameObject.GetComponent<ButtonManager>().Interacted();
-                //Debug.Log("presione el boton ");
-            }
-
-            // Establece alreadySelected en verdadero para indicar que el objeto ya ha sido seleccionado.
-            alreadySelected = true;
-        }
-        else if (mouse.leftButton.wasPressedThisFrame)
-        {
-            selection = null;
-        }
-
-        // Si el botón izquierdo del mouse se suelta, establece alreadySelected en falso para permitir que otro jugador seleccione el objeto.
-        if (mouse.leftButton.wasReleasedThisFrame)
-        {
-            alreadySelected = false;
         }
     }
 }

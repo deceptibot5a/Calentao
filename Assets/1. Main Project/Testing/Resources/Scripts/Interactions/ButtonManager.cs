@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,19 +9,17 @@ public class ButtonManager : MonoBehaviour
 {
     public int buttonNumber;
     public ButtonPuzzle puzzleController;
-    //Animator animator;
-    //public Animator luz;
+    public bool isInteracted = false;
+    public PhotonView photonView;
 
-    void Start()
+    private void Awake()
     {
-        //animator = gameObject.GetComponent<Animator>();
-        //luz = gameObject.GetComponent<Animator>();
+        photonView = GetComponent<PhotonView>();
     }
 
     public void Interacted()
     {
         puzzleController.ButtonPressed(buttonNumber);
-        //animator.SetTrigger("pressed");
-        //luz.SetBool("light", true);
+        isInteracted = true;
     }
 }
