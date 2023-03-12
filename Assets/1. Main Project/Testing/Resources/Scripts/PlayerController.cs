@@ -1,16 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
+using Photon.Pun;
 
 namespace Calentao.PlayerContol
 {
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float AnimBlendSpeed = 8.9f;
-        [SerializeField] private Transform CameraRoot;
-        [SerializeField] private Transform Camera;
+        [SerializeField] private Transform cameraRoot;
+        [SerializeField] private Transform camera;
         [SerializeField] private float UpperLimit = -40f;
         [SerializeField] private float BottomLimit = 70f;
         [SerializeField] private float MouseSensitivity = 21.9f;
@@ -18,6 +18,8 @@ namespace Calentao.PlayerContol
         [SerializeField] private float Dis2Ground = 0.8f;
         [SerializeField] private LayerMask GroundCheck;
         [SerializeField] private float AirResistance = 0.8f;
+        [SerializeField] private GameObject cam;
+        [SerializeField] private GameObject virtualCam;
         private Rigidbody _playerRigidbody;
         private InputManager _inputManager;
         private Animator _animator;
@@ -35,9 +37,13 @@ namespace Calentao.PlayerContol
         private const float _walkSpeed = 2f;
         private const float _runSpeed = 6f;
         private Vector2 _currentVelocity;
+        PhotonView PV;
         
-
-
+        private void Awake()
+        {
+            PV = GetComponent<PhotonView>();
+        }
+      
         private void Start() {
             _hasAnimator = TryGetComponent<Animator>(out _animator);
             _playerRigidbody = GetComponent<Rigidbody>();
@@ -51,9 +57,26 @@ namespace Calentao.PlayerContol
             _groundHash = Animator.StringToHash("Grounded");
             _fallingHash = Animator.StringToHash("Falling");
             _crouchHash = Animator.StringToHash("Crouch");
+            if (!PV.IsMine)
+            {
+                //Destroy(GetComponentInChildren<Camera>().gameObject);
+                //cam.SetActive(false);
+                virtualCam.SetActive(false);
+                //Destroy(_playerRigidbody);
+            }
         }
 
+        private void Update()
+        {
+            if(!PV.IsMine)
+                return;
+        }
+
+
         private void FixedUpdate() {
+            
+            if(!PV.IsMine)
+                return;
             SampleGround();
             Move();
             HandleJump();
@@ -74,13 +97,13 @@ namespace Calentao.PlayerContol
             if(_grounded)
             {
                 
-            _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, _inputManager.Move.x * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
-            _currentVelocity.y =  Mathf.Lerp(_currentVelocity.y, _inputManager.Move.y * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
+                _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, _inputManager.Move.x * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
+                _currentVelocity.y =  Mathf.Lerp(_currentVelocity.y, _inputManager.Move.y * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
 
-            var xVelDifference = _currentVelocity.x - _playerRigidbody.velocity.x;
-            var zVelDifference = _currentVelocity.y - _playerRigidbody.velocity.z;
+                var xVelDifference = _currentVelocity.x - _playerRigidbody.velocity.x;
+                var zVelDifference = _currentVelocity.y - _playerRigidbody.velocity.z;
 
-            _playerRigidbody.AddForce(transform.TransformVector(new Vector3(xVelDifference, 0 , zVelDifference)), ForceMode.VelocityChange);
+                _playerRigidbody.AddForce(transform.TransformVector(new Vector3(xVelDifference, 0 , zVelDifference)), ForceMode.VelocityChange);
             }
             else
             {
@@ -98,13 +121,13 @@ namespace Calentao.PlayerContol
 
             var Mouse_X = _inputManager.Look.x;
             var Mouse_Y = _inputManager.Look.y;
-            Camera.position = CameraRoot.position;
+            camera.position = cameraRoot.position;
             
             
             _xRotation -= Mouse_Y * MouseSensitivity * Time.deltaTime;
             _xRotation = Mathf.Clamp(_xRotation, UpperLimit, BottomLimit);
 
-            Camera.localRotation = Quaternion.Euler(_xRotation, 0 , 0);
+            camera.localRotation = Quaternion.Euler(_xRotation, 0 , 0);
             transform.Rotate(Vector3.up, Mouse_X * MouseSensitivity * Time.deltaTime); 
         }
 
@@ -122,7 +145,6 @@ namespace Calentao.PlayerContol
 
         public void JumpAddForce()
         {
-       
             _playerRigidbody.AddForce(-_playerRigidbody.velocity.y * Vector3.up, ForceMode.VelocityChange);
             _playerRigidbody.AddForce(Vector3.up * JumpFactor, ForceMode.Impulse);
             _animator.ResetTrigger(_jumpHash);
