@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager_Test : MonoBehaviour
 {
@@ -52,10 +53,13 @@ public class MenuManager_Test : MonoBehaviour
     
     public void Player1Selected()
     {
+        player1.GetComponent<Image>().color = Color.green;
         Destroy(player2);
     }
     public void Player2Selected()
     {
+        player2.GetComponent<Image>().color = Color.green;
         Destroy(player1);
     }
+    
 }

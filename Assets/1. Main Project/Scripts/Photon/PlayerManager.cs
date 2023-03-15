@@ -53,4 +53,5 @@ public class PlayerManager : MonoBehaviour
     {
         playerPrefabName = "PlayerController2";
     }
+    
 }
