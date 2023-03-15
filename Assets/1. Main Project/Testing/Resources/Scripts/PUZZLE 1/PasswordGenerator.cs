@@ -8,15 +8,9 @@ public class PasswordGenerator : MonoBehaviour
     {
         password = "";
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 6; i++)
         {
             password += Random.Range(0, 10).ToString();
-        }
-
-        string[] figures = { "fig1", "fig2", "fig2" };
-        for (int i = 0; i < 3; i++)
-        {
-            password += figures[Random.Range(0, figures.Length)];
         }
     }
     
