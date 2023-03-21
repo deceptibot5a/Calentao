@@ -49,6 +49,7 @@ namespace Calentao.PlayerContol
         }
         
         
+        
         private  void onMove(InputAction.CallbackContext context)
         {
             Move = context.ReadValue<Vector2>();

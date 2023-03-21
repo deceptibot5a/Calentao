@@ -10,7 +10,7 @@ public class PasswordGenerator : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            password += Random.Range(0, 10).ToString();
+            password += Random.Range(1, 10).ToString();
         }
     }
     
