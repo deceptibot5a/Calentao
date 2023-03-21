@@ -10,14 +10,7 @@ namespace Calentao.PlayerContol
     public class PlayerController : MonoBehaviour
     {
         
-        public bool caninteract = false;
-        [SerializeField] private InteractionsPlayer1 buttoncamera;
-
-        public bool isinpuzzle = false;
         
-        
-        [SerializeField] private InputActionReference interact, exitInteract;
-
         [SerializeField] private float AnimBlendSpeed = 8.9f;
 
         [SerializeField] private Transform CameraRoot; 
@@ -59,6 +52,7 @@ namespace Calentao.PlayerContol
         private void Awake()
         {
             PV = GetComponent<PhotonView>();
+           
         }
         
         
@@ -118,44 +112,6 @@ namespace Calentao.PlayerContol
 
         }
         
-        
-        private void OnEnable()
-        {
-            interact.action.performed += Interacting;
-            exitInteract.action.performed += exitInteracting;
-
-        }
-
-        private void OnDisable()
-        {
-            interact.action.performed -= Interacting;
-            exitInteract.action.performed -= exitInteracting;
-
-        }
-
-        private void Interacting(InputAction.CallbackContext obj)
-        {
-            if (caninteract)
-            {
-                buttoncamera.interacted();
-            }
-            else
-            {
-                Debug.Log("no hay interacciones");
-            }
-        }
-        
-        private void exitInteracting(InputAction.CallbackContext obj)
-        {
-            if (isinpuzzle)
-            {
-                buttoncamera.stopInteraction();
-            }
-            else
-            {
-                Debug.Log("no esta en un puzzle");
-            }
-        }
         private void CamMovements()
         {
             if(!_hasAnimator) return;

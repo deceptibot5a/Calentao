@@ -12,22 +12,26 @@ public class InteractionsPlayer1 : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera vcam;
     public GameObject interactUi;
     public GameObject crosshair;
-    [SerializeField] private PlayerController _controller;
+    [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject buttonCamera;
+    private PlayerController playerController;
     public bool correct;
     private bool assigned;
+    
+    
     
     void Update()
     {
         if (assigned == false)
         {
-            _controller = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
+            inputManager = GameObject.FindWithTag("Player1").GetComponent<InputManager>();
             interactUi = GameObject.Find("Interactable");
             crosshair = GameObject.Find("Crosshair");
-            vcam = GameObject.FindWithTag("Player1").GetComponentInChildren<CinemachineVirtualCamera>();
+            playerController = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
             
+
         }
-        if (_controller && interactUi && crosshair && vcam == null)
+        if (inputManager && interactUi && crosshair && playerController  == null)
         {
             assigned = false;
         }
@@ -42,7 +46,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player1"))
         {
             interactUi.GetComponent<CanvasGroup>().alpha = 1;
-            _controller.caninteract = true;
+            inputManager.caninteract = true;
         }
     }
     
@@ -51,7 +55,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player1"))
         {
             interactUi.GetComponent<CanvasGroup>().alpha = 0;
-            _controller.caninteract = false;
+            inputManager.caninteract = false;
         }
     }
 
@@ -62,8 +66,10 @@ public class InteractionsPlayer1 : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         crosshair.SetActive(false);
         interactUi.SetActive(false);
-        _controller.isinpuzzle = true;
-        _controller.caninteract = false;
+        inputManager.isinpuzzle = true;
+        inputManager.caninteract = false;
+        //inputManager.enabled = false;
+        playerController.enabled = false;
 
     }
     
@@ -73,7 +79,10 @@ public class InteractionsPlayer1 : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         crosshair.SetActive(true);
-        _controller.isinpuzzle = false;
+        inputManager.isinpuzzle = false;
+        //inputManager.enabled = true;
+        playerController.enabled = true;
+        
         if (correct)
         { 
             buttonCamera.SetActive(false);
@@ -81,9 +90,8 @@ public class InteractionsPlayer1 : MonoBehaviour
         else
         {
             interactUi.SetActive(true);
-            _controller.caninteract = true;
+            inputManager.caninteract = true;
         }
-        
-
     }
+    
 }

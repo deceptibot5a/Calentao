@@ -2498,13 +2498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc06bb3a80b92aa49903ac3ebc72fdad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caninteract: 0
-  buttoncamera: {fileID: 0}
-  isinpuzzle: 0
-  interact: {fileID: 1146960042362781877, guid: 90e2637107efdba47abd2498194c3722,
-    type: 3}
-  exitInteract: {fileID: 1922050759152915294, guid: 90e2637107efdba47abd2498194c3722,
-    type: 3}
   AnimBlendSpeed: 8.9
   CameraRoot: {fileID: 10393481006339102}
   Camera: {fileID: 8331348404544846695}
@@ -2526,6 +2519,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInput: {fileID: 1403165528169950597}
+  buttoncamera: {fileID: 0}
+  interact: {fileID: 1146960042362781877, guid: 90e2637107efdba47abd2498194c3722,
+    type: 3}
+  exitInteract: {fileID: 1922050759152915294, guid: 90e2637107efdba47abd2498194c3722,
+    type: 3}
+  caninteract: 0
+  isinpuzzle: 0
 --- !u!114 &5679874643195407683
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,8 +9,13 @@ namespace Calentao.PlayerContol
 {
     public class InputManager : MonoBehaviour
     {
-        [SerializeField] private PlayerInput PlayerInput; 
+        [SerializeField] private PlayerInput PlayerInput;
+        [SerializeField] private InteractionsPlayer1 buttoncamera;
+        [SerializeField] private InputActionReference interact, exitInteract;
         
+        public  bool caninteract = false;
+       
+        public  bool isinpuzzle = false;
         public Vector2 Move {get; private set;}
         
         public Vector2 Look {get; private set;}
@@ -40,6 +45,8 @@ namespace Calentao.PlayerContol
             _moveAction.canceled += onMove;
             _lookAction.canceled += onLook;
             _runAction.canceled += onRun; 
+            
+            buttoncamera = FindObjectOfType<InteractionsPlayer1>();
         }
         
         private void HideCursor()
@@ -66,11 +73,40 @@ namespace Calentao.PlayerContol
         private void OnEnable()
         {
             _currentMap.Enable();
+            interact.action.performed += Interacting;
+            exitInteract.action.performed += exitInteracting;
         }
 
         private void OnDisable()
         {
             _currentMap.Disable();
+            interact.action.performed -= Interacting;
+            exitInteract.action.performed -= exitInteracting;
         }
+
+        private void Interacting(InputAction.CallbackContext obj)
+        {
+            if (caninteract)
+            {
+                buttoncamera.interacted();
+            }
+            else
+            {
+                Debug.Log("no hay interacciones");
+            }
+        }
+        
+        private void exitInteracting(InputAction.CallbackContext obj)
+        {
+            if (isinpuzzle)
+            {
+                buttoncamera.stopInteraction();
+            }
+            else
+            {
+                Debug.Log("no esta en un puzzle");
+            }
+        }
+        
     }
 }
