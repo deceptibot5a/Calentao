@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using Photon.Pun;
 
-public class Puzzle1 : MonoBehaviour
+public class Puzzle1 : MonoBehaviourPunCallbacks
 {
-    public PasswordGenerator passwordGenerator;
     public TMP_Text passwordText;
     public TMP_Text currentPassText;
     public Button[] digitButtons;
@@ -14,22 +14,31 @@ public class Puzzle1 : MonoBehaviour
     public Animator error;
     public Animator Correct;
     public GameObject correctobj;
+    private int digitsEntered;
+    private float currentTime;
+    private bool solved = false;
 
     [SerializeField] private InteractionsPlayer1 buttoncamera;
     [SerializeField] private string password;
     [SerializeField] private string currentPassword;
-    private int digitsEntered;
     [SerializeField] private float timer;
-
-    private float currentTime;
-
-    private bool solved = false;
+    [SerializeField] private PhotonView photonView;
 
     void Start()
     {
-        GeneratePassword();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            GeneratePassword();
+            photonView.RPC("SendPassword", RpcTarget.All, password);
+            Debug.Log(password);
+        }
+    }
+
+    [PunRPC]
+    public void SendPassword(string password)
+    {
+        this.password = password;
         UpdatePasswordText();
-        Debug.Log(password);
     }
 
     void Update()
@@ -41,8 +50,11 @@ public class Puzzle1 : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0.0f)
         {
-            GeneratePassword();
-            UpdatePasswordText();
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GeneratePassword();
+                photonView.RPC("SendPassword", RpcTarget.All, password);
+            }
             currentPassword = "";
             digitsEntered = 0;
             timer = 12.0f;
@@ -86,19 +98,22 @@ public class Puzzle1 : MonoBehaviour
             }
         }
     }
-    
+
     private void GeneratePassword()
     {
-        passwordGenerator.GeneratePassword();
-        password = passwordGenerator.GetPassword();
+        password = "";
+
+        for (int i = 0; i < 6; i++)
+        {
+            password += Random.Range(1, 10).ToString();
+        }
     }
 
     private void UpdatePasswordText()
     {
         passwordText.text = password;
-        
     }
-    
+
     private void UpdateCurrentPasswordText()
     {
         currentPassText.text = currentPassword;
