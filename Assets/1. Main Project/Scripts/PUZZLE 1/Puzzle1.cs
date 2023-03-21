@@ -16,14 +16,10 @@ public class Puzzle1 : MonoBehaviour
     public GameObject correctobj;
 
     [SerializeField] private InteractionsPlayer1 buttoncamera;
-    
-    [SerializeField]
-    private string password;
-    [SerializeField]
-    private string currentPassword;
+    [SerializeField] private string password;
+    [SerializeField] private string currentPassword;
     private int digitsEntered;
-    [SerializeField]
-    private float timer;
+    [SerializeField] private float timer;
 
     private float currentTime;
 
@@ -86,8 +82,6 @@ public class Puzzle1 : MonoBehaviour
                     currentPassword = "";
                     digitsEntered = 0;
                     error.SetTrigger("Error");
-                    
-                    
                 }
             }
         }
