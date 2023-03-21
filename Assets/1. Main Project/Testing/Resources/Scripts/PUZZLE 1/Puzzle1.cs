@@ -15,7 +15,7 @@ public class Puzzle1 : MonoBehaviour
     public Animator Correct;
     public GameObject correctobj;
 
-    [SerializeField] private A buttoncamera;
+    [SerializeField] private InteractionsPlayer1 buttoncamera;
     
     [SerializeField]
     private string password;

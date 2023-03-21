@@ -2078,7 +2078,7 @@ GameObject:
   - component: {fileID: 6375257345774562331}
   m_Layer: 8
   m_Name: PlayerController2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2195,6 +2195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc06bb3a80b92aa49903ac3ebc72fdad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caninteract: 0
+  buttoncamera: {fileID: 0}
+  isinpuzzle: 0
+  interact: {fileID: 0}
+  exitInteract: {fileID: 0}
   AnimBlendSpeed: 8.9
   CameraRoot: {fileID: 10393481006339102}
   Camera: {fileID: 8331348404544846695}

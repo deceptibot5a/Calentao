@@ -12,9 +12,6 @@ public class PlayerManager : MonoBehaviour
 {
     PhotonView PV;
     public string playerPrefabName;
-    [SerializeField] GameObject player1;
-    [SerializeField] GameObject player2;
-    
 
     GameObject controller;
 

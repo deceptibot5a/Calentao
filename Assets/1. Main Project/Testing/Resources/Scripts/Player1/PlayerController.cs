@@ -11,7 +11,7 @@ namespace Calentao.PlayerContol
     {
         
         public bool caninteract = false;
-        [SerializeField] private A buttoncamera;
+        [SerializeField] private InteractionsPlayer1 buttoncamera;
 
         public bool isinpuzzle = false;
         

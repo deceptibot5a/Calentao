@@ -7,29 +7,50 @@ using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 
-public class A : MonoBehaviour
+public class InteractionsPlayer1 : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera vcam;
     public GameObject interactUi;
-    public GameObject Ui;
+    public GameObject crosshair;
     [SerializeField] private PlayerController _controller;
     [SerializeField] private GameObject buttonCamera;
     public bool correct;
+    private bool assigned;
+    
+    void Update()
+    {
+        if (assigned == false)
+        {
+            _controller = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
+            interactUi = GameObject.Find("Interactable");
+            crosshair = GameObject.Find("Crosshair");
+            vcam = GameObject.FindWithTag("Player1").GetComponentInChildren<CinemachineVirtualCamera>();
+            
+        }
+        if (_controller && interactUi && crosshair && vcam == null)
+        {
+            assigned = false;
+        }
+        else
+        {
+            assigned = true;
+        }
+    }
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player1"))
         {
-            interactUi.SetActive(true);
+            interactUi.GetComponent<CanvasGroup>().alpha = 1;
             _controller.caninteract = true;
         }
     }
     
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player1"))
         {
-            interactUi.SetActive(false);
+            interactUi.GetComponent<CanvasGroup>().alpha = 0;
             _controller.caninteract = false;
         }
     }
@@ -39,7 +60,7 @@ public class A : MonoBehaviour
         vcam.m_Priority = 50;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        Ui.SetActive(false);
+        crosshair.SetActive(false);
         interactUi.SetActive(false);
         _controller.isinpuzzle = true;
         _controller.caninteract = false;
@@ -51,7 +72,7 @@ public class A : MonoBehaviour
         vcam.m_Priority = 5;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        Ui.SetActive(true);
+        crosshair.SetActive(true);
         _controller.isinpuzzle = false;
         if (correct)
         { 
