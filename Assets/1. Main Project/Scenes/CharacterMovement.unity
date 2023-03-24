@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 789972003}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Grass
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2526,6 +2526,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403165528169950599, guid: 7351d3af97d1d004fa861122410ff955,
         type: 3}
+      propertyPath: _GrassRunAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: f18ce213b13e0c54f800d7d46fa5278c, type: 3}
+    - target: {fileID: 1403165528169950599, guid: 7351d3af97d1d004fa861122410ff955,
+        type: 3}
+      propertyPath: _metalRunAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: e0bc7be83f08edf4d8de45a13315b559, type: 3}
+    - target: {fileID: 1403165528169950599, guid: 7351d3af97d1d004fa861122410ff955,
+        type: 3}
       propertyPath: runAudioSource
       value: 
       objectReference: {fileID: 381173620}
@@ -2536,9 +2546,24 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: f18ce213b13e0c54f800d7d46fa5278c, type: 3}
     - target: {fileID: 1403165528169950599, guid: 7351d3af97d1d004fa861122410ff955,
         type: 3}
+      propertyPath: BreathFadeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403165528169950599, guid: 7351d3af97d1d004fa861122410ff955,
+        type: 3}
+      propertyPath: _GrasswalkAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 53c129a62e97c754bb89e54174cd119e, type: 3}
+    - target: {fileID: 1403165528169950599, guid: 7351d3af97d1d004fa861122410ff955,
+        type: 3}
       propertyPath: _audioSourceRun
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1403165528169950599, guid: 7351d3af97d1d004fa861122410ff955,
+        type: 3}
+      propertyPath: _metalwalkAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 29bb034ef24385c418ab023de359a58a, type: 3}
     - target: {fileID: 1403165528169950599, guid: 7351d3af97d1d004fa861122410ff955,
         type: 3}
       propertyPath: _runAudioSource
@@ -3463,7 +3488,7 @@ GameObject:
   - component: {fileID: 1602400929}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Metal
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3476,7 +3501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602400927}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 84.6, y: 19.281984, z: -65}
+  m_LocalPosition: {x: 84.9, y: 19.281984, z: -65}
   m_LocalScale: {x: 0.46565, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3525,7 +3550,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e18ded4b611aa8f4a9f0f261d2f29537, type: 2}
+  - {fileID: 2100000, guid: 6b38742730e330c488cc8d7964788813, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

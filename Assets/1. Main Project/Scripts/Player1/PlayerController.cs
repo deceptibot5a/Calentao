@@ -33,6 +33,10 @@ namespace Calentao.PlayerContol
         [SerializeField] private float AudioFadeSpeed = 1f;
         [SerializeField] private float BreathFadeSpeed = 0.2f;
         private float _breathingVolume = 0f;
+        public AudioClip _metalwalkAudio;
+        public AudioClip _metalRunAudio; 
+        public AudioClip _GrasswalkAudio;
+        public AudioClip _GrassRunAudio; 
         
         
         private Rigidbody _playerRigidbody;
@@ -210,6 +214,16 @@ namespace Calentao.PlayerContol
 
             Camera.localRotation = Quaternion.Euler(_xRotation, 0, 0);
             transform.Rotate(Vector3.up, Mouse_X * MouseSensitivity * Time.deltaTime);
+        }
+        
+        void OnCollisionEnter(Collision collision) {
+            if (collision.gameObject.tag == "Metal") {
+                _walkAudioSource.clip = _metalwalkAudio;
+                _runAudioSource.clip = _metalRunAudio;
+            } else if (collision.gameObject.tag == "Grass") {
+                _walkAudioSource.clip = _GrasswalkAudio;
+                _runAudioSource.clip = _GrassRunAudio;
+            } // Agregar más condiciones para más tipos de terrenos
         }
     }
 }
