@@ -17,6 +17,11 @@ public class InteractionsPlayer1 : MonoBehaviour
     private PlayerController playerController;
     public bool correct;
     private bool assigned;
+    [SerializeField] private float AudioFadeSpeed = 1f;
+    public AudioSource[] audioSources;
+    public Animator animator; 
+    public GameObject playerObject; 
+    
     
     
     
@@ -28,10 +33,14 @@ public class InteractionsPlayer1 : MonoBehaviour
             interactUi = GameObject.Find("Interactable");
             crosshair = GameObject.Find("Crosshair");
             playerController = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
+            playerObject = GameObject.FindWithTag("Player1");
+            audioSources = playerObject.GetComponents<AudioSource>();
+            animator = playerObject.GetComponent<Animator>();
+          
             
 
         }
-        if (inputManager && interactUi && crosshair && playerController  == null)
+        if (inputManager && interactUi && crosshair && playerController && playerObject && animator  == null)
         {
             assigned = false;
         }
@@ -61,6 +70,11 @@ public class InteractionsPlayer1 : MonoBehaviour
 
     public void interacted()
     {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.volume = 0; 
+        }
+        animator.SetBool("Idle", true);
         vcam.m_Priority = 50;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -75,6 +89,7 @@ public class InteractionsPlayer1 : MonoBehaviour
     
     public void stopInteraction()
     {
+        animator.SetBool("Idle", false);
         vcam.m_Priority = 5;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

@@ -28,7 +28,11 @@ namespace Calentao.PlayerContol
 
         [SerializeField] private AudioSource _walkAudioSource;
         [SerializeField] private AudioSource _runAudioSource;
+        [SerializeField] private AudioSource _breathingNormalAudioSource;
+        [SerializeField] private AudioSource _breathingRunAudioSource;
         [SerializeField] private float AudioFadeSpeed = 1f;
+        [SerializeField] private float BreathFadeSpeed = 0.2f;
+        private float _breathingVolume = 0f;
         
         
         private Rigidbody _playerRigidbody;
@@ -114,6 +118,31 @@ namespace Calentao.PlayerContol
 
             _animator.SetFloat(_xVelHash, _currentVelocity.x);
             _animator.SetFloat(_yVelHash, _currentVelocity.y);
+            
+            
+            if (_currentVelocity.magnitude >= 0f && _currentVelocity.magnitude < 4f)
+            {
+                if (!_breathingNormalAudioSource.isPlaying)
+                {
+                   _breathingNormalAudioSource.Play();
+                }
+                _breathingNormalAudioSource.volume = Mathf.Lerp(_breathingNormalAudioSource.volume, 1f, BreathFadeSpeed * Time.deltaTime);
+                _breathingRunAudioSource.volume = Mathf.Lerp(_breathingRunAudioSource.volume, 0f, BreathFadeSpeed * Time.deltaTime);
+            }
+            else if (_currentVelocity.magnitude >= 4f)
+            {
+                if (!_breathingRunAudioSource.isPlaying)
+                {
+                    _breathingRunAudioSource.Play();
+                }
+                _breathingRunAudioSource.volume = Mathf.Lerp(_breathingRunAudioSource.volume, 1f, BreathFadeSpeed * Time.deltaTime);
+                _breathingNormalAudioSource.volume = Mathf.Lerp(_breathingNormalAudioSource.volume, 0f, BreathFadeSpeed * Time.deltaTime);
+            }
+            else
+            {
+                _breathingNormalAudioSource.volume = Mathf.Lerp(_breathingNormalAudioSource.volume, 0f, BreathFadeSpeed * Time.deltaTime);
+                _breathingRunAudioSource.volume = Mathf.Lerp(_breathingRunAudioSource.volume, 0f, BreathFadeSpeed * Time.deltaTime);
+            }
 
             if (_currentVelocity.magnitude > 0.1f && _currentVelocity.magnitude < 4f)
             {
