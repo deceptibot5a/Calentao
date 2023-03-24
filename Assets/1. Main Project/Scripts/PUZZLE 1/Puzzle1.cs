@@ -23,7 +23,7 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
     [SerializeField] private string currentPassword;
     [SerializeField] private float timer;
     [SerializeField] private PhotonView photonView;
-
+    [SerializeField] private Image puzzleComplete, puzzleLocked;
     void Start()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -39,6 +39,12 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
     {
         this.password = password;
         UpdatePasswordText();
+    }
+    [PunRPC]
+    public void CompletePuzzle1()
+    {   
+        puzzleLocked.enabled = false;
+        puzzleComplete.color = new Color(255,255,255,1);
     }
 
     void Update()
@@ -88,6 +94,7 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
                     buttoncamera.correct = true;
                     buttoncamera.stopInteraction();
                     Correct.SetTrigger("Correct");
+                    photonView.RPC("CompletePuzzle1", RpcTarget.All, null);
                 }
                 else
                 {
