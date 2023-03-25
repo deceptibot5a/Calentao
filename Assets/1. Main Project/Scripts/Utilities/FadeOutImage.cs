@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class FadeOutImage : MonoBehaviour
 {
     public float fadeDuration = 7f; // Duración de la transición de fade out
@@ -11,6 +12,8 @@ public class FadeOutImage : MonoBehaviour
 
     private void Start()
     {
+
+     
         // Obtener la referencia a la imagen
         image = GetComponent<Image>();
 
@@ -46,6 +49,7 @@ public class FadeOutImage : MonoBehaviour
         }
 
         // Asegurarse de que el alpha sea 0
+     
         Color finalColor = image.color;
         finalColor.a = 0f;
         image.color = finalColor;
@@ -54,3 +58,5 @@ public class FadeOutImage : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+
