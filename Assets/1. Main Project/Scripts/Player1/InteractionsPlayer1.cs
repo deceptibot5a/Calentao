@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Calentao.PlayerContol;
 using UnityEngine;
 using Cinemachine;
+using Photon.Pun;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 
@@ -21,6 +22,7 @@ public class InteractionsPlayer1 : MonoBehaviour
     public AudioSource[] audioSources;
     public Animator animator; 
     public GameObject playerObject;
+    private PhotonView photonView;
    
     
     void Update()
@@ -34,6 +36,8 @@ public class InteractionsPlayer1 : MonoBehaviour
             playerObject = GameObject.FindWithTag("Player1");
             audioSources = playerObject.GetComponents<AudioSource>();
             animator = playerObject.GetComponent<Animator>();
+            photonView = GameObject.FindWithTag("Player1").GetComponent<PhotonView>();
+            
         }
         if (inputManager && interactUi && crosshair && playerController && playerObject && animator  == null)
         {
@@ -47,7 +51,7 @@ public class InteractionsPlayer1 : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player1"))
+        if (other.gameObject.GetComponent<PhotonView>().IsMine) 
         {
             interactUi.GetComponent<CanvasGroup>().alpha = 1;
             inputManager.caninteract = true;
@@ -74,7 +78,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         crosshair.SetActive(false);
-        interactUi.SetActive(false);
+        interactUi.GetComponent<CanvasGroup>().alpha = 0;
         inputManager.isinpuzzle = true;
         inputManager.caninteract = false;
         //inputManager.enabled = false;

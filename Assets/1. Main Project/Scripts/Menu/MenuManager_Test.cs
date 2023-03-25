@@ -9,6 +9,8 @@ using Photon.Pun;
 
 public class MenuManager_Test : MonoBehaviour
 {
+    public PhotonView photonView;
+    
     public enum JugadoresMinimos
     {
         Minimo1Jugador = 1,
@@ -16,6 +18,7 @@ public class MenuManager_Test : MonoBehaviour
     }
     
     
+    public int playersSelected = 0;
     public static MenuManager_Test Instance;
     [SerializeField] private Menu_test[] menus;
     [SerializeField] private GameObject player1, player2;
@@ -26,7 +29,7 @@ public class MenuManager_Test : MonoBehaviour
 
     private void Update()
     {
-        if (PhotonNetwork.PlayerList.Length == (int)jugadoresMinimos)
+        if ( playersSelected >= (int)jugadoresMinimos)
         {
             startButton.interactable = true;
         }
@@ -73,18 +76,34 @@ public class MenuManager_Test : MonoBehaviour
         menu.Close();
     }
     
+    [PunRPC]
     public void Player1Selected()
     {
         player1.GetComponent<Image>().color = Color.green;
         Destroy(player2);
         player1Selected = true;
-        
+        playersSelected += 1;
+        photonView.RPC("UpdatePlayersSelected", RpcTarget.All, playersSelected);
     }
+
+    [PunRPC]
     public void Player2Selected()
     {
         player2.GetComponent<Image>().color = Color.green;
         Destroy(player1);
         player2Selected = true;
+        playersSelected += 1;
+        photonView.RPC("UpdatePlayersSelected", RpcTarget.All, playersSelected);
+    }
+
+    [PunRPC]
+    public void UpdatePlayersSelected(int newPlayersSelected)
+    {
+        playersSelected = newPlayersSelected;
     }
     
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
 }
