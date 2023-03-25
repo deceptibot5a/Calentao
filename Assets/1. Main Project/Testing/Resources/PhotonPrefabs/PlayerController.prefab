@@ -330,6 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1794128277523709955}
   - component: {fileID: 1794128277523709980}
+  - component: {fileID: 4448109417172678829}
   m_Layer: 0
   m_Name: CAMERA - First Person
   m_TagString: Untagged
@@ -391,6 +392,20 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1794128277855762143}
+--- !u!136 &4448109417172678829
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794128277523709954}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1794128277855762142
 GameObject:
   m_ObjectHideFlags: 0
