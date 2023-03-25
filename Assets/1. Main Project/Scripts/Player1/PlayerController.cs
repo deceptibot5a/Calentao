@@ -154,7 +154,7 @@ namespace Calentao.PlayerContol
                 {
                     _walkAudioSource.Play();
                 }
-                _walkAudioSource.volume = Mathf.Lerp(_walkAudioSource.volume, 0.5f, AudioFadeSpeed * Time.deltaTime);
+                _walkAudioSource.volume = Mathf.Lerp(_walkAudioSource.volume, 0.3f, AudioFadeSpeed * Time.deltaTime);
                 _runAudioSource.volume = Mathf.Lerp(_runAudioSource.volume, 0f, AudioFadeSpeed * Time.deltaTime);
             }
             else if (_currentVelocity.magnitude >= 4f)
@@ -163,7 +163,7 @@ namespace Calentao.PlayerContol
                 {
                     _runAudioSource.Play();
                 }
-                _runAudioSource.volume = Mathf.Lerp(_runAudioSource.volume, 0.5f, AudioFadeSpeed * Time.deltaTime);
+                _runAudioSource.volume = Mathf.Lerp(_runAudioSource.volume, 0.3f, AudioFadeSpeed * Time.deltaTime);
                 _walkAudioSource.volume = Mathf.Lerp(_walkAudioSource.volume, 0f, AudioFadeSpeed * Time.deltaTime);
             }
             else
