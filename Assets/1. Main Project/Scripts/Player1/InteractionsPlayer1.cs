@@ -20,10 +20,8 @@ public class InteractionsPlayer1 : MonoBehaviour
     [SerializeField] private float AudioFadeSpeed = 1f;
     public AudioSource[] audioSources;
     public Animator animator; 
-    public GameObject playerObject; 
-    
-    
-    
+    public GameObject playerObject;
+   
     
     void Update()
     {
@@ -36,9 +34,6 @@ public class InteractionsPlayer1 : MonoBehaviour
             playerObject = GameObject.FindWithTag("Player1");
             audioSources = playerObject.GetComponents<AudioSource>();
             animator = playerObject.GetComponent<Animator>();
-          
-            
-
         }
         if (inputManager && interactUi && crosshair && playerController && playerObject && animator  == null)
         {

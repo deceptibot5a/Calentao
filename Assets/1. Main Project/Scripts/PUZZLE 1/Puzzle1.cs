@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using Photon.Pun;
+using UnityEngine.Playables;
+
 
 public class Puzzle1 : MonoBehaviourPunCallbacks
 {
@@ -24,6 +26,8 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
     [SerializeField] private float timer;
     [SerializeField] private PhotonView photonView;
     [SerializeField] private Image puzzleComplete, puzzleLocked;
+    
+    public PlayableDirector FinishChallenge; 
     void Start()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -90,6 +94,7 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
                 {
                     solved = true;
                     door.SetActive(false);
+                    FinishChallenge.Play();
                     correctobj.SetActive(true);
                     buttoncamera.correct = true;
                     buttoncamera.stopInteraction();
