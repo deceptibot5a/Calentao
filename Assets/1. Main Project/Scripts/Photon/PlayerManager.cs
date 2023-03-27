@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     public Transform player1Spawnpoint;
     public Transform player2Spawnpoint;
     
+    
     public string playerPrefabName;
 
     void Awake()

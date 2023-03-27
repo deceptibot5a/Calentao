@@ -16,8 +16,13 @@ public class MenuManager_Test : MonoBehaviour
         Minimo1Jugador = 1,
         Minimo2Jugador = 2
     }
-    
-    
+
+    private void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public int playersSelected = 0;
     public static MenuManager_Test Instance;
     [SerializeField] private Menu_test[] menus;

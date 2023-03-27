@@ -67,10 +67,10 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
             }
             currentPassword = "";
             digitsEntered = 0;
-            timer = 12.0f;
+            timer = 20.0f;
         }
 
-        Slider.value = timer / 12.0f;
+        Slider.value = timer / 20.0f;
         UpdateCurrentPasswordText();
     }
 
@@ -94,7 +94,7 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
                 {
                     solved = true;
                     door.SetActive(false);
-                    FinishChallenge.Play();
+                    photonView.RPC("ActivateFinishChallengeRPC", RpcTarget.All, null); // Llama al método RPC para activar el timeline
                     correctobj.SetActive(true);
                     buttoncamera.correct = true;
                     buttoncamera.stopInteraction();
@@ -130,4 +130,17 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
     {
         currentPassText.text = currentPassword;
     }
+    
+    void ActivateFinishChallenge()
+    {
+        FinishChallenge.Play();
+    }
+
+    [PunRPC]
+    void ActivateFinishChallengeRPC()
+    {
+        ActivateFinishChallenge();
+    }
+
+    
 }
