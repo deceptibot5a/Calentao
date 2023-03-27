@@ -31,6 +31,7 @@ public class MenuManager_Test : MonoBehaviour
     private bool player1Selected = false;
     private bool player2Selected = false;
     public JugadoresMinimos jugadoresMinimos;
+    [SerializeField] Button player1Button, player2Button;
 
     private void Update()
     {
@@ -89,6 +90,7 @@ public class MenuManager_Test : MonoBehaviour
         player1Selected = true;
         playersSelected += 1;
         photonView.RPC("UpdatePlayersSelected", RpcTarget.All, playersSelected);
+        player1Button.interactable = false;
     }
 
     [PunRPC]
@@ -99,6 +101,7 @@ public class MenuManager_Test : MonoBehaviour
         player2Selected = true;
         playersSelected += 1;
         photonView.RPC("UpdatePlayersSelected", RpcTarget.All, playersSelected);
+        player2Button.interactable = false;
     }
 
     [PunRPC]
