@@ -6,7 +6,7 @@ public class FpsLimiter : MonoBehaviour
 {
    [SerializeField] private int targetFps = 60;
    
-   void Awake()
+   void Start()
    {
       Application.targetFrameRate = targetFps;
    }
