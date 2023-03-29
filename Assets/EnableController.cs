@@ -4,39 +4,30 @@ using UnityEngine;
 
 namespace Calentao.PlayerContol
 {
-public class EnableController : MonoBehaviour
-{
-    private bool assigned;
-    private PlayerController playerController1;
-    private PlayerController playerController2;
-    public GameObject image; 
-    
-  
-    void Update()
+    public class EnableController : MonoBehaviour
     {
-        if (assigned == false)
+        /*private bool assigned;
+        private GameObject playerController1;
+        private GameObject playerController2;
+        public GameObject image;
+
+
+        void Start()
         {
-            playerController1 = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
-            playerController2 = GameObject.FindWithTag("Player2").GetComponent<PlayerController>();
-        if (playerController1 && playerController2  == null)
-        {
-            assigned = false;
+            StartCoroutine(AssignPlayersControllers());
         }
-        else
+
+        
+
+        IEnumerator AssignPlayersControllers()
         {
-            assigned = true;
-        } 
-        
+            yield return new WaitForSeconds(0.1f);
+            
+                playerController1 = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
+                playerController2 = GameObject.FindWithTag("Player2").GetComponent<PlayerController>();
         }
-        
+        */
     }
-    public void EnableControllerPlayer()
-    {
-        playerController1.enabled = true;
-        playerController2.enabled = true;
-        image.SetActive(false);
-    }
-}
 }
   
 

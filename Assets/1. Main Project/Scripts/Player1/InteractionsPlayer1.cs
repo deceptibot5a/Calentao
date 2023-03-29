@@ -23,30 +23,23 @@ public class InteractionsPlayer1 : MonoBehaviour
     public Animator animator; 
     public GameObject playerObject;
     private PhotonView photonView;
-   
-    
-    void Update()
+
+    private void Start()
     {
-        if (assigned == false)
-        {
-            inputManager = GameObject.FindWithTag("Player1").GetComponent<InputManager>();
-            interactUi = GameObject.Find("Interactable");
-            crosshair = GameObject.Find("Crosshair");
-            playerController = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
-            playerObject = GameObject.FindWithTag("Player1");
-            audioSources = playerObject.GetComponents<AudioSource>();
-            animator = playerObject.GetComponent<Animator>();
-            photonView = GameObject.FindWithTag("Player1").GetComponent<PhotonView>();
-            
-        }
-        if (inputManager && interactUi && crosshair && playerController && playerObject && animator  == null)
-        {
-            assigned = false;
-        }
-        else
-        {
-            assigned = true;
-        }
+        StartCoroutine(AssignPlayerInteractions());
+    }
+
+    IEnumerator AssignPlayerInteractions()
+    {
+        yield return new WaitForSeconds(0.1f);
+        inputManager = GameObject.FindWithTag("Player1").GetComponent<InputManager>();
+        interactUi = GameObject.Find("InteractableP1");
+        crosshair = GameObject.Find("CrosshairP1");
+        playerController = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
+        playerObject = GameObject.FindWithTag("Player1");
+        audioSources = playerObject.GetComponents<AudioSource>();
+        animator = playerObject.GetComponent<Animator>();
+        photonView = GameObject.FindWithTag("Player1").GetComponent<PhotonView>();
     }
     
     private void OnTriggerEnter(Collider other)

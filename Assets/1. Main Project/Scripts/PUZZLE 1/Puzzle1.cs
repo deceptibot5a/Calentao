@@ -67,10 +67,10 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
             }
             currentPassword = "";
             digitsEntered = 0;
-            timer = 20.0f;
+            timer = 30.0f;
         }
 
-        Slider.value = timer / 20.0f;
+        Slider.value = timer / 30.0f;
         UpdateCurrentPasswordText();
     }
 
@@ -93,7 +93,7 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
                 if (currentPassword == password)
                 {
                     solved = true;
-                    door.SetActive(false);
+                    //door.SetActive(false);
                     photonView.RPC("ActivateFinishChallengeRPC", RpcTarget.All, null); // Llama al método RPC para activar el timeline
                     correctobj.SetActive(true);
                     buttoncamera.correct = true;

@@ -11,7 +11,6 @@ public class LoadScene : MonoBehaviour
     {
         PhotonNetwork.LoadLevel("MainMenu");
         PhotonNetwork.LeaveRoom();
-        
     }
     
 }

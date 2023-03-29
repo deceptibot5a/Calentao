@@ -43,6 +43,5 @@ public class Timer : MonoBehaviour
         PhotonNetwork.LoadLevel("MainMenu");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        
     }
 }
