@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class FpsLimiter : MonoBehaviour
 {
-   [SerializeField] private int targetFps = 60;
-   
+   public int targetFPS = 60;
+
    void Start()
    {
-      Application.targetFrameRate = targetFps;
+       //QualitySettings.vSyncCount = 0;
+       Application.targetFrameRate = targetFPS;
    }
+
 }
