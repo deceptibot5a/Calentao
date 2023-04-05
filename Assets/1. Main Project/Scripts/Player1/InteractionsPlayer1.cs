@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Calentao.PlayerContol;
 using UnityEngine;
 using Cinemachine;
@@ -10,9 +11,10 @@ using UnityEngine.InputSystem;
 
 public class InteractionsPlayer1 : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera vcam;
+    public CinemachineVirtualCamera activecamera;
     public GameObject interactUi;
     public GameObject crosshair;
+    public PuzzleInteractions puzzle;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject buttonCamera;
     private PlayerController playerController;
@@ -20,7 +22,7 @@ public class InteractionsPlayer1 : MonoBehaviour
     private bool assigned;
     [SerializeField] private float AudioFadeSpeed = 1f;
     public AudioSource[] audioSources;
-    public Animator animator; 
+    public Animator animator;
     public GameObject playerObject;
     private PhotonView photonView;
 
@@ -28,6 +30,7 @@ public class InteractionsPlayer1 : MonoBehaviour
     {
         StartCoroutine(AssignPlayerInteractions());
     }
+
 
     IEnumerator AssignPlayerInteractions()
     {
@@ -41,64 +44,66 @@ public class InteractionsPlayer1 : MonoBehaviour
         animator = playerObject.GetComponent<Animator>();
         photonView = GameObject.FindWithTag("Player1").GetComponent<PhotonView>();
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    public void uiInteraction()
     {
-        if (other.gameObject.GetComponent<PhotonView>().IsMine) 
-        {
-            interactUi.GetComponent<CanvasGroup>().alpha = 1;
-            inputManager.caninteract = true;
-        }
+        interactUi.GetComponent<CanvasGroup>().alpha = 1;
+        inputManager.caninteract = true;
     }
-    
-    private void OnTriggerExit(Collider other)
+
+    public void uiInteractionOff()
     {
-        if (other.gameObject.CompareTag("Player1"))
-        {
-            interactUi.GetComponent<CanvasGroup>().alpha = 0;
-            inputManager.caninteract = false;
-        }
+        interactUi.GetComponent<CanvasGroup>().alpha = 0;
+        inputManager.caninteract = false;
     }
+
+
 
     public void interacted()
     {
         foreach (AudioSource audioSource in audioSources)
         {
-            audioSource.volume = 0; 
+            audioSource.volume = 0;
         }
+
+        activecamera.m_Priority = 10;
+
         animator.SetBool("Idle", true);
-        vcam.m_Priority = 50;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         crosshair.SetActive(false);
         interactUi.GetComponent<CanvasGroup>().alpha = 0;
+
+
+
         inputManager.isinpuzzle = true;
         inputManager.caninteract = false;
         //inputManager.enabled = false;
         playerController.enabled = false;
 
     }
-    
+
     public void stopInteraction()
     {
         animator.SetBool("Idle", false);
-        vcam.m_Priority = 5;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         crosshair.SetActive(true);
         inputManager.isinpuzzle = false;
         //inputManager.enabled = true;
         playerController.enabled = true;
-        
+
+        activecamera.m_Priority = 0;
+
         if (correct)
-        { 
+        {
             buttonCamera.SetActive(false);
         }
         else
         {
             interactUi.SetActive(true);
             inputManager.caninteract = true;
+            interactUi.GetComponent<CanvasGroup>().alpha = 1;
         }
     }
-    
 }
