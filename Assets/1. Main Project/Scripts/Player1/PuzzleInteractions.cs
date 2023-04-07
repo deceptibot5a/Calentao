@@ -9,12 +9,10 @@ public class PuzzleInteractions : MonoBehaviour
 
     public CinemachineVirtualCamera puzzlecam;
 
+    public int PuzzleNumber;
+
     public InteractionsPlayer1 interactions;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +21,8 @@ public class PuzzleInteractions : MonoBehaviour
             Debug.Log("la camara ha sido asignada");
             interactions.uiInteraction();
             interactions.activecamera = puzzlecam;
+            interactions.puzzletype = PuzzleNumber;
+
         }
     }
     
@@ -33,12 +33,8 @@ public class PuzzleInteractions : MonoBehaviour
             Debug.Log("no hay camaras asignadas");
             interactions.uiInteractionOff();
             interactions.activecamera = null;
+            interactions.puzzletype = 0;
         }
     }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

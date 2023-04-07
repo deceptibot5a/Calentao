@@ -25,6 +25,9 @@ public class InteractionsPlayer1 : MonoBehaviour
     public Animator animator;
     public GameObject playerObject;
     private PhotonView photonView;
+    public int puzzletype;
+
+    public Puzzle2 puzzle2;
 
     private void Start()
     {
@@ -81,6 +84,11 @@ public class InteractionsPlayer1 : MonoBehaviour
         //inputManager.enabled = false;
         playerController.enabled = false;
 
+        if (puzzletype == 2)
+        {
+            puzzle2.Puzzle2On();
+        }
+
     }
 
     public void stopInteraction()
@@ -104,6 +112,10 @@ public class InteractionsPlayer1 : MonoBehaviour
             interactUi.SetActive(true);
             inputManager.caninteract = true;
             interactUi.GetComponent<CanvasGroup>().alpha = 1;
+        }
+        if (puzzletype == 2)
+        {
+            puzzle2.Puzzle2Off();
         }
     }
 }

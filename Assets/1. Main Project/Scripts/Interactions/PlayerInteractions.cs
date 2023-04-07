@@ -7,50 +7,66 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private Camera camera;
     [SerializeField] private float distance = 3f;
     private Transform raycastTransform;
+    private Transform highlight;
+
+    public bool canray = false;
     
     private void Update()
     {
-        Ray ray = new Ray(camera.transform.position, camera.transform.forward);
-        Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
-
-        RaycastHit hitinfo;
-        if (Physics.Raycast(ray, out hitinfo, distance))
+        if (highlight != null)
         {
-            raycastTransform = hitinfo.transform;
-
-            if (raycastTransform.CompareTag("Selectable") && Mouse.current.leftButton.wasPressedThisFrame)
+            highlight.gameObject.GetComponent<Outline>().enabled = false;
+            highlight = null;
+        }
+        
+        if (canray)
+        {
+            Vector3 mousePosition = Mouse.current.position.ReadValue();
+            mousePosition.z = distance;
+            Vector3 worldPosition = camera.ScreenToWorldPoint(mousePosition);
+    
+            Ray ray = new Ray(camera.transform.position, worldPosition - camera.transform.position);
+            Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
+    
+            RaycastHit hitinfo;
+            if (Physics.Raycast(ray, out hitinfo, distance))
             {
-                var buttonManager = raycastTransform.gameObject.GetComponent<ButtonManager>();
-
-                if (buttonManager != null && !buttonManager.photonView.IsMine)
+                highlight = hitinfo.transform;
+                if (highlight.CompareTag("Selectable"))
                 {
-                    return;
-                }
-
-                if (buttonManager != null && !buttonManager.isInteracted)
-                {
-                    buttonManager.isInteracted = true;
-                    buttonManager.Interacted();
+                    if (highlight.gameObject.GetComponent<Outline>() != null)
+                    {
+                        highlight.gameObject.GetComponent<Outline>().enabled = true;
+                    }
+                    else
+                    {
+                        Outline outline = highlight.gameObject.AddComponent<Outline>();
+                        outline.enabled = true;
+                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
+                    }
                 }
                 else
                 {
-                    raycastTransform = null;
+                    highlight = null;
                 }
-            }
+            }   
         }
-        [PunRPC]
-        void SyncInteractedObject(int viewID)
+    }
+
+    [PunRPC]
+    void SyncInteractedObject(int viewID)
+    {
+        PhotonView photonView = PhotonView.Find(viewID);
+        if (photonView != null)
         {
-            PhotonView photonView = PhotonView.Find(viewID);
-            if (photonView != null)
+            ButtonManager buttonManager = photonView.GetComponent<ButtonManager>();
+            if (buttonManager != null)
             {
-                ButtonManager buttonManager = photonView.GetComponent<ButtonManager>();
-                if (buttonManager != null)
-                {
-                    buttonManager.isInteracted = true;
-                    buttonManager.Interacted();
-                }
+                buttonManager.isInteracted = true;
+                buttonManager.Interacted();
             }
         }
     }
 }
+
