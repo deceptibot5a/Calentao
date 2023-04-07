@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class Puzzle2 : MonoBehaviour
 {
-    [SerializeField] private InputAction pressed, axis;
+    [SerializeField] private InputAction pressed, axis, click;
     private Transform cam;
     [SerializeField] private Camera cam2;
     public PlayerInteractions ray;
@@ -14,8 +14,8 @@ public class Puzzle2 : MonoBehaviour
     [SerializeField] private float speed = 1;
     private Vector2 rotation;
     private bool rotateAllowed;
-    public Material newMaterial;
     [SerializeField] private bool inverted;
+    public static bool highlighted;
 
     public void Puzzle2On()
     {
@@ -24,8 +24,10 @@ public class Puzzle2 : MonoBehaviour
         ray.canray = true;
         pressed.Enable();
         axis.Enable();
+        click.Enable();
         pressed.performed += _ => { StartCoroutine(Rotate()); };
         pressed.canceled += _ => { rotateAllowed = false; };
+        click.performed += ray.clicked;
         axis.performed += context => { rotation = context.ReadValue<Vector2>(); };
     }
     
@@ -35,20 +37,24 @@ public class Puzzle2 : MonoBehaviour
         pressed.Disable();
         axis.Disable();
     }
-
+    
 
     private IEnumerator Rotate()
     {
-        rotateAllowed = true;
-        while (rotateAllowed)
+        if (!highlighted)
         {
-            rotation *= speed;
-            transform.Rotate(Vector3.up * (inverted? 1: -1), rotation.x, Space.World); 
+            rotateAllowed = true;
+            while (rotateAllowed)
+            {
+                rotation *= speed;
+                transform.Rotate(Vector3.up * (inverted? 1: -1), rotation.x, Space.World); 
             
-            //rotacion completa en 3D
-            //transform.Rotate(cam.right * (inverted? -1: 1), rotation.y, Space.World);
-            yield return null;
+                //rotacion completa en 3D
+                //transform.Rotate(cam.right * (inverted? -1: 1), rotation.y, Space.World);
+                yield return null;
+            }
         }
+
     }
 
 }

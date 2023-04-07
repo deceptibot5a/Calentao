@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
@@ -8,9 +9,18 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private float distance = 3f;
     private Transform raycastTransform;
     private Transform highlight;
+    private bool highlighted = false;
+    private Puzzle2 puzzle;
+    
 
     public bool canray = false;
-    
+
+
+    private void Awake()
+    {
+        puzzle = FindObjectOfType<Puzzle2>();
+    }
+
     private void Update()
     {
         if (highlight != null)
@@ -37,6 +47,8 @@ public class PlayerInteractions : MonoBehaviour
                     if (highlight.gameObject.GetComponent<Outline>() != null)
                     {
                         highlight.gameObject.GetComponent<Outline>().enabled = true;
+                        Puzzle2.highlighted = true;
+
                     }
                     else
                     {
@@ -49,8 +61,24 @@ public class PlayerInteractions : MonoBehaviour
                 else
                 {
                     highlight = null;
+                    Puzzle2.highlighted = false;
                 }
             }   
+        }
+    }
+    
+    public void clicked(InputAction.CallbackContext obj)
+    {
+        if (highlight.CompareTag("Selectable"))
+        {
+            Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                Debug.Log(hit.transform.name);
+                hit.collider.gameObject.GetComponent<Puzzle2Button>().buttonclick();
+            } 
         }
     }
 
@@ -68,5 +96,6 @@ public class PlayerInteractions : MonoBehaviour
             }
         }
     }
+
 }
 
