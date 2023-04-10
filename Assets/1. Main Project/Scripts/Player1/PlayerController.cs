@@ -21,7 +21,7 @@ namespace Calentao.PlayerContol
 
         [SerializeField] private float BottomLimit = 70f; 
         
-        [SerializeField] private float MouseSensitivity = 21.9f; 
+        [SerializeField] private float MouseSensitivity = 5f; 
         
         [SerializeField] private GameObject cam;
         [SerializeField] private GameObject virtualCam;
