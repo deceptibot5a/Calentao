@@ -1,11 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Puzzle2Button : MonoBehaviour
 {
+    
+    
     [SerializeField] Material newMaterial; // The material you want to change to.
     [SerializeField] Material originalMaterial; // The original material of the object.
+    public static Puzzle2Button instance;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     public float changeDuration = 2f; // The duration of the material change in seconds.
 
@@ -28,5 +37,12 @@ public class Puzzle2Button : MonoBehaviour
         renderer.material = originalMaterial;
         plataforma.SetActive(false);
     }
+
+public void DeactivatePlatform()
+{
+    renderer.material = originalMaterial;
+    plataforma.SetActive(false);
+}
+
 }
 
