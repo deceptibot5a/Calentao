@@ -69,6 +69,8 @@ public class PlayerInteractions : MonoBehaviour
     
     public void clicked(InputAction.CallbackContext obj)
     {
+        if (highlight == null) return; 
+        
         if (highlight.CompareTag("Selectable"))
         {
             Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());

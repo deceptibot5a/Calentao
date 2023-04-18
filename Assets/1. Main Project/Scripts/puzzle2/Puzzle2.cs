@@ -16,6 +16,9 @@ public class Puzzle2 : MonoBehaviour
     private bool rotateAllowed;
     [SerializeField] private bool inverted;
     public static bool highlighted;
+    
+    [SerializeField]  List<GameObject> objects = new List<GameObject>();
+    [SerializeField]  int maxObjects = 3;
 
     public void Puzzle2On()
     {
@@ -36,6 +39,20 @@ public class Puzzle2 : MonoBehaviour
         ray.canray = false;
         pressed.Disable();
         axis.Disable();
+    }
+    
+    
+
+    public void AddObject(GameObject obj)
+    {
+        objects.Add(obj);
+
+        if (objects.Count > maxObjects)
+        {
+            GameObject firstObject = objects[0];
+            objects.RemoveAt(0);
+            firstObject.SetActive(false);
+        }
     }
     
 

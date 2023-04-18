@@ -14,13 +14,19 @@ public class Puzzle2Button : MonoBehaviour
     private void Start()
     {
         instance = this;
+        manager = GameObject.FindObjectOfType<Puzzle2>();
     }
 
-    public float changeDuration = 2f; // The duration of the material change in seconds.
+    [SerializeField] private float changeDuration = 2f; // The duration of the material change in seconds.
 
     private Renderer renderer;
 
     [SerializeField] private GameObject plataforma;
+    
+    private Puzzle2 manager;
+
+    private bool shouldCheck;
+
 
     // This function changes the material of the object.
     public void buttonclick()
@@ -29,13 +35,31 @@ public class Puzzle2Button : MonoBehaviour
         renderer.material = newMaterial;
         StartCoroutine(ChangeMaterialBack());
         plataforma.SetActive(true);
+        manager.AddObject(plataforma);
+        shouldCheck = true;
+        StartCoroutine(checking());
+
+    }
+    
+    
+    IEnumerator checking() {
+        while (shouldCheck) {
+            
+            if (!plataforma.activeSelf)
+            {
+                renderer.material = originalMaterial;
+                shouldCheck = false;
+            }
+
+            yield return new WaitForSeconds(0.5f); // Wait for half a second
+        }
     }
 
     private IEnumerator ChangeMaterialBack()
     {
         yield return new WaitForSeconds(changeDuration);
-        renderer.material = originalMaterial;
         plataforma.SetActive(false);
+
     }
 
 public void DeactivatePlatform()
