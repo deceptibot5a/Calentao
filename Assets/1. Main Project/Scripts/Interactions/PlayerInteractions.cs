@@ -12,7 +12,6 @@ public class PlayerInteractions : MonoBehaviour
     private bool highlighted = false;
     private Puzzle2 puzzle;
     
-
     public bool canray = false;
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,18 +8,24 @@ using Cinemachine;
 public class Puzzle2 : MonoBehaviour
 {
     [SerializeField] private InputAction pressed, axis, click;
-    private Transform cam;
+   
     [SerializeField] private Camera cam2;
-    public PlayerInteractions ray;
+    [SerializeField] private PlayerInteractions ray;
     [SerializeField] private CinemachineVirtualCamera puzzlecamera;
     [SerializeField] private float speed = 1;
+    [SerializeField] private bool inverted;
+    
     private Vector2 rotation;
     private bool rotateAllowed;
-    [SerializeField] private bool inverted;
     public static bool highlighted;
-    
+    private Transform cam;
     [SerializeField]  List<GameObject> objects = new List<GameObject>();
     [SerializeField]  int maxObjects = 3;
+
+    private void Start()
+    {
+        StartCoroutine(SetRaycast());
+    }
 
     public void Puzzle2On()
     {
@@ -32,6 +39,12 @@ public class Puzzle2 : MonoBehaviour
         pressed.canceled += _ => { rotateAllowed = false; };
         click.performed += ray.clicked;
         axis.performed += context => { rotation = context.ReadValue<Vector2>(); };
+    }
+    
+    IEnumerator SetRaycast()
+    {
+        yield return new WaitForSeconds(0.1f);
+        ray = GameObject.FindWithTag("Player2").GetComponent<PlayerInteractions>();
     }
     
     public void Puzzle2Off()
