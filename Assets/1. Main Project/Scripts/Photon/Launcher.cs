@@ -5,6 +5,7 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 using System.Linq;
+using UnityEngine.InputSystem;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -18,7 +19,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 	[SerializeField] Transform playerListContent;
 	[SerializeField] GameObject playerListItemPrefab;
 	[SerializeField] GameObject startGameButton;
-
+	[SerializeField] GameObject initialRoom;
+	private static Dictionary<string, RoomInfo> cachedRoomList = new Dictionary<string, RoomInfo>();
 	void Awake()
 	{
 		Instance = this;
@@ -28,6 +30,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		Debug.Log("Connecting to Master");
 		PhotonNetwork.ConnectUsingSettings();
+		PhotonNetwork.ConnectToRegion(("us"));
+		PhotonNetwork.AutomaticallySyncScene = true;
+		initialRoom.SetActive(false);
 	}
 
 	public override void OnConnectedToMaster()
@@ -45,11 +50,15 @@ public class Launcher : MonoBehaviourPunCallbacks
 
 	public void CreateRoom()
 	{
-		if(string.IsNullOrEmpty(roomNameInputField.text))
+		if (string.IsNullOrEmpty(roomNameInputField.text))
 		{
 			return;
 		}
-		PhotonNetwork.CreateRoom(roomNameInputField.text);
+
+		RoomOptions options = new RoomOptions();
+		options.MaxPlayers = 2;
+
+		PhotonNetwork.CreateRoom(roomNameInputField.text, options);
 		MenuManager_Test.Instance.OpenMenu("Loading");
 	}
 
@@ -105,23 +114,43 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public override void OnLeftRoom()
 	{
 		MenuManager_Test.Instance.OpenMenu("Title");
+		cachedRoomList.Clear();
 	}
 
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
-		foreach(Transform trans in roomListContent)
+		
+		foreach (Transform trans in roomListContent)
 		{
 			Destroy(trans.gameObject);
 		}
 
-		for(int i = 0; i < roomList.Count; i++)
+		for (int i = 0; i < roomList.Count; i++)
 		{
-			if(roomList[i].RemovedFromList)
-				continue;
-			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+			RoomInfo info = roomList[i];
+			if (info.RemovedFromList)
+			{
+				cachedRoomList.Remove(info.Name);
+			}
+			else
+			{
+				cachedRoomList[info.Name] = info;
+			}
+		}
+
+		foreach (KeyValuePair<string, RoomInfo> entry in cachedRoomList)
+		{
+			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(cachedRoomList[entry.Key]);
 		}
 	}
 
+	public override void OnJoinRoomFailed(short returnCode, string message)
+	{
+		errorText.text = "Room is full";
+		Debug.LogError("Join Room Failed: " + message);
+		MenuManager_Test.Instance.OpenMenu("Error");
+	}
+	
 	public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
 		Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
