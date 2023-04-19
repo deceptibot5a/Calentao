@@ -78,7 +78,7 @@ public class PlayerInteractions : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100))
             {
                 Debug.Log(hit.transform.name);
-                hit.collider.gameObject.GetComponent<Puzzle2Button>().buttonclick();
+                hit.collider.gameObject.GetComponent<Puzzle2Button>().Buttonclicked();
             } 
         }
     }

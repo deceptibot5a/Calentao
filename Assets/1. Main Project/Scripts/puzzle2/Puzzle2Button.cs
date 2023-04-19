@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class Puzzle2Button : MonoBehaviour
@@ -9,12 +10,15 @@ public class Puzzle2Button : MonoBehaviour
     
     [SerializeField] Material newMaterial; // The material you want to change to.
     [SerializeField] Material originalMaterial; // The original material of the object.
+    [SerializeField] private PhotonView photonView;
     public static Puzzle2Button instance;
+    
 
     private void Start()
     {
         instance = this;
         manager = GameObject.FindObjectOfType<Puzzle2>();
+        photonView = GetComponent<PhotonView>();
     }
 
     [SerializeField] private float changeDuration = 2f; // The duration of the material change in seconds.
@@ -27,9 +31,15 @@ public class Puzzle2Button : MonoBehaviour
 
     private bool shouldCheck;
 
-
-    // This function changes the material of the object.
-    public void buttonclick()
+    
+    
+    public void Buttonclicked()
+    {
+        photonView.RPC("Buttonclick", RpcTarget.All);
+    }
+    
+    [PunRPC]
+    public void Buttonclick()
     {
         renderer = GetComponent<Renderer>();
         renderer.material = newMaterial;

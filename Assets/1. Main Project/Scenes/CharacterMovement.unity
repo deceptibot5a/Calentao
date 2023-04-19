@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26793084, g: 0.46393335, b: 0.6143625, a: 1}
+  m_IndirectSpecularColor: {r: 0.26792946, g: 0.463935, b: 0.61439043, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -390,7 +390,7 @@ Transform:
   - {fileID: 1286422847}
   - {fileID: 2128924876}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &79854230
 GameObject:
@@ -950,7 +950,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327021648
 GameObject:
@@ -985,7 +985,7 @@ Transform:
   - {fileID: 2136160767}
   - {fileID: 830877120}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &344940854
 MeshCollider:
@@ -1036,7 +1036,7 @@ Transform:
   - {fileID: 610063990}
   - {fileID: 2474915480209809477}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381894241
 GameObject:
@@ -1382,7 +1382,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514011592
 GameObject:
@@ -2626,7 +2626,7 @@ Transform:
   - {fileID: 1592946985}
   - {fileID: 1678207728}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745607716
 GameObject:
@@ -3582,7 +3582,7 @@ RectTransform:
   - {fileID: 2139724376}
   - {fileID: 1379150434}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4800,110 +4800,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5600891, y: 2.5, z: 0.8449249}
   m_Center: {x: -433.00336, y: 1.2601268, z: -65.76246}
---- !u!1001 &1245050983
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2714004777133954598, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerController2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714004777133954598, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714004777133954599, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: sceneViewId
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -953.3319
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.000008583069
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -427.57953
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3522446939874759758, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: sceneViewId
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493199087852007132, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493199087852007132, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493199087852007132, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8647448461413045986, guid: 038832d53b6e6b540b02ad83c6f14d7a,
-        type: 3}
-      propertyPath: isplayer2
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 038832d53b6e6b540b02ad83c6f14d7a, type: 3}
 --- !u!1 &1252213168
 GameObject:
   m_ObjectHideFlags: 0
@@ -6378,105 +6274,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!1001 &1605330748
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2714004777133954598, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerController
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714004777133954598, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714004777133954599, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: sceneViewId
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -130.97075
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 17.538036
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 633.78467
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378197093737303196, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3522446939874759758, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: sceneViewId
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493199087852007132, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493199087852007132, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.6560001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493199087852007132, guid: 7351d3af97d1d004fa861122410ff955,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.34698486
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7351d3af97d1d004fa861122410ff955, type: 3}
 --- !u!1 &1672696531
 GameObject:
   m_ObjectHideFlags: 0
@@ -7190,7 +6987,7 @@ Transform:
   - {fileID: 1484650870}
   - {fileID: 89315947}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046199467
 GameObject:
@@ -58441,6 +58238,7 @@ GameObject:
   - component: {fileID: 2861440958388898697}
   - component: {fileID: 2861440958388898698}
   - component: {fileID: 2861440958388898702}
+  - component: {fileID: 2861440958388898704}
   m_Layer: 0
   m_Name: Button (19)
   m_TagString: Selectable
@@ -58462,6 +58260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958239161470}
 --- !u!4 &2861440958388898703
@@ -58479,6 +58278,28 @@ Transform:
   m_Father: {fileID: 2861440959988778513}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2861440958388898704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958388898699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 14
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!65 &2861440958395613440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58505,6 +58326,7 @@ GameObject:
   - component: {fileID: 2861440958395613447}
   - component: {fileID: 2861440958395613440}
   - component: {fileID: 2861440958395613444}
+  - component: {fileID: 2861440958395613448}
   m_Layer: 0
   m_Name: Button (4)
   m_TagString: Selectable
@@ -58526,6 +58348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959270236892}
 --- !u!4 &2861440958395613445
@@ -58593,6 +58416,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2861440958395613448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958395613441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 13
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440958404405408
 Transform:
   m_ObjectHideFlags: 0
@@ -58877,6 +58722,7 @@ GameObject:
   - component: {fileID: 2861440958425004070}
   - component: {fileID: 2861440958425004071}
   - component: {fileID: 2861440958425004075}
+  - component: {fileID: 2861440958425004076}
   m_Layer: 0
   m_Name: Button (17)
   m_TagString: Selectable
@@ -58976,8 +58822,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440957951254920}
+--- !u!114 &2861440958425004076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958425004064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 12
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440958450244640
 Transform:
   m_ObjectHideFlags: 0
@@ -68949,6 +68818,7 @@ GameObject:
   - component: {fileID: 2861440958514742393}
   - component: {fileID: 2861440958514742394}
   - component: {fileID: 2861440958514742398}
+  - component: {fileID: 2861440958514742400}
   m_Layer: 0
   m_Name: Button (8)
   m_TagString: Selectable
@@ -68970,6 +68840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958050489907}
 --- !u!4 &2861440958514742399
@@ -68987,6 +68858,28 @@ Transform:
   m_Father: {fileID: 2861440959988778513}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2861440958514742400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958514742395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 11
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2861440958545805344
 GameObject:
   m_ObjectHideFlags: 0
@@ -73825,6 +73718,7 @@ GameObject:
   - component: {fileID: 2861440958550623611}
   - component: {fileID: 2861440958550623604}
   - component: {fileID: 2861440958550623608}
+  - component: {fileID: 2861440958550623612}
   m_Layer: 0
   m_Name: Button (1)
   m_TagString: Selectable
@@ -73846,6 +73740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958333111926}
 --- !u!4 &2861440958550623609
@@ -73913,6 +73808,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2861440958550623612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958550623605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 10
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440958587662755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78899,6 +78816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958994503114}
 --- !u!4 &2861440958613056451
@@ -78992,6 +78910,7 @@ GameObject:
   - component: {fileID: 2861440958613056477}
   - component: {fileID: 2861440958613056478}
   - component: {fileID: 2861440958613056450}
+  - component: {fileID: 2861440958613056480}
   m_Layer: 0
   m_Name: Button (14)
   m_TagString: Selectable
@@ -78999,6 +78918,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440958613056480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958613056479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 8
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440958645921361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79116,6 +79057,7 @@ GameObject:
   - component: {fileID: 2861440958650807776}
   - component: {fileID: 2861440958650807777}
   - component: {fileID: 2861440958650807781}
+  - component: {fileID: 2861440958650807784}
   m_Layer: 0
   m_Name: Button (25)
   m_TagString: Selectable
@@ -79137,6 +79079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959379234141}
 --- !u!4 &2861440958650807782
@@ -79162,6 +79105,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2861440958650807778}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2861440958650807784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958650807778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!33 &2861440958654600288
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -79238,6 +79203,7 @@ GameObject:
   - component: {fileID: 2861440958654600289}
   - component: {fileID: 2861440958654600290}
   - component: {fileID: 2861440958654600294}
+  - component: {fileID: 2861440958654600296}
   m_Layer: 0
   m_Name: Button (7)
   m_TagString: Selectable
@@ -79259,6 +79225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959311531770}
 --- !u!4 &2861440958654600295
@@ -79276,6 +79243,28 @@ Transform:
   m_Father: {fileID: 2861440959988778513}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2861440958654600296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958654600291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 6
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440958670665376
 Transform:
   m_ObjectHideFlags: 0
@@ -89134,6 +89123,7 @@ GameObject:
   - component: {fileID: 2861440958763531207}
   - component: {fileID: 2861440958763531200}
   - component: {fileID: 2861440958763531204}
+  - component: {fileID: 2861440958763531208}
   m_Layer: 0
   m_Name: Button (5)
   m_TagString: Selectable
@@ -89155,6 +89145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958778197034}
 --- !u!4 &2861440958763531205
@@ -89222,6 +89213,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2861440958763531208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958763531201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 34
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440958765517121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89236,6 +89249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959757686955}
 --- !u!4 &2861440958765517122
@@ -89329,6 +89343,7 @@ GameObject:
   - component: {fileID: 2861440958765517148}
   - component: {fileID: 2861440958765517149}
   - component: {fileID: 2861440958765517121}
+  - component: {fileID: 2861440958765517151}
   m_Layer: 0
   m_Name: Button (20)
   m_TagString: Selectable
@@ -89336,6 +89351,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440958765517151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958765517150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 33
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!65 &2861440958778197032
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94346,6 +94383,7 @@ GameObject:
   - component: {fileID: 2861440958865009803}
   - component: {fileID: 2861440958865009796}
   - component: {fileID: 2861440958865009800}
+  - component: {fileID: 2861440958865009804}
   m_Layer: 0
   m_Name: Button (26)
   m_TagString: Selectable
@@ -94367,6 +94405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958404405409}
 --- !u!4 &2861440958865009801
@@ -94434,6 +94473,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2861440958865009804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958865009797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 32
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440958867903537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94448,6 +94509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958411521866}
 --- !u!4 &2861440958867903538
@@ -94541,6 +94603,7 @@ GameObject:
   - component: {fileID: 2861440958867903564}
   - component: {fileID: 2861440958867903565}
   - component: {fileID: 2861440958867903537}
+  - component: {fileID: 2861440958867903567}
   m_Layer: 0
   m_Name: Button (6)
   m_TagString: Selectable
@@ -94548,6 +94611,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440958867903567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958867903566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 31
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440958886105136
 Transform:
   m_ObjectHideFlags: 0
@@ -94640,6 +94725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959115265551}
 --- !u!1 &2861440958886105164
@@ -94655,6 +94741,7 @@ GameObject:
   - component: {fileID: 2861440958886105138}
   - component: {fileID: 2861440958886105139}
   - component: {fileID: 2861440958886105143}
+  - component: {fileID: 2861440958886105165}
   m_Layer: 0
   m_Name: Button (28)
   m_TagString: Selectable
@@ -94662,6 +94749,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440958886105165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440958886105164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 30
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440958903510784
 Transform:
   m_ObjectHideFlags: 0
@@ -99771,6 +99880,7 @@ GameObject:
   - component: {fileID: 2861440959083044391}
   - component: {fileID: 2861440959083044384}
   - component: {fileID: 2861440959083044388}
+  - component: {fileID: 2861440959083044392}
   m_Layer: 0
   m_Name: Button (18)
   m_TagString: Selectable
@@ -99792,6 +99902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958194833613}
 --- !u!4 &2861440959083044389
@@ -99859,6 +99970,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2861440959083044392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959083044385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 29
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440959086795507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99984,6 +100117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958355375538}
 --- !u!4 &2861440959104816289
@@ -100077,6 +100211,7 @@ GameObject:
   - component: {fileID: 2861440959104816291}
   - component: {fileID: 2861440959104816316}
   - component: {fileID: 2861440959104816288}
+  - component: {fileID: 2861440959104816318}
   m_Layer: 0
   m_Name: Button (21)
   m_TagString: Selectable
@@ -100084,6 +100219,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440959104816318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959104816317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 28
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440959105790832
 Transform:
   m_ObjectHideFlags: 0
@@ -105136,6 +105293,7 @@ GameObject:
   - component: {fileID: 2861440959127068884}
   - component: {fileID: 2861440959127068885}
   - component: {fileID: 2861440959127068889}
+  - component: {fileID: 2861440959127068892}
   m_Layer: 0
   m_Name: Button (22)
   m_TagString: Selectable
@@ -105157,6 +105315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958167584972}
 --- !u!4 &2861440959127068890
@@ -105182,6 +105341,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2861440959127068886}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2861440959127068892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959127068886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 27
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!33 &2861440959138187776
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -105258,6 +105439,7 @@ GameObject:
   - component: {fileID: 2861440959138187777}
   - component: {fileID: 2861440959138187778}
   - component: {fileID: 2861440959138187782}
+  - component: {fileID: 2861440959138187784}
   m_Layer: 0
   m_Name: Button (9)
   m_TagString: Selectable
@@ -105279,6 +105461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959439780860}
 --- !u!4 &2861440959138187783
@@ -105296,6 +105479,28 @@ Transform:
   m_Father: {fileID: 2861440959988778513}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2861440959138187784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959138187779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 26
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440959140753170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110489,6 +110694,7 @@ GameObject:
   - component: {fileID: 2861440959266139845}
   - component: {fileID: 2861440959266139846}
   - component: {fileID: 2861440959266139850}
+  - component: {fileID: 2861440959266139852}
   m_Layer: 0
   m_Name: Button (13)
   m_TagString: Selectable
@@ -110510,6 +110716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959921554892}
 --- !u!4 &2861440959266139851
@@ -110527,6 +110734,28 @@ Transform:
   m_Father: {fileID: 2861440959988778513}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2861440959266139852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959266139847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 25
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!33 &2861440959270236864
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -110806,7 +111035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2861440959366111253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -856.5632, y: -19.0418, z: -991.661}
+  m_LocalPosition: {x: -855.5632, y: -19.48, z: -989.161}
   m_LocalScale: {x: 2.0014486, y: 0.80339885, z: 1.9399498}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110912,6 +111141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958328630904}
 --- !u!4 &2861440959378448242
@@ -111005,6 +111235,7 @@ GameObject:
   - component: {fileID: 2861440959378448268}
   - component: {fileID: 2861440959378448269}
   - component: {fileID: 2861440959378448241}
+  - component: {fileID: 2861440959378448271}
   m_Layer: 0
   m_Name: Button (12)
   m_TagString: Selectable
@@ -111012,6 +111243,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440959378448271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959378448270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 24
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440959379234112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111198,6 +111451,7 @@ GameObject:
   - component: {fileID: 2861440959399209919}
   - component: {fileID: 2861440959399209912}
   - component: {fileID: 2861440959399209916}
+  - component: {fileID: 2861440959399209920}
   m_Layer: 0
   m_Name: Button (10)
   m_TagString: Selectable
@@ -111219,6 +111473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958382032554}
 --- !u!4 &2861440959399209917
@@ -111286,6 +111541,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2861440959399209920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959399209913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 23
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2861440959406506144
 GameObject:
   m_ObjectHideFlags: 0
@@ -116223,6 +116500,7 @@ GameObject:
   - component: {fileID: 2861440959426474373}
   - component: {fileID: 2861440959426474374}
   - component: {fileID: 2861440959426474378}
+  - component: {fileID: 2861440959426474380}
   m_Layer: 0
   m_Name: Button (27)
   m_TagString: Selectable
@@ -116244,6 +116522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959929410800}
 --- !u!4 &2861440959426474379
@@ -116261,6 +116540,28 @@ Transform:
   m_Father: {fileID: 2861440959988778513}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2861440959426474380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959426474375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 22
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440959432706753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116275,6 +116576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958222738634}
 --- !u!4 &2861440959432706754
@@ -116368,6 +116670,7 @@ GameObject:
   - component: {fileID: 2861440959432706780}
   - component: {fileID: 2861440959432706781}
   - component: {fileID: 2861440959432706753}
+  - component: {fileID: 2861440959432706783}
   m_Layer: 0
   m_Name: Button (11)
   m_TagString: Selectable
@@ -116375,6 +116678,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440959432706783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959432706782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 21
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!33 &2861440959439780832
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -126283,6 +126608,7 @@ GameObject:
   - component: {fileID: 2861440959667247675}
   - component: {fileID: 2861440959667247668}
   - component: {fileID: 2861440959667247672}
+  - component: {fileID: 2861440959667247676}
   m_Layer: 0
   m_Name: Button (29)
   m_TagString: Selectable
@@ -126304,6 +126630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958386199453}
 --- !u!4 &2861440959667247673
@@ -126371,6 +126698,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2861440959667247676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959667247669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 20
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!23 &2861440959671250788
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -126439,6 +126788,7 @@ GameObject:
   - component: {fileID: 2861440959671250788}
   - component: {fileID: 2861440959671250789}
   - component: {fileID: 2861440959671250793}
+  - component: {fileID: 2861440959671250796}
   m_Layer: 0
   m_Name: Button (24)
   m_TagString: Selectable
@@ -126460,6 +126810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958450244641}
 --- !u!4 &2861440959671250794
@@ -126485,6 +126836,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2861440959671250790}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2861440959671250796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959671250790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 19
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440959682608163
 Transform:
   m_ObjectHideFlags: 0
@@ -126533,6 +126906,7 @@ GameObject:
   - component: {fileID: 2861440959691946058}
   - component: {fileID: 2861440959691946059}
   - component: {fileID: 2861440959691946063}
+  - component: {fileID: 2861440959691946064}
   m_Layer: 0
   m_Name: Button
   m_TagString: Selectable
@@ -126632,8 +127006,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958003663522}
+--- !u!114 &2861440959691946064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959691946052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 18
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440959695762129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126648,6 +127045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958593953105}
 --- !u!4 &2861440959695762130
@@ -126741,6 +127139,7 @@ GameObject:
   - component: {fileID: 2861440959695762156}
   - component: {fileID: 2861440959695762157}
   - component: {fileID: 2861440959695762129}
+  - component: {fileID: 2861440959695762159}
   m_Layer: 0
   m_Name: Button (16)
   m_TagString: Selectable
@@ -126748,6 +127147,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440959695762159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959695762158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 17
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440959702918194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126762,6 +127183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958322249829}
 --- !u!4 &2861440959702918195
@@ -126855,6 +127277,7 @@ GameObject:
   - component: {fileID: 2861440959702918221}
   - component: {fileID: 2861440959702918222}
   - component: {fileID: 2861440959702918194}
+  - component: {fileID: 2861440959702918224}
   m_Layer: 0
   m_Name: Button (3)
   m_TagString: Selectable
@@ -126862,6 +127285,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2861440959702918224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959702918223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 16
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &2861440959731210121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127221,6 +127666,7 @@ GameObject:
   - component: {fileID: 2861440959786117440}
   - component: {fileID: 2861440959786117441}
   - component: {fileID: 2861440959786117445}
+  - component: {fileID: 2861440959786117448}
   m_Layer: 0
   m_Name: Button (2)
   m_TagString: Selectable
@@ -127242,6 +127688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958997269677}
 --- !u!4 &2861440959786117446
@@ -127267,6 +127714,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2861440959786117442}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2861440959786117448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959786117442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 15
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2861440959796861152
 GameObject:
   m_ObjectHideFlags: 0
@@ -137106,6 +137575,7 @@ GameObject:
   - component: {fileID: 2861440959907736584}
   - component: {fileID: 2861440959907736585}
   - component: {fileID: 2861440959907736589}
+  - component: {fileID: 2861440959907736592}
   m_Layer: 0
   m_Name: Button (23)
   m_TagString: Selectable
@@ -137127,6 +137597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440958513268428}
 --- !u!4 &2861440959907736590
@@ -137152,6 +137623,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2861440959907736586}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2861440959907736592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959907736586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440959915144548
 Transform:
   m_ObjectHideFlags: 0
@@ -151935,6 +152428,7 @@ GameObject:
   - component: {fileID: 2861440959967191813}
   - component: {fileID: 2861440959967191814}
   - component: {fileID: 2861440959967191818}
+  - component: {fileID: 2861440959967191820}
   m_Layer: 0
   m_Name: Button (15)
   m_TagString: Selectable
@@ -151956,6 +152450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 2100000, guid: 9a20c6b1b40bf8f4d94bb75d7be3039f, type: 2}
   originalMaterial: {fileID: 2100000, guid: 5699875292fb4f14d84b104f32a25211, type: 2}
+  photonView: {fileID: 0}
   changeDuration: 10
   plataforma: {fileID: 2861440959086795528}
 --- !u!4 &2861440959967191819
@@ -151973,6 +152468,28 @@ Transform:
   m_Father: {fileID: 2861440959988778513}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2861440959967191820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861440959967191815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2861440959970496972
 Transform:
   m_ObjectHideFlags: 0
@@ -166644,7 +167161,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7719091199815092221
 BoxCollider:
