@@ -11,7 +11,9 @@ namespace Calentao.PlayerContol
     {
         [SerializeField] private PlayerInput PlayerInput;
         [SerializeField] private InteractionsPlayer1 buttoncamera;
+        [SerializeField] private InteractionsPlayer2 buttoncamera2;
         [SerializeField] private InputActionReference interact, exitInteract;
+        [SerializeField] private bool isplayer2;
         
         public  bool caninteract = false;
        
@@ -32,6 +34,7 @@ namespace Calentao.PlayerContol
 
         private void Awake()
         {
+            
             HideCursor();
             _currentMap = PlayerInput.currentActionMap;
             _moveAction = _currentMap.FindAction("Move");
@@ -44,9 +47,17 @@ namespace Calentao.PlayerContol
             
             _moveAction.canceled += onMove;
             _lookAction.canceled += onLook;
-            _runAction.canceled += onRun; 
+            _runAction.canceled += onRun;
+
+            if (isplayer2)
+            {
+                buttoncamera2 = FindObjectOfType<InteractionsPlayer2>();
+            }
+            else
+            {
+                buttoncamera = FindObjectOfType<InteractionsPlayer1>();
+            }
             
-            buttoncamera = FindObjectOfType<InteractionsPlayer1>();
         }
         
         private void HideCursor()
@@ -88,7 +99,15 @@ namespace Calentao.PlayerContol
         {
             if (caninteract)
             {
-                buttoncamera.interacted();
+                if (isplayer2)
+                {
+                    buttoncamera2.interacted();
+                }
+                else
+                {
+                    buttoncamera.interacted();
+                }
+                
             }
             else
             {
@@ -100,7 +119,15 @@ namespace Calentao.PlayerContol
         {
             if (isinpuzzle)
             {
-                buttoncamera.stopInteraction();
+                if (isplayer2)
+                {
+                    buttoncamera2.stopInteraction();
+                }
+                else
+                {
+                    buttoncamera.stopInteraction();
+                }
+                
             }
             else
             {

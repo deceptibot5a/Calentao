@@ -14,7 +14,7 @@ public class InteractionsPlayer2 : MonoBehaviour
     public CinemachineVirtualCamera activecamera;
     public GameObject interactUi;
     public GameObject crosshair;
-    public PuzzleInteractions puzzle;
+    public PuzzleInteractions2 puzzle;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject buttonCamera;
     private PlayerController playerController;
