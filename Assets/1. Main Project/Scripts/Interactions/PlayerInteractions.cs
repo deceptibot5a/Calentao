@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
@@ -99,4 +99,5 @@ public class PlayerInteractions : MonoBehaviour
     }
 
 }
+*/
 

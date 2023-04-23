@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ public class DisparoPez : MonoBehaviour
         GameObject fishObject = Instantiate(fishPrefab, transform.position, Quaternion.identity);
         fishObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 900f);
 
-        Fish fish = fishObject.GetComponent<Fish>();
+       /*Fish fish = fishObject.GetComponent<Fish>();
         fish.OnFishHitGround += OnFishHitGround;
     }
 
@@ -44,7 +45,8 @@ public class DisparoPez : MonoBehaviour
         preshotParticleSystem.Stop();
         fish.OnFishHitGround -= OnFishHitGround;
         Destroy(fish.gameObject);
-        canShoot = true;
+        canShoot = true
+        */
     }
 }
 

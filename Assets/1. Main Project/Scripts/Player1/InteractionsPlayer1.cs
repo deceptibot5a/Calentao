@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,6 @@ using UnityEngine;
 using Cinemachine;
 using Photon.Pun;
 using Unity.VisualScripting;
-using UnityEngine.InputSystem;
 
 public class InteractionsPlayer1 : MonoBehaviour
 {
@@ -119,3 +118,4 @@ public class InteractionsPlayer1 : MonoBehaviour
         }
     }
 }
+*/
