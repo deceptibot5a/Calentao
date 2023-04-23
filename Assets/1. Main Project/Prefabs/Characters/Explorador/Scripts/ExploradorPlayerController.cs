@@ -1,13 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Photon.Pun;
 
 public class ExploradorPlayerController : MonoBehaviour
 
 {
 
     CharacterController CharacterController;
+    [SerializeField] private GameObject virtualCam;
 
     public bool CanControl;
     public bool UseGravity;
@@ -37,6 +40,9 @@ public class ExploradorPlayerController : MonoBehaviour
     public AudioClip _GrasswalkAudio;
     public AudioClip _GrassRunAudio; 
     
+    PhotonView PV;
+    
+    
 
 
 void Awake()
@@ -44,14 +50,26 @@ void Awake()
     {
 
         CharacterController = GetComponent<CharacterController>();
+        PV = GetComponent<PhotonView>();
 
 
     }
 
+private void Start()
+{
+    if (!PV.IsMine)
+    {
+        virtualCam.SetActive(false);
 
-    void Update()
+    }
+}
+
+
+void Update()
 
     {
+        if(!PV.IsMine)
+            return;
         GuiaAudioManager();
         if (CharacterController.isGrounded == true)
         {
@@ -153,7 +171,12 @@ void Awake()
         }
     }
     
-
+    private void FixedUpdate()
+    {
+        if(!PV.IsMine)
+            return;
+  
+    }
     
     public void ApplyGravity()
 
