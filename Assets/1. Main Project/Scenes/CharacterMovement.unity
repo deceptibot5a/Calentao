@@ -162581,6 +162581,7 @@ GameObject:
   - component: {fileID: 6257724949093095708}
   - component: {fileID: 3578754156001929756}
   - component: {fileID: 6257724949093095709}
+  - component: {fileID: 6257724949093095710}
   m_Layer: 0
   m_Name: Plano.053
   m_TagString: Untagged
@@ -162796,6 +162797,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!64 &6257724949093095710
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4181230206152994832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7280228212479241955, guid: 4fc5d479abf942849b683dde60740ca7, type: 3}
 --- !u!1 &6704388571751185499
 GameObject:
   m_ObjectHideFlags: 0
@@ -162842,6 +162857,7 @@ GameObject:
   - component: {fileID: 804786994043474043}
   - component: {fileID: 8336715097286503435}
   - component: {fileID: 8336715097286503436}
+  - component: {fileID: 8336715097286503437}
   m_Layer: 0
   m_Name: Plano.052
   m_TagString: Untagged
@@ -167258,6 +167274,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!64 &8336715097286503437
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205989308028381947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8809778124421513024, guid: 4fc5d479abf942849b683dde60740ca7, type: 3}
 --- !u!33 &9021294572078096334
 MeshFilter:
   m_ObjectHideFlags: 0

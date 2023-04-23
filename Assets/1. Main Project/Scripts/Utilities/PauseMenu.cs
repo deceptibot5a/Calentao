@@ -11,15 +11,16 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI, tutorialImage, backButton;
     private bool isPaused = false;
     private bool assigned;
-   // private GuiaPlayerController guiaPlayerController;
-   // private ExploradorPlayerController exploradorPlayerController; 
+     
+    
 
     void Start()
     {
+
         pauseMenuUI.SetActive(false);
         tutorialImage.SetActive(false);
         backButton.SetActive(false);
-        StartCoroutine(AssignPlayersControllers());
+  
     }
     
     void Update()
@@ -46,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
+
     }
     
     public void ShowTutorial()
@@ -69,6 +71,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+
     }
 
     public void LoadScene(string sceneName)
@@ -77,10 +80,5 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
     
-    IEnumerator AssignPlayersControllers()
-    {
-        yield return new WaitForSeconds(3f); // Espera 2 segundos
-        //playerController1 = GameObject.FindWithTag("Player1").GetComponent<PlayerController>();
-        //_playerController2 = GameObject.FindWithTag("Player2").GetComponent<PlayerController>();
-    }
+
 }
