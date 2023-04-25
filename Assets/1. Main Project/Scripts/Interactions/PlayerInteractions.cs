@@ -1,6 +1,5 @@
-/*using System;
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Photon.Pun;
 
 public class PlayerInteractions : MonoBehaviour
@@ -27,16 +26,16 @@ public class PlayerInteractions : MonoBehaviour
             highlight.gameObject.GetComponent<Outline>().enabled = false;
             highlight = null;
         }
-        
+
         if (canray)
         {
-            Vector3 mousePosition = Mouse.current.position.ReadValue();
+            Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = distance;
             Vector3 worldPosition = camera.ScreenToWorldPoint(mousePosition);
-    
+
             Ray ray = new Ray(camera.transform.position, worldPosition - camera.transform.position);
             Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
-    
+
             RaycastHit hitinfo;
             if (Physics.Raycast(ray, out hitinfo, distance))
             {
@@ -66,13 +65,13 @@ public class PlayerInteractions : MonoBehaviour
         }
     }
     
-    public void clicked(InputAction.CallbackContext obj)
+    public void clicked()
     {
         if (highlight == null) return; 
-        
+
         if (highlight.CompareTag("Selectable"))
         {
-            Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 100))
@@ -99,5 +98,4 @@ public class PlayerInteractions : MonoBehaviour
     }
 
 }
-*/
 

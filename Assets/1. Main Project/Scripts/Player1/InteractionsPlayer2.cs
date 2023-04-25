@@ -1,4 +1,4 @@
-/*using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +15,8 @@ public class InteractionsPlayer2 : MonoBehaviour
     public GameObject interactUi;
     public GameObject crosshair;
     public PuzzleInteractions2 puzzle;
-    [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject buttonCamera;
-    private PlayerController playerController;
+    private GuiaPlayerController playerControllergu;
     public bool correct;
     private bool assigned;
     [SerializeField] private float AudioFadeSpeed = 1f;
@@ -26,6 +25,8 @@ public class InteractionsPlayer2 : MonoBehaviour
     public GameObject playerObject;
     private PhotonView photonView;
     public int puzzletype;
+    public bool caninteract = false;
+    public bool isinpuzzle = false;
 
     public Puzzle2 puzzle2;
 
@@ -38,10 +39,9 @@ public class InteractionsPlayer2 : MonoBehaviour
     IEnumerator AssignPlayerInteractions()
     {
         yield return new WaitForSeconds(0.1f);
-        inputManager = GameObject.FindWithTag("Player2").GetComponent<InputManager>();
         interactUi = GameObject.Find("InteractableP2");
         crosshair = GameObject.Find("CrosshairP2");
-        playerController = GameObject.FindWithTag("Player2").GetComponent<PlayerController>();
+        playerControllergu = GameObject.FindWithTag("Player2").GetComponent<GuiaPlayerController>();
         playerObject = GameObject.FindWithTag("Player2");
         audioSources = playerObject.GetComponents<AudioSource>();
         animator = playerObject.GetComponent<Animator>();
@@ -51,13 +51,16 @@ public class InteractionsPlayer2 : MonoBehaviour
     public void uiInteraction()
     {
         interactUi.GetComponent<CanvasGroup>().alpha = 1;
-        inputManager.caninteract = true;
+        caninteract = true;
+        if (Input.GetKeyDown(KeyCode.E) && (caninteract))
+        {
+            interacted();
+        }
     }
 
     public void uiInteractionOff()
     {
         interactUi.GetComponent<CanvasGroup>().alpha = 0;
-        inputManager.caninteract = false;
     }
 
 
@@ -76,17 +79,18 @@ public class InteractionsPlayer2 : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         crosshair.SetActive(false);
         interactUi.GetComponent<CanvasGroup>().alpha = 0;
-
-
-
-        inputManager.isinpuzzle = true;
-        inputManager.caninteract = false;
-        //inputManager.enabled = false;
-        playerController.enabled = false;
+        isinpuzzle = true;
+        caninteract = false;
+        playerControllergu.enabled = false;
 
         if (puzzletype == 2)
         {
             puzzle2.Puzzle2On();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && (isinpuzzle))
+        {
+            stopInteraction();
         }
 
     }
@@ -97,9 +101,8 @@ public class InteractionsPlayer2 : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         crosshair.SetActive(true);
-        inputManager.isinpuzzle = false;
-        //inputManager.enabled = true;
-        playerController.enabled = true;
+        isinpuzzle = false;
+        playerControllergu.enabled = true;
 
         activecamera.m_Priority = 0;
 
@@ -110,7 +113,7 @@ public class InteractionsPlayer2 : MonoBehaviour
         else
         {
             interactUi.SetActive(true);
-            inputManager.caninteract = true;
+            caninteract = true;
             interactUi.GetComponent<CanvasGroup>().alpha = 1;
         }
         if (puzzletype == 2)
@@ -119,4 +122,3 @@ public class InteractionsPlayer2 : MonoBehaviour
         }
     }
 }
-*/

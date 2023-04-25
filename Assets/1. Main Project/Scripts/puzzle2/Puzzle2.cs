@@ -1,4 +1,3 @@
-/*
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,8 +6,6 @@ using Cinemachine;
 
 public class Puzzle2 : MonoBehaviour
 {
-    [SerializeField] private InputAction pressed, axis, click;
-   
     [SerializeField] private Camera cam2;
     [SerializeField] private PlayerInteractions ray;
     [SerializeField] private CinemachineVirtualCamera puzzlecamera;
@@ -32,13 +29,17 @@ public class Puzzle2 : MonoBehaviour
         cam = puzzlecamera.transform;
         cam2 = Camera.main;
         ray.canray = true;
-        pressed.Enable();
-        axis.Enable();
-        click.Enable();
-        pressed.performed += _ => { StartCoroutine(Rotate()); };
-        pressed.canceled += _ => { rotateAllowed = false; };
-        click.performed += ray.clicked;
-        axis.performed += context => { rotation = context.ReadValue<Vector2>(); };
+        if (Input.GetMouseButton(0))
+        {
+            StartCoroutine(Rotate());
+            ray.clicked();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            rotateAllowed = false;
+        }
+        rotation.x = Input.GetAxis("Horizontal");
+        rotation.y = Input.GetAxis("Vertical");
     }
     
     IEnumerator SetRaycast()
@@ -50,8 +51,6 @@ public class Puzzle2 : MonoBehaviour
     public void Puzzle2Off()
     {
         ray.canray = false;
-        pressed.Disable();
-        axis.Disable();
     }
     
     
@@ -88,4 +87,3 @@ public class Puzzle2 : MonoBehaviour
     }
 
 }
-*/

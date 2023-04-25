@@ -1,5 +1,4 @@
-/*
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +8,6 @@ namespace Calentao.PlayerContol
 {
     public class InputManager : MonoBehaviour
     {
-        [SerializeField] private PlayerInput PlayerInput;
         [SerializeField] private InteractionsPlayer1 buttoncamera;
         [SerializeField] private InteractionsPlayer2 buttoncamera2;
         [SerializeField] private InputActionReference interact, exitInteract;
