@@ -26,11 +26,28 @@ public class InteractionsPlayer1 : MonoBehaviour
     public bool caninteract = false;
     public bool isinpuzzle = false;
     public Puzzle2 puzzle2;
-    private GuiaPlayerController playerControllerex;
+    private ExploradorPlayerController playerControllerex;
+    private ExploradorCameraManager playerCamera;
+    private ExploradorAnimatorManager playerAnimator;
+
+    
 
     private void Start()
     {
         StartCoroutine(AssignPlayerInteractions());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && (caninteract))
+        {
+            interacted();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.F) && (isinpuzzle))
+        {
+            stopInteraction();
+        }
     }
 
 
@@ -43,17 +60,15 @@ public class InteractionsPlayer1 : MonoBehaviour
         audioSources = playerObject.GetComponents<AudioSource>();
         animator = playerObject.GetComponent<Animator>();
         photonView = GameObject.FindWithTag("Player1").GetComponent<PhotonView>();
-        playerControllerex = GameObject.FindWithTag("Player2").GetComponent<GuiaPlayerController>();
+        playerControllerex = GameObject.FindWithTag("Player1").GetComponent<ExploradorPlayerController>();
+        playerCamera = GameObject.Find("CM vcam1 explorador").GetComponent<ExploradorCameraManager>();
+        playerAnimator = GameObject.Find("ExploradorFINALv1").GetComponent<ExploradorAnimatorManager>();
     }
 
     public void uiInteraction()
     {
         interactUi.GetComponent<CanvasGroup>().alpha = 1;
         caninteract = true;
-        if (Input.GetKeyDown(KeyCode.E) && (caninteract))
-        {
-            interacted();
-        }
     }
 
     public void uiInteractionOff()
@@ -61,7 +76,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         interactUi.GetComponent<CanvasGroup>().alpha = 0;
     }
 
-
+    
 
     public void interacted()
     {
@@ -71,8 +86,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         }
 
         activecamera.m_Priority = 10;
-
-        animator.SetBool("Idle", true);
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         crosshair.SetActive(false);
@@ -80,27 +94,31 @@ public class InteractionsPlayer1 : MonoBehaviour
         isinpuzzle = true;
         caninteract = false;
         playerControllerex.enabled = false;
+        playerCamera.enabled = false;
+        playerAnimator.enabled = false;
+        
+        Debug.Log("se desactivo");
+        
 
         if (puzzletype == 2)
         {
             puzzle2.Puzzle2On();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && (isinpuzzle))
-        {
-            stopInteraction();
-        }
-
     }
+    
+    
 
     public void stopInteraction()
     {
-        animator.SetBool("Idle", false);
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         crosshair.SetActive(true);
         isinpuzzle = false;
         playerControllerex.enabled = true;
+        playerCamera.enabled = true;
+        playerAnimator.enabled = true;
 
         activecamera.m_Priority = 0;
 

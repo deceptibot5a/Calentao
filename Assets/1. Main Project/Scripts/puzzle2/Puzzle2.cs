@@ -6,7 +6,6 @@ using Cinemachine;
 
 public class Puzzle2 : MonoBehaviour
 {
-    [SerializeField] private Camera cam2;
     [SerializeField] private PlayerInteractions ray;
     [SerializeField] private CinemachineVirtualCamera puzzlecamera;
     [SerializeField] private float speed = 1;
@@ -19,25 +18,32 @@ public class Puzzle2 : MonoBehaviour
     [SerializeField]  List<GameObject> objects = new List<GameObject>();
     [SerializeField]  int maxObjects = 3;
 
+    private bool puzzle2on = false;
+
     private void Start()
     {
         StartCoroutine(SetRaycast());
     }
 
-    public void Puzzle2On()
+    private void Update()
     {
-        cam = puzzlecamera.transform;
-        cam2 = Camera.main;
-        ray.canray = true;
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && (puzzle2on))
         {
             StartCoroutine(Rotate());
             ray.clicked();
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)&& (puzzle2on))
         {
             rotateAllowed = false;
         }
+    }
+
+    public void Puzzle2On()
+    {
+        cam = puzzlecamera.transform;
+        ray.canray = true;
+        puzzle2on = true;
+
         rotation.x = Input.GetAxis("Horizontal");
         rotation.y = Input.GetAxis("Vertical");
     }

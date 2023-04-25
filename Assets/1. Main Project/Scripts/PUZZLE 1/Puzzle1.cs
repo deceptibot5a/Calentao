@@ -10,7 +10,6 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
 {
     public TMP_Text passwordText;
     public TMP_Text currentPassText;
-    public Button[] digitButtons;
     public GameObject door;
     public Slider Slider;
     public Animator error;
