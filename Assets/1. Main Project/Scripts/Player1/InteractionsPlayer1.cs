@@ -121,6 +121,8 @@ public class InteractionsPlayer1 : MonoBehaviour
 
     public void stopInteraction()
     {
+        activecamera.m_Priority = 0;
+
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -131,8 +133,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         playerAnimator.enabled = true;
 
         animator.SetBool("IsErect", false);
-        
-        activecamera.m_Priority = 0;
+
         puzzle1camera.SetActive(false);
         
 

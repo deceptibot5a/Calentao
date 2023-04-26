@@ -6,18 +6,18 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu2 : MonoBehaviour
 {
     public GameObject pauseMenuUI, tutorialImage, backButton;
     private bool isPaused = false;
     private bool assigned;
-    [SerializeField] ExploradorCameraManager playerCamera;
-    [SerializeField] private ExploradorPlayerController playerControllerex;
-    [SerializeField] ExploradorAnimatorManager playerAnimator;
-    [SerializeField] Animator animator;
+    [SerializeField] GuiaCameraManager playerCamera2;
+    [SerializeField] private GuiaPlayerController playerControllerex2;
+    [SerializeField] GuiaAnimationManager playerAnimator2;
+    [SerializeField] Animator animator2;
 
-
-
+     
+    
 
     void Start()
     {
@@ -32,10 +32,10 @@ public class PauseMenu : MonoBehaviour
     IEnumerator PauseInstance()
     {
         yield return new WaitForSeconds(0.1f);
-        playerControllerex = GameObject.FindWithTag("Player1").GetComponent<ExploradorPlayerController>();
-        playerCamera = GameObject.Find("CM vcam1 explorador").GetComponent<ExploradorCameraManager>();
-        playerAnimator = GameObject.Find("ExploradorFINALv1").GetComponent<ExploradorAnimatorManager>();
-        animator = GameObject.Find("ExploradorFINALv1").GetComponent<Animator>();
+        playerControllerex2 = GameObject.FindWithTag("Player2").GetComponent<GuiaPlayerController>();
+        playerCamera2 = GameObject.Find("CM vcam1 Guia").GetComponent<GuiaCameraManager>();
+        playerAnimator2 = GameObject.Find("GuiaMesh").GetComponent<GuiaAnimationManager>();
+        animator2 = GameObject.Find("GuiaMesh").GetComponent<Animator>();
 
     }
     
@@ -60,10 +60,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        playerCamera.enabled = false;
-        playerControllerex.enabled = false;
-        playerAnimator.enabled = false;
-        animator.SetBool("IsErect", true);
+        playerCamera2.enabled = false;
+        playerControllerex2.enabled = false;
+        playerAnimator2.enabled = false;
+        animator2.SetBool("IsErect", true);
 
     }
     
@@ -86,10 +86,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        playerCamera.enabled = true;
-        playerControllerex.enabled = true;
-        playerAnimator.enabled = true;
-        animator.SetBool("IsErect", false);
+        playerCamera2.enabled = true;
+        playerControllerex2.enabled = true;
+        playerAnimator2.enabled = true;
+        animator2.SetBool("IsErect", false);
 
     }
 
