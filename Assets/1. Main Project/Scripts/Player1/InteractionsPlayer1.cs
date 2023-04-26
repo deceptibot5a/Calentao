@@ -29,6 +29,7 @@ public class InteractionsPlayer1 : MonoBehaviour
     private ExploradorPlayerController playerControllerex;
     private ExploradorCameraManager playerCamera;
     private ExploradorAnimatorManager playerAnimator;
+    public GameObject puzzle1camera;
 
     
 
@@ -58,11 +59,12 @@ public class InteractionsPlayer1 : MonoBehaviour
         crosshair = GameObject.Find("CrosshairP1");
         playerObject = GameObject.FindWithTag("Player1");
         audioSources = playerObject.GetComponents<AudioSource>();
-        animator = playerObject.GetComponent<Animator>();
+        animator = GameObject.Find("ExploradorFINALv1").GetComponent<Animator>();
         photonView = GameObject.FindWithTag("Player1").GetComponent<PhotonView>();
         playerControllerex = GameObject.FindWithTag("Player1").GetComponent<ExploradorPlayerController>();
         playerCamera = GameObject.Find("CM vcam1 explorador").GetComponent<ExploradorCameraManager>();
         playerAnimator = GameObject.Find("ExploradorFINALv1").GetComponent<ExploradorAnimatorManager>();
+        
     }
 
     public void uiInteraction()
@@ -87,6 +89,8 @@ public class InteractionsPlayer1 : MonoBehaviour
 
         activecamera.m_Priority = 10;
         
+        animator.SetBool("IsErect", true);
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         crosshair.SetActive(false);
@@ -96,11 +100,17 @@ public class InteractionsPlayer1 : MonoBehaviour
         playerControllerex.enabled = false;
         playerCamera.enabled = false;
         playerAnimator.enabled = false;
+        puzzle1camera.SetActive(true);
         
         Debug.Log("se desactivo");
         
 
         if (puzzletype == 2)
+        {
+            puzzle2.Puzzle2On();
+        }
+        
+        if (puzzletype == 1)
         {
             puzzle2.Puzzle2On();
         }
@@ -120,11 +130,16 @@ public class InteractionsPlayer1 : MonoBehaviour
         playerCamera.enabled = true;
         playerAnimator.enabled = true;
 
+        animator.SetBool("IsErect", false);
+        
         activecamera.m_Priority = 0;
+        puzzle1camera.SetActive(false);
+        
 
         if (correct)
         {
             buttonCamera.SetActive(false);
+            
         }
         else
         {
