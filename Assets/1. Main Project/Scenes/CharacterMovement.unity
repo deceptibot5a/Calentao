@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26792946, g: 0.463935, b: 0.61439043, a: 1}
+  m_IndirectSpecularColor: {r: 0.26793084, g: 0.46393335, b: 0.6143625, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -915,7 +915,6 @@ MonoBehaviour:
   interactUi: {fileID: 0}
   crosshair: {fileID: 0}
   puzzle: {fileID: 2861440959105790839}
-  inputManager: {fileID: 0}
   buttonCamera: {fileID: 7719091199771932848}
   correct: 0
   AudioFadeSpeed: 1
@@ -923,6 +922,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerObject: {fileID: 0}
   puzzletype: 0
+  caninteract: 0
+  isinpuzzle: 0
   puzzle2: {fileID: 2861440959988778512}
 --- !u!65 &313467329
 BoxCollider:
@@ -157179,58 +157180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ba51fca40388245929058232c294d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed:
-    m_Name: Pressed
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 1f3f5721-b005-4dce-aa15-c510dc7a28bc
-    m_Processors: 
-    m_Interactions: Press
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: a8e36365-3e3c-4007-9b92-3fa6e5353ca1
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Pressed
-      m_Flags: 0
-    m_Flags: 0
-  axis:
-    m_Name: Axis
-    m_Type: 0
-    m_ExpectedControlType: Vector2
-    m_Id: 3c0a7eb9-c9da-4537-84f7-24f20053dad4
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 191474c0-a56e-48e6-b0db-ff42129f2698
-      m_Path: <Mouse>/delta
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Axis
-      m_Flags: 0
-    m_Flags: 0
-  click:
-    m_Name: Click
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: c5fa4de3-9038-4bec-abc3-3938ea3ae49b
-    m_Processors: 
-    m_Interactions: Tap
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: c4e27a55-9373-434f-9c08-95b50a231646
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Click
-      m_Flags: 0
-    m_Flags: 0
-  cam2: {fileID: 0}
   ray: {fileID: 0}
   puzzlecamera: {fileID: 3950605685148668931}
   speed: 0.5
@@ -163917,6 +163866,7 @@ GameObject:
   - component: {fileID: 7719091198056290585}
   - component: {fileID: 7719091198056290582}
   - component: {fileID: 7719091198056290583}
+  - component: {fileID: 7719091198056290586}
   m_Layer: 0
   m_Name: Pantalla2
   m_TagString: Untagged
@@ -163985,6 +163935,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0
+--- !u!114 &7719091198056290586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719091198056290581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dea68f6d86e8aa4991d2332448c2d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cavascamera: {fileID: 7719091198056290585}
 --- !u!224 &7719091198064558154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -165451,17 +165414,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passwordText: {fileID: 2474915480243147645}
   currentPassText: {fileID: 7719091199342278217}
-  digitButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   door: {fileID: 0}
   Slider: {fileID: 7719091197935173243}
   error: {fileID: 7719091197984168966}
@@ -167073,7 +167025,6 @@ MonoBehaviour:
   interactUi: {fileID: 0}
   crosshair: {fileID: 0}
   puzzle: {fileID: 0}
-  inputManager: {fileID: 0}
   buttonCamera: {fileID: 7719091199771932848}
   correct: 0
   AudioFadeSpeed: 1
@@ -167081,7 +167032,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerObject: {fileID: 0}
   puzzletype: 0
+  caninteract: 0
+  isinpuzzle: 0
   puzzle2: {fileID: 2861440959988778512}
+  puzzle1camera: {fileID: 0}
 --- !u!4 &7789789857663743037
 Transform:
   m_ObjectHideFlags: 0
