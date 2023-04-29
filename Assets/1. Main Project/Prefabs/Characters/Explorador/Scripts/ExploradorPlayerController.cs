@@ -11,6 +11,7 @@ public class ExploradorPlayerController : MonoBehaviour
 
     CharacterController CharacterController;
     [SerializeField] private GameObject virtualCam;
+    
 
     public bool CanControl;
     public bool UseGravity;
