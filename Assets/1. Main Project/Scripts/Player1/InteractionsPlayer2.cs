@@ -8,7 +8,6 @@ using Cinemachine;
 using Photon.Pun;
 using Unity.VisualScripting;
 
-
 public class InteractionsPlayer2 : MonoBehaviour
 {
     public CinemachineVirtualCamera activecamera;
@@ -16,7 +15,6 @@ public class InteractionsPlayer2 : MonoBehaviour
     public GameObject crosshair;
     public PuzzleInteractions2 puzzle;
     [SerializeField] private GameObject buttonCamera;
-    private GuiaPlayerController playerControllergu;
     public bool correct;
     private bool assigned;
     [SerializeField] private float AudioFadeSpeed = 1f;
@@ -27,14 +25,28 @@ public class InteractionsPlayer2 : MonoBehaviour
     public int puzzletype;
     public bool caninteract = false;
     public bool isinpuzzle = false;
-
     public Puzzle2 puzzle2;
+    private GuiaPlayerController playerControllergu;
+    private GuiaCameraManager playerCamera;
+    private GuiaAnimationManager playerAnimator;
 
     private void Start()
     {
         StartCoroutine(AssignPlayerInteractions());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && (caninteract))
+        {
+            interacted();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.F) && (isinpuzzle))
+        {
+            stopInteraction();
+        }
+    }
 
     IEnumerator AssignPlayerInteractions()
     {
@@ -44,18 +56,16 @@ public class InteractionsPlayer2 : MonoBehaviour
         playerControllergu = GameObject.FindWithTag("Player2").GetComponent<GuiaPlayerController>();
         playerObject = GameObject.FindWithTag("Player2");
         audioSources = playerObject.GetComponents<AudioSource>();
-        animator = playerObject.GetComponent<Animator>();
+        animator = GameObject.Find("GuiaMesh").GetComponent<Animator>();
         photonView = GameObject.FindWithTag("Player2").GetComponent<PhotonView>();
+        playerCamera = GameObject.Find("CM vcam1 Guia").GetComponent<GuiaCameraManager>();
+        playerAnimator = GameObject.Find("GuiaMesh").GetComponent<GuiaAnimationManager>();
     }
 
     public void uiInteraction()
     {
         interactUi.GetComponent<CanvasGroup>().alpha = 1;
         caninteract = true;
-        if (Input.GetKeyDown(KeyCode.E) && (caninteract))
-        {
-            interacted();
-        }
     }
 
     public void uiInteractionOff()
@@ -73,8 +83,9 @@ public class InteractionsPlayer2 : MonoBehaviour
         }
 
         activecamera.m_Priority = 10;
-
-        animator.SetBool("Idle", true);
+        
+        animator.SetBool("IsErect", true);
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         crosshair.SetActive(false);
@@ -82,33 +93,45 @@ public class InteractionsPlayer2 : MonoBehaviour
         isinpuzzle = true;
         caninteract = false;
         playerControllergu.enabled = false;
+        playerCamera.enabled = false;
+        playerAnimator.enabled = false;
+
+        Debug.Log("se desactivo");
+        
 
         if (puzzletype == 2)
         {
             puzzle2.Puzzle2On();
         }
-
-        if (Input.GetKeyDown(KeyCode.E) && (isinpuzzle))
+        
+        if (puzzletype == 1)
         {
-            stopInteraction();
+            puzzle2.Puzzle2On();
         }
 
     }
 
     public void stopInteraction()
     {
-        animator.SetBool("Idle", false);
+        activecamera.m_Priority = 0;
+
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         crosshair.SetActive(true);
         isinpuzzle = false;
         playerControllergu.enabled = true;
+        playerCamera.enabled = true;
+        playerAnimator.enabled = true;
 
-        activecamera.m_Priority = 0;
+        animator.SetBool("IsErect", false);
+        
+        
 
         if (correct)
         {
             buttonCamera.SetActive(false);
+            
         }
         else
         {

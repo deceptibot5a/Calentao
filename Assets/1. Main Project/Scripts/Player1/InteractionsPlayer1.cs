@@ -29,9 +29,8 @@ public class InteractionsPlayer1 : MonoBehaviour
     private ExploradorPlayerController playerControllerex;
     private ExploradorCameraManager playerCamera;
     private ExploradorAnimatorManager playerAnimator;
-    public GameObject puzzle1camera;
 
-    
+
 
     private void Start()
     {
@@ -100,8 +99,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         playerControllerex.enabled = false;
         playerCamera.enabled = false;
         playerAnimator.enabled = false;
-        puzzle1camera.SetActive(true);
-        
+
         Debug.Log("se desactivo");
         
 
@@ -133,8 +131,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         playerAnimator.enabled = true;
 
         animator.SetBool("IsErect", false);
-
-        puzzle1camera.SetActive(false);
+        
         
 
         if (correct)

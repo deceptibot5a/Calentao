@@ -6,33 +6,33 @@ using UnityEngine;
 
 public class Puzzle2Button : MonoBehaviour
 {
-    
-    
-    [SerializeField] Material newMaterial; // The material you want to change to.
-    [SerializeField] Material originalMaterial; // The original material of the object.
+    [SerializeField] Material newMaterial;
+    [SerializeField] Material originalMaterial;
     [SerializeField] private PhotonView photonView;
+    [SerializeField] private float changeDuration = 2f;
+    [SerializeField] private GameObject plataforma;
+    
     public static Puzzle2Button instance;
     
-
+    private Renderer renderer;
+    private Puzzle2 manager;
+    private bool shouldCheck;
+    public bool Highlighted = false;
     private void Start()
     {
         instance = this;
         manager = GameObject.FindObjectOfType<Puzzle2>();
         photonView = GetComponent<PhotonView>();
     }
-
-    [SerializeField] private float changeDuration = 2f; // The duration of the material change in seconds.
-
-    private Renderer renderer;
-
-    [SerializeField] private GameObject plataforma;
     
-    private Puzzle2 manager;
-
-    private bool shouldCheck;
-
-    
-    
+    private void OnMouseDown()
+    {
+        if (Highlighted)
+        {
+            Buttonclicked();
+            Debug.Log("clickeado");
+        }
+    }
     public void Buttonclicked()
     {
         photonView.RPC("Buttonclick", RpcTarget.All);

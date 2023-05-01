@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CanvasCamera : MonoBehaviour
+public class CanvasCameraGu : MonoBehaviour
 {
 
     public Canvas cavascamera;
@@ -15,7 +15,7 @@ public class CanvasCamera : MonoBehaviour
     IEnumerator CanvAsassign()
     {
         yield return new WaitForSeconds(0.1f);
-        cavascamera.worldCamera = GameObject.Find("ExpCinemachineBrain").GetComponent<Camera>();
+        cavascamera.worldCamera = GameObject.Find("GuiaCinemachineBrain").GetComponent<Camera>();
     }
 
 }
