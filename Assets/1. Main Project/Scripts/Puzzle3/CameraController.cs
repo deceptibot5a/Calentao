@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
             playerControllergu.enabled = false;
             playerCamera.enabled = false;
             playerAnimator.enabled = false;
-            StartCoroutine(ChangeBrainBlending());
+            StartCoroutine(ChangeBrainBlending(CinemachineBlendDefinition.Style.Cut));
         }
         if(readyToInteract && Input.GetKeyDown(KeyCode.F))
         {
@@ -55,7 +55,7 @@ public class CameraController : MonoBehaviour
             playerControllergu.enabled = true;
             playerCamera.enabled = true;
             playerAnimator.enabled = true;
-            brain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseInOut;
+            StartCoroutine(ChangeBrainBlending(CinemachineBlendDefinition.Style.EaseInOut));
             ResetCamerasPriorityAndUI();
         }
     }
@@ -125,11 +125,12 @@ public void ChangeCamera(int camera)
         }
     }
 
-    IEnumerator ChangeBrainBlending()
+    IEnumerator ChangeBrainBlending(CinemachineBlendDefinition.Style style)
     {
-        yield return new WaitForSeconds(2.1f);
-        brain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
+        yield return new WaitForSeconds(1f);
+        brain.m_DefaultBlend.m_Style = style;
     }
+    
 
     public void ResetCamerasPriorityAndUI()
     {

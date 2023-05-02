@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 419054628878235428}
   - component: {fileID: 5994549637216267614}
   - component: {fileID: 5994549637216267613}
+  - component: {fileID: 6603598718996782637}
   m_Layer: 0
   m_Name: ExploradorFINALv1
   m_TagString: Untagged
@@ -237,6 +238,39 @@ MonoBehaviour:
   cameraFallingPosition: {fileID: 5607528399342436219}
   playerController: {fileID: 6037021136267650747}
   smoothness: 10
+--- !u!114 &6603598718996782637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052460615072050590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 2
+    Name: Speed
+  - Type: 4
+    SynchronizeType: 2
+    Name: IsErect
+  - Type: 4
+    SynchronizeType: 2
+    Name: IsFalling
+  - Type: 1
+    SynchronizeType: 2
+    Name: Horizontal
+  - Type: 1
+    SynchronizeType: 2
+    Name: Vertical
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &1211204195601557282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,6 +1773,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2979100093754163745}
+  - {fileID: 6603598718996782637}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
