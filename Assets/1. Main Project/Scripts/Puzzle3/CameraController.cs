@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
 {
     
     public CinemachineVirtualCamera activeCamera1, activeCamera2, activeCamera3, activeCamera4;
+    public GameObject uiCamera1, uiCamera2, uiCamera3, uiCamera4;
     public CinemachineVirtualCamera puzzleCamera;
     public bool readyToInteract = false;
     
@@ -55,7 +56,7 @@ public class CameraController : MonoBehaviour
             playerCamera.enabled = true;
             playerAnimator.enabled = true;
             brain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseInOut;
-            ResetCamerasPriority();
+            ResetCamerasPriorityAndUI();
         }
     }
     
@@ -83,40 +84,64 @@ public void ChangeCamera(int camera)
                 activeCamera2.Priority = 0;
                 activeCamera3.Priority = 0;
                 activeCamera4.Priority = 0;
+                uiCamera1.SetActive(true);
+                uiCamera2.SetActive(false);
+                uiCamera3.SetActive(false);
+                uiCamera4.SetActive(false);
                 break;
+            
             case 2:
                 activeCamera1.Priority = 0;
                 activeCamera2.Priority = 11;
                 activeCamera3.Priority = 0;
                 activeCamera4.Priority = 0;
+                uiCamera1.SetActive(false);
+                uiCamera2.SetActive(true);
+                uiCamera3.SetActive(false);
+                uiCamera4.SetActive(false);
                 break;
+            
             case 3:
                 activeCamera1.Priority = 0;
                 activeCamera2.Priority = 0;
                 activeCamera3.Priority = 11;
                 activeCamera4.Priority = 0;
+                uiCamera1.SetActive(false);
+                uiCamera2.SetActive(false);
+                uiCamera3.SetActive(true);
+                uiCamera4.SetActive(false);
                 break;
+           
             case 4:
                 activeCamera1.Priority = 0;
                 activeCamera2.Priority = 0;
                 activeCamera3.Priority = 0;
                 activeCamera4.Priority = 11;
+                uiCamera1.SetActive(false);
+                uiCamera2.SetActive(false);
+                uiCamera3.SetActive(false);
+                uiCamera4.SetActive(true);
                 break;
         }
     }
 
     IEnumerator ChangeBrainBlending()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.1f);
         brain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
     }
 
-    public void ResetCamerasPriority()
+    public void ResetCamerasPriorityAndUI()
     {
         activeCamera1.Priority = 0;
         activeCamera2.Priority = 0;
         activeCamera3.Priority = 0;
         activeCamera4.Priority = 0;
+        uiCamera1.SetActive(false);
+        uiCamera2.SetActive(false);
+        uiCamera3.SetActive(false);
+        uiCamera4.SetActive(false);
+        
     }
     
     private void OnTriggerEnter(Collider other)
