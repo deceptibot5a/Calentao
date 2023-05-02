@@ -1,57 +1,119 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] Transform path;
-    Transform[] nodes;
-    Transform target;
-    private int index = 0;
+    public Transform[] patrolPoints;
+    public float patrolSpeed = 2f;
+    public float chaseSpeed = 5f;
+    public float chaseRange = 10f;
+    public float patrolPointRange = 3f;
+    public int currentPatrolIndex = 0;
+    public NavMeshAgent navAgent;
+    public GameObject player;
+    public bool chasingPlayer = false;
+    public bool  playerInSafeZone = false;
 
-    [SerializeField] float patrolSpeed = 1.5f, chaseSpeed = 6f;
-    float currentSpeed = 0;
-
-    Transform player;
-    int state = 0;
-
-    void Start() {
-        nodes = new Transform[path.childCount];
-        for (int i = 0; i < path.childCount; i++) {
-            nodes[i] = path.GetChild(i);
-        }
-
-        target = nodes[0];
-        currentSpeed = patrolSpeed;
+    private void Start()
+    {
+        navAgent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player1");
+        navAgent.speed = patrolSpeed;
+        GoToNextPatrolPoint();
     }
 
-    void Update() {
-        if (state == 0) {
-            float distance = Vector3.Distance(transform.position, target.position);
-            if (distance < 0.5f) {
-                index = (index + 1) % nodes.Length;
-                target = nodes[index];
-            }
-        } else if (state == 1) {
-            float distance = Vector3.Distance(transform.position, target.position);
-            if (distance < 2.5f) {
-                //SceneManager.LoadScene("D5A Main");
-            }
+    private void Update()
+    {
+        
+        Debug.DrawRay(transform.position, transform.forward * chaseRange,Color.red);
+        if (playerInSafeZone)
+        {
+            chasingPlayer = false;
+            navAgent.speed = patrolSpeed;
+            GoToNearestPatrolPoint();
         }
-
-        Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, currentSpeed * Time.deltaTime * 10);
-
-        transform.position += transform.forward * currentSpeed * Time.deltaTime;
+        if (!chasingPlayer && !playerInSafeZone)
+        {
+            Patrol();
+            Debug.DrawRay(transform.position, transform.forward * chaseRange,Color.red);
+            
+        }
+        else if (chasingPlayer && !playerInSafeZone)
+        {
+            ChasePlayer();
+        }
     }
 
-    public void PlayerSpoted(Transform other) {
-        if (state == 0) {
-            player = other;
-            target = player;
-            currentSpeed = chaseSpeed;
-            //animator.SetFloat("Speed", 1);
-            state = 1;
+    public void Patrol()
+    {
+        if (navAgent.remainingDistance < 0.5f)
+        {
+            GoToNextPatrolPoint();
         }
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distanceToPlayer < chaseRange && !playerInSafeZone)
+        {
+            chasingPlayer = true;
+            navAgent.speed = chaseSpeed;
+        }
+    }
+
+    private void GoToNextPatrolPoint()
+    {
+        navAgent.SetDestination(patrolPoints[currentPatrolIndex].position);
+        currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+    }
+
+    private void ChasePlayer()
+    {
+        navAgent.SetDestination(player.transform.position);
+
+        Debug.DrawRay(transform.position, navAgent.velocity.normalized * 3f, Color.red);
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distanceToPlayer > chaseRange)
+        {
+            chasingPlayer = false;
+            navAgent.speed = patrolSpeed;
+            GoToNearestPatrolPoint(); 
+        }
+
+        float distanceToClosestPatrolPoint = Vector3.Distance(transform.position, patrolPoints[currentPatrolIndex].position);
+        
+        if (distanceToClosestPatrolPoint < patrolPointRange && !playerInSafeZone)
+        {
+            chasingPlayer = false;
+            navAgent.speed = patrolSpeed;
+        }
+    }
+
+    public void GoToNearestPatrolPoint()
+    {
+        float minDistance = Mathf.Infinity;
+        int minIndex = 0;
+
+        for (int i = 0; i < patrolPoints.Length; i++)
+        {
+            float distance = Vector3.Distance(transform.position, patrolPoints[i].position);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                minIndex = i;
+            }
+        }
+
+        currentPatrolIndex = minIndex;
+        navAgent.SetDestination(patrolPoints[currentPatrolIndex].position);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 }

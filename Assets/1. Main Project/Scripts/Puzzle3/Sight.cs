@@ -14,7 +14,7 @@ public class Sight : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player1")) {
-            enemyController.PlayerSpoted(other.transform);
+            //enemyController.PlayerSpoted(other.transform);
             renderer.material.color = Color.red;
         }
     }
