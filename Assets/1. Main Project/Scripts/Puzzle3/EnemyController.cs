@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        StartCoroutine(AssignPhotonView());
+        StartCoroutine(AssingPLayer1());
         navAgent.speed = patrolSpeed;
         GoToNextPatrolPoint();
     }
@@ -112,7 +112,7 @@ public class EnemyController : MonoBehaviour
         navAgent.SetDestination(patrolPoints[currentPatrolIndex].position);
     }
     
-    IEnumerator AssignPhotonView()
+    IEnumerator AssingPLayer1()
     {
         yield return new WaitForSeconds(0.1f);
         player = GameObject.FindGameObjectWithTag("Player1");

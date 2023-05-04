@@ -17,17 +17,16 @@ public class MaterialChangers : MonoBehaviour
    }
 
    private void OnTriggerEnter(Collider other)
+   {
+       if (other.gameObject.CompareTag("Player2") && photonView.IsMine)
        {
-           if (other.CompareTag("Player1"))
-           {
-               renderer.material = nuevoMaterial;
-           }
+              renderer.material = nuevoMaterial;
        }
-       
-       IEnumerator AssignPhotonView()
-       {
-           yield return new WaitForSeconds(0.1f);
-           photonView = GameObject.FindWithTag("Player1").GetComponent<PhotonView>();
-       }
+   }
+   IEnumerator AssignPhotonView()
+   {
+       yield return new WaitForSeconds(0.1f);
+       photonView = GameObject.FindWithTag("Player1").GetComponent<PhotonView>();
+   }
        
 }
