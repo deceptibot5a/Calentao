@@ -147,7 +147,7 @@ public void ChangeCamera(int camera)
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player2"))
+        if (other.gameObject.CompareTag("Player2") && photonView.IsMine)
         {
             readyToInteract = true;
             interactUI.GetComponent<CanvasGroup>().alpha = 1; 
