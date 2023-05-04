@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player1");
+        StartCoroutine(AssignPhotonView());
         navAgent.speed = patrolSpeed;
         GoToNextPatrolPoint();
     }
@@ -111,6 +111,13 @@ public class EnemyController : MonoBehaviour
         currentPatrolIndex = minIndex;
         navAgent.SetDestination(patrolPoints[currentPatrolIndex].position);
     }
+    
+    IEnumerator AssignPhotonView()
+    {
+        yield return new WaitForSeconds(0.1f);
+        player = GameObject.FindGameObjectWithTag("Player1");
+    }
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
