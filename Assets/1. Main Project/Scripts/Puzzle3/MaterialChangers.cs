@@ -18,7 +18,7 @@ public class MaterialChangers : MonoBehaviour
 
    private void OnTriggerEnter(Collider other)
    {
-       if (other.gameObject.CompareTag("Player2") && photonView.IsMine)
+       if (other.gameObject.CompareTag("Player1") && photonView.IsMine)
        {
               renderer.material = nuevoMaterial;
        }
