@@ -14,7 +14,8 @@ public class BikeUpController : MonoBehaviour
     public ExploradorCameraManager exploradorCameraManager;
     public CharacterController characterController; 
     public Animator PlayerAnimator;
-    public GameObject PlayerGameObject; 
+    public GameObject PlayerGameObject;
+    public GameObject bikeCamera; 
     public GameObject bike;
     public Transform referenceTransform;
     public GameObject camera; 
@@ -24,10 +25,11 @@ public class BikeUpController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && (caninteract))
         {
+            bikeCamera.SetActive(true);
+            camera.SetActive(false);
             Debug.Log(_animationBoolName);
             characterController.enabled = false; 
             PlayerGameObject.transform.parent = bike.transform;
-            camera.SetActive(false);
             PlayerGameObject.transform.position = referenceTransform.position; 
             PlayerGameObject.transform.rotation = referenceTransform.rotation;
             caninteract = false;

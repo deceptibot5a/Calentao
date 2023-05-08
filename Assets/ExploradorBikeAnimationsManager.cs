@@ -8,9 +8,13 @@ public class ExploradorBikeAnimationsManager : MonoBehaviour
 {
     public Transform LeftMediumTransform;
     public Transform LeftFinalTransform;
+    public Transform CameraFinalPosition;
     public GameObject playerMesh;
+    public GameObject BikeCamera;
     public hoverCraft hoverCraft;
     public hoverCraftTilt hoverCraftTilt; 
+    
+    public float lerpSpeed = 1f;
 
     public void BikeLeftFinalTransform()
     {
@@ -20,10 +24,14 @@ public class ExploradorBikeAnimationsManager : MonoBehaviour
     private IEnumerator DoBikeLeftFinalTransform()
     {
         yield return new WaitForSeconds(0.1f); // Espera 0.1 segundos antes de hacer la transformación
-        hoverCraft.enabled = true;
-        hoverCraftTilt.enabled = true; 
+       
         playerMesh.transform.position = LeftFinalTransform.position; 
         playerMesh.transform.rotation = LeftFinalTransform.rotation;
+        BikeCamera.transform.position = CameraFinalPosition.position; 
+        BikeCamera.transform.rotation = CameraFinalPosition.rotation;
+   
+        hoverCraft.enabled = true;
+        hoverCraftTilt.enabled = true; 
     }
     
     public void BikeLeftMediumTransform()
