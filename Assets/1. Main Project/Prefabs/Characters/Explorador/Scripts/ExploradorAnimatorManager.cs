@@ -12,7 +12,7 @@ public class ExploradorAnimatorManager : MonoBehaviour
     public GameObject cameraStandPosition;
     public GameObject cameraFallingPosition;
     public ExploradorPlayerController playerController;
-    public float smoothness = 10; 
+    public float smoothness = 10;
 
     void Start()
     {
@@ -20,6 +20,8 @@ public class ExploradorAnimatorManager : MonoBehaviour
         lastPosition = this.transform.position;
         playerController = GetComponentInParent<ExploradorPlayerController>();
     }
+    
+
 
     void Update()
     {
