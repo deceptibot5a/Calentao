@@ -19,6 +19,7 @@ public class BikeUpManager : MonoBehaviour
     public SkinnedMeshRenderer meshRenderer;
     public GameObject PlayerController; 
     public GameObject PlayerCamera;
+    public Transform CameraTransform; 
     public CinemachineBrain cinemachineBrain;
     public Animator PlayerAnimator; 
     
@@ -65,6 +66,7 @@ public class BikeUpManager : MonoBehaviour
         {
             
             caninteract = false; 
+            bikeRigidBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
             fadeManager.DOFade(1f, 1f);
             exploradorAnimatorManager.enabled = false;
             exploradorPlayerController.enabled = false;
@@ -138,7 +140,8 @@ public class BikeUpManager : MonoBehaviour
             yield return null;
         }
         thirdAudioSource.volume = endVolume;
-
+        PlayerCamera.transform.position = CameraTransform.position;
+        PlayerCamera.transform.rotation = CameraTransform.rotation;
         bikeCamera.SetActive(false);
         PlayerCamera.SetActive(true);
         PlayerBikeAnimation.SetActive(false);
@@ -147,15 +150,19 @@ public class BikeUpManager : MonoBehaviour
         PlayerController.transform.rotation = exitPositionRight.rotation; 
         yield return new WaitForSeconds(0.2f);
         PlayerAnimator.SetBool("IsErect", false);
-        fadeManager.DOFade(0f, 1f);
         exploradorAnimatorManager.enabled = true;
         exploradorPlayerController.enabled = true;
         ExploradorCameraManager.enabled = true;
         characterController.enabled = true;
-        PlayerController.transform.parent = null; 
-        
-        
-        
+        PlayerController.transform.parent = null;
+        bikeRigidBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        yield return new WaitForSeconds(0.5f);
+        fadeManager.DOFade(0f, 1f);
+        PlayerCamera.transform.position = CameraTransform.position;
+        PlayerCamera.transform.rotation = CameraTransform.rotation;
+
+
+
 
     }
         private IEnumerator FadePlayerAudios()
@@ -230,6 +237,7 @@ public class BikeUpManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             PlayerBikeAnimation.SetActive(true);
             yield return new WaitForSeconds(1f);
+            bikeRigidBody.constraints = RigidbodyConstraints.None; 
             Debug.Log("MeshHide");
             meshRenderer.enabled = false; 
             fadeManager.DOFade(0f, 1f);

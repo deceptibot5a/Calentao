@@ -5,7 +5,7 @@ using Cinemachine;
 
 namespace AlekGames.HoverCraftSystem.Systems.Main
 {
-    [RequireComponent(typeof(Rigidbody))]
+
     public class hoverCraft : MonoBehaviour
     {
 
