@@ -30,7 +30,8 @@ public class BikeUpManager : MonoBehaviour
     public hoverCraft hoverCraft;
     public hoverCraftTilt hoverCraftTilt;
     public GameObject HoverBikeParent; 
-    public GameObject bikeCamera; 
+    public GameObject bikeCamera;
+    public GameObject PlayerBikeAnimation; 
    
     private void OnTriggerEnter(Collider other) 
     { 
@@ -121,14 +122,17 @@ public class BikeUpManager : MonoBehaviour
             _runAudioSource.volume = endVolume;
             
             yield return new WaitForSeconds(1f);
-            Debug.Log("AudiosFades");
+           
+           
             
         }
         
         private IEnumerator HoverBikeStart()
         
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
+            PlayerBikeAnimation.SetActive(true);
+            yield return new WaitForSeconds(1f);
             Debug.Log("MeshHide");
             meshRenderer.enabled = false; 
             fadeManager.DOFade(0f, 1f);
