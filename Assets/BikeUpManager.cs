@@ -1,23 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using AlekGames.HoverCraftSystem.Systems.Addons;
+using AlekGames.HoverCraftSystem.Systems.Main;
 using UnityEngine;
 using DG.Tweening;
+using Cinemachine; 
 
 public class BikeUpManager : MonoBehaviour
 {
+    [Header("Player Scripts & References")]
     public bool caninteract = false;
     public CanvasGroup fadeManager;
     public ExploradorPlayerController exploradorPlayerController;
     public ExploradorAnimatorManager exploradorAnimatorManager;
     public ExploradorCameraManager ExploradorCameraManager;
     public CharacterController characterController;
-    public SkinnedMeshRenderer meshRenderer; 
+    public SkinnedMeshRenderer meshRenderer;
+    public GameObject PlayerController; 
+    public GameObject PlayerCamera;
+    public CinemachineBrain cinemachineBrain; 
     
+    [Header("Audios")]
     public AudioSource _walkAudioSource;
     public AudioSource _runAudioSource;
     public  AudioSource _breathingNormalAudioSource;
     public  AudioSource _breathingRunAudioSource;
 
+    [Header("Bike Scripts")] 
+    public hoverCraft hoverCraft;
+    public hoverCraftTilt hoverCraftTilt;
+    public GameObject HoverBikeParent; 
+    public GameObject bikeCamera; 
    
     private void OnTriggerEnter(Collider other) 
     { 
@@ -42,10 +55,10 @@ public class BikeUpManager : MonoBehaviour
             exploradorPlayerController.enabled = false;
             ExploradorCameraManager.enabled = false;
             characterController.enabled = false;
-            meshRenderer.enabled = false; 
-            
+            cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
             
             StartCoroutine(FadeAudios());
+            StartCoroutine(HoverBikeStart());
             
         } 
     }
@@ -106,5 +119,26 @@ public class BikeUpManager : MonoBehaviour
                 yield return null;
             }
             _runAudioSource.volume = endVolume;
+            
+            yield return new WaitForSeconds(1f);
+            Debug.Log("AudiosFades");
+            
         }
+        
+        private IEnumerator HoverBikeStart()
+        
+        {
+            yield return new WaitForSeconds(2f);
+            Debug.Log("MeshHide");
+            meshRenderer.enabled = false; 
+            fadeManager.DOFade(0f, 1f);
+            hoverCraft.enabled = true;
+            hoverCraftTilt.enabled = true;
+            bikeCamera.SetActive(true);
+            PlayerCamera.SetActive(false);
+            PlayerController.transform.parent = HoverBikeParent.transform; 
+
+        }
+        
+        
 }
