@@ -199,6 +199,7 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
 
         private void Update()
         {
+       
             gatherInput();
             reCalculateInputs();
             calculateThrusts();
