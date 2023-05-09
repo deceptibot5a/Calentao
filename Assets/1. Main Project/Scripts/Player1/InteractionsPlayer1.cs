@@ -86,7 +86,7 @@ public class InteractionsPlayer1 : MonoBehaviour
             audioSource.volume = 0;
         }
 
-        activecamera.m_Priority = 10;
+        activecamera.m_Priority = 16;
         
         animator.SetBool("IsErect", true);
         
