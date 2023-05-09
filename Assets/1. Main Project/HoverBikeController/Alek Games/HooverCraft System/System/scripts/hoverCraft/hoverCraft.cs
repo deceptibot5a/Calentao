@@ -329,6 +329,9 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
         }
         private void OnEnable()
         {
+            fadingOut = false;
+            fadingIn = false;
+            accelerationSoundStopped = false; 
             forwardSpeed = 5000; 
             idleAudioSource.volume = 1f; 
             StartCoroutine(StartEngineSounds()); 

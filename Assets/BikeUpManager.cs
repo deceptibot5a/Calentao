@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using AlekGames.HoverCraftSystem.Systems.Addons;
 using AlekGames.HoverCraftSystem.Systems.Main;
 using UnityEngine;
 using DG.Tweening;
-using Cinemachine; 
+using Cinemachine;
+using Animator = UnityEngine.Animator;
 
 public class BikeUpManager : MonoBehaviour
 {
@@ -36,7 +38,7 @@ public class BikeUpManager : MonoBehaviour
     public hoverCraftTilt hoverCraftTilt;
     public GameObject HoverBikeParent; 
     public GameObject bikeCamera;
-    public GameObject PlayerBikeAnimation;
+    public SkinnedMeshRenderer PlayerBikeAnimation;
     public Rigidbody bikeRigidBody; 
     public Transform exitPositionRight;
     public ParticleSystem speedLinesParticles; 
@@ -46,6 +48,32 @@ public class BikeUpManager : MonoBehaviour
     public AudioSource idleAudioSource;
     public AudioSource accelerationSound; 
     public  AudioSource thirdAudioSource;
+
+
+    private void Start()
+    {
+     
+            StartCoroutine(AssignBikeRecourses());
+       
+    }
+
+    IEnumerator AssignBikeRecourses()
+    {
+        yield return new WaitForSeconds(1f);
+        hoverCraft = GameObject.Find("HoverBikeController").GetComponentInChildren<hoverCraft>();
+        hoverCraftTilt = GameObject.Find("HoverBikeController").GetComponentInChildren<hoverCraftTilt>();
+        HoverBikeParent = GameObject.Find("BikeMesh");
+        bikeCamera = GameObject.Find("BikeCamera");
+        bikeRigidBody = GameObject.Find("HoverBikeController").GetComponentInChildren<Rigidbody>();
+        exitPositionRight = transform.Find("ExitPositionRight");
+        PlayerBikeAnimation = GameObject.Find("ExploradorBikeMesh").GetComponent<SkinnedMeshRenderer>();
+        exitPositionRight = GameObject.Find("ExitPositionRight").GetComponent<Transform>();
+        speedLinesParticles = GameObject.Find("SpeedLinesParticleSystem").GetComponent<ParticleSystem>();
+        idleAudioSource = GameObject.Find("IdleBikeSound").GetComponent<AudioSource>();
+        accelerationSound = GameObject.Find("AccelerationBikeSound").GetComponent<AudioSource>();
+        thirdAudioSource = GameObject.Find("FullAccelerationBikeSound").GetComponent<AudioSource>();
+        
+    }
 
     private void OnTriggerEnter(Collider other) 
     { 
@@ -144,7 +172,7 @@ public class BikeUpManager : MonoBehaviour
         PlayerCamera.transform.rotation = CameraTransform.rotation;
         bikeCamera.SetActive(false);
         PlayerCamera.SetActive(true);
-        PlayerBikeAnimation.SetActive(false);
+        PlayerBikeAnimation.enabled = false; 
         meshRenderer.enabled = true;
         PlayerController.transform.position = exitPositionRight.position;
         PlayerController.transform.rotation = exitPositionRight.rotation; 
@@ -235,7 +263,7 @@ public class BikeUpManager : MonoBehaviour
         
         {
             yield return new WaitForSeconds(1f);
-            PlayerBikeAnimation.SetActive(true);
+            PlayerBikeAnimation.enabled = true; 
             yield return new WaitForSeconds(1f);
             bikeRigidBody.constraints = RigidbodyConstraints.None; 
             Debug.Log("MeshHide");
