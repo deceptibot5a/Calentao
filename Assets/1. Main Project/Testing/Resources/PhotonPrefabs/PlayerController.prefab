@@ -1289,6 +1289,7 @@ GameObject:
   - component: {fileID: 4022412830155659339}
   - component: {fileID: 2714940263586386556}
   - component: {fileID: 2979100093754163745}
+  - component: {fileID: 5278719819798320828}
   - component: {fileID: 7398659797048037303}
   m_Layer: 0
   m_Name: PlayerController
@@ -1807,6 +1808,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &5278719819798320828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4129994668011591165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3221ca5ba5d1c43a407095c0993785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
 --- !u!114 &7398659797048037303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2548,7 +2562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5607528399993842075}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1360002, z: 0.6879997}
+  m_LocalPosition: {x: 0.000056028366, y: 1.1360016, z: 0.68788946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
