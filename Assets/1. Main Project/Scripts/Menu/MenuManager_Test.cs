@@ -58,19 +58,11 @@ public class MenuManager_Test : MonoBehaviour
         Instance = this;
     }
 
-    public void OpenMenu(string menuName)
+    public void OpenMenu( )
     {
-        for (int i = 0; i < menus.Length; i++)
-        {
-            if (menus[i].menuName == menuName)
-            {
-                menus[i].Open();
-            }
-            else if (menus[i].open)
-            {
-                CloseMenu(menus[i]);
-            }
-        }
+        
+        
+        
     }
 
     public void OpenMenu(Menu_test menu)
@@ -89,7 +81,10 @@ public class MenuManager_Test : MonoBehaviour
     {
         menu.Close();
     }
-
+    
+    
+    
+    //SELECECCION DE PERSONAJES **NO TOCAR**
     [PunRPC]
     public void Player1Selected()
     {
@@ -103,8 +98,6 @@ public class MenuManager_Test : MonoBehaviour
         photonView.RPC("DisablePlayer1", RpcTarget.All);
         player2Button.onClick.RemoveAllListeners();
     }
-    
-   
     
     [PunRPC]
     public void UpdatePlayersSelected(int newPlayersSelected)
@@ -125,9 +118,8 @@ public class MenuManager_Test : MonoBehaviour
             player2Button.interactable = false;
             photonView.RPC("DisablePlayer2", RpcTarget.All);
             player1Button.onClick.RemoveAllListeners();
-        
     }
-
+    
     [PunRPC]
     public void ResetSelection()
     {
