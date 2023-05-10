@@ -6,7 +6,7 @@ using AlekGames.HoverCraftSystem.Systems.Main;
 using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
-using Animator = UnityEngine.Animator;
+using Photon.Pun;
 
 public class BikeUpManager : MonoBehaviour
 {
@@ -49,6 +49,15 @@ public class BikeUpManager : MonoBehaviour
     public AudioSource accelerationSound; 
     public  AudioSource thirdAudioSource;
 
+    PhotonView PV;
+
+    
+    void Awake()
+
+    {
+        PV = GetComponent<PhotonView>();
+
+    }
 
     private void Start()
     {
@@ -79,17 +88,26 @@ public class BikeUpManager : MonoBehaviour
     { 
         if (other.gameObject.CompareTag("BikeUp"))
         {
-            Debug.Log("hola");
-            caninteract = true; 
-            
-
+            Debug.Log("Puede subirse a la moto ");
+            caninteract = true;
         }
     }
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("BikeUp"))
+        {
+            Debug.Log("No puede subirse a la moto");
+            caninteract = false; 
+       
+        }
+    }
 
     
     void Update()
     {
+        if(!PV.IsMine)
+            return;
         if (Input.GetKeyDown(KeyCode.E) && (caninteract))
         {
             

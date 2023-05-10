@@ -11,6 +11,7 @@ public class ExploradorPlayerController : MonoBehaviour
 
     CharacterController CharacterController;
     [SerializeField] private GameObject virtualCam;
+    [SerializeField] private GameObject cinemachineBrain;
 
     public bool CanControl;
     public bool UseGravity;
@@ -60,6 +61,7 @@ private void Start()
     if (!PV.IsMine)
     {
         virtualCam.SetActive(false);
+        cinemachineBrain.SetActive(false);
 
     }
 }
