@@ -16,7 +16,8 @@ public class EventsBomb : MonoBehaviour
     public GameObject bombCamera; 
     
     public Transform ExploradorOriginalPosition;
-    public GameObject exploradorCurrentPosition; 
+    public GameObject exploradorCurrentPosition;
+    public GameObject Bomb01GameObject; 
  
     public void PlantFinish()
     {
@@ -33,8 +34,24 @@ public class EventsBomb : MonoBehaviour
         characterController.enabled = true;
         animator.SetBool("Planting", false);
         
+        Bomb01GameObject.transform.parent = null; 
+        
         StartCoroutine(ExploradorOriginalPositionCorrutine()); 
        
+    }
+    
+    public void SpawnBomb()
+    
+    {
+        Bomb01GameObject.SetActive(true);
+       
+    }
+    
+    public void BombMeshParent()
+
+    {
+       
+
     }
     
     private IEnumerator ExploradorOriginalPositionCorrutine()

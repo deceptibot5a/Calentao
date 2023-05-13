@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlantBombManager : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class PlantBombManager : MonoBehaviour
     public AudioSource _runAudioSource;
     public  AudioSource _breathingNormalAudioSource;
     public  AudioSource _breathingRunAudioSource;
+
+    public GameObject Bomb01GameObject;
+    public GameObject bombReferencePosition;
+    public GameObject handParent;
+    
+    PhotonView PV;
     
     
     private void OnTriggerEnter(Collider other) 
@@ -34,6 +41,14 @@ public class PlantBombManager : MonoBehaviour
             canPlant = true; 
 
         }
+    }
+    
+    
+    void Awake()
+
+    {
+        PV = GetComponent<PhotonView>();
+
     }
     
     private IEnumerator FadePlayerAudios()
@@ -111,6 +126,8 @@ public class PlantBombManager : MonoBehaviour
     }
     void Update()
     {
+        if(!PV.IsMine)
+            return;
         if (canPlant)
         {
             if (Input.GetKey(KeyCode.E))
@@ -130,8 +147,11 @@ public class PlantBombManager : MonoBehaviour
 
     void StartPlanting()
     {
+        
+        Bomb01GameObject.transform.parent = handParent.transform; 
         StartCoroutine(FadePlayerAudios());
-
+        Bomb01GameObject.transform.position = bombReferencePosition.transform.position; 
+        Bomb01GameObject.transform.rotation = bombReferencePosition.transform.rotation; 
         cameraMain.SetActive(false);
         bombCamera.SetActive(true);
         planting = true;
@@ -144,7 +164,8 @@ public class PlantBombManager : MonoBehaviour
 
     void CancelPlanting()
     {
-        
+        Bomb01GameObject.transform.parent = handParent.transform; 
+        Bomb01GameObject.SetActive(false);
         cameraMain.SetActive(true);
         bombCamera.SetActive(false);
         planting = false;
