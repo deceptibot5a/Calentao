@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using Photon.Pun;
 
@@ -17,6 +18,7 @@ public class PlantBombManager : MonoBehaviour
     public GameObject bombCamera;
 
 
+    public CinemachineBrain cinemachineBrain;
     public Transform ExploradorOriginalPosition;
     public GameObject exploradorCurrentPosition; 
     
@@ -147,8 +149,9 @@ public class PlantBombManager : MonoBehaviour
 
     void StartPlanting()
     {
-        
+        cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
         Bomb01GameObject.transform.parent = handParent.transform; 
+        Bomb01GameObject.SetActive(false);
         StartCoroutine(FadePlayerAudios());
         Bomb01GameObject.transform.position = bombReferencePosition.transform.position; 
         Bomb01GameObject.transform.rotation = bombReferencePosition.transform.rotation; 
