@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlantBombManager : MonoBehaviour
 {
     public Animator animator;
-    private bool planting;
-    private bool canPlant = false; 
+    public bool planting;
+    public bool canPlant = false; 
     public ExploradorPlayerController exploradorPlayerController;
     public ExploradorAnimatorManager exploradorAnimatorManager;
     public ExploradorCameraManager ExploradorCameraManager;
@@ -14,7 +14,7 @@ public class PlantBombManager : MonoBehaviour
 
     public GameObject cameraMain;
     public GameObject bombCamera;
-    public Transform cameraTransform;
+
 
     public Transform ExploradorOriginalPosition;
     public GameObject exploradorCurrentPosition; 
@@ -131,8 +131,7 @@ public class PlantBombManager : MonoBehaviour
     void StartPlanting()
     {
         StartCoroutine(FadePlayerAudios());
-        cameraMain.transform.position = cameraTransform.position; 
-        cameraMain.transform.rotation = cameraTransform.rotation; 
+
         cameraMain.SetActive(false);
         bombCamera.SetActive(true);
         planting = true;

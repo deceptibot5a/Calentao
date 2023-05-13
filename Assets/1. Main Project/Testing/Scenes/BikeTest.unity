@@ -650,6 +650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8032361025734982638}
+  planting: 0
+  canPlant: 0
   exploradorPlayerController: {fileID: 8038793759419985931}
   exploradorAnimatorManager: {fileID: 8032361025734982637}
   ExploradorCameraManager: {fileID: 8185775795635854548}
@@ -2392,6 +2394,7 @@ GameObject:
   - component: {fileID: 8032361025734982638}
   - component: {fileID: 8032361025734982637}
   - component: {fileID: 7488629548840372381}
+  - component: {fileID: 8032361025734982639}
   m_Layer: 0
   m_Name: ExploradorFINALv1
   m_TagString: Untagged
@@ -3786,6 +3789,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8032361025734982639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662360754200099630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75913c8de471faf4fa05db012b866688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8032361025734982638}
+  exploradorPlayerController: {fileID: 8038793759419985931}
+  exploradorAnimatorManager: {fileID: 8032361025734982637}
+  ExploradorCameraManager: {fileID: 8185775795635854548}
+  characterController: {fileID: 8038793759419985940}
+  plantBombManager: {fileID: 183414038868515540}
+  areaPlant01: {fileID: 385476570}
+  cameraMain: {fileID: 8185775795635854550}
+  bombCamera: {fileID: 8653112861753983411}
+  ExploradorOriginalPosition: {fileID: 781653074}
+  exploradorCurrentPosition: {fileID: 3662360754200099630}
 --- !u!114 &8038793759419985931
 MonoBehaviour:
   m_ObjectHideFlags: 0
