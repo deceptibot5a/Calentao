@@ -24,6 +24,8 @@ public class BikeUpManager : MonoBehaviour
     public Transform CameraTransform; 
     public CinemachineBrain cinemachineBrain;
     public Animator PlayerAnimator; 
+    public Transform ExploradorOriginalPosition;
+    public GameObject exploradorCurrentPosition;
     
     [Header("Player Audios")]
     public AudioSource _walkAudioSource;
@@ -204,6 +206,8 @@ public class BikeUpManager : MonoBehaviour
         bikeRigidBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         yield return new WaitForSeconds(0.5f);
         fadeManager.DOFade(0f, 1f);
+        exploradorCurrentPosition.transform.position = ExploradorOriginalPosition.transform.position; 
+        exploradorCurrentPosition.transform.rotation = ExploradorOriginalPosition.transform.rotation;
         PlayerCamera.transform.position = CameraTransform.position;
         PlayerCamera.transform.rotation = CameraTransform.rotation;
 
