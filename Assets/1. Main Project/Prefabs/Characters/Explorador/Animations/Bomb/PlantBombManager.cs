@@ -13,7 +13,11 @@ public class PlantBombManager : MonoBehaviour
     public CharacterController characterController;
 
     public GameObject cameraMain;
-    public GameObject bombCamera; 
+    public GameObject bombCamera;
+    public Transform cameraTransform;
+
+    public Transform ExploradorOriginalPosition;
+    public GameObject exploradorCurrentPosition; 
     
     [Header("Player Audios")]
     public AudioSource _walkAudioSource;
@@ -127,13 +131,14 @@ public class PlantBombManager : MonoBehaviour
     void StartPlanting()
     {
         StartCoroutine(FadePlayerAudios());
+        cameraMain.transform.position = cameraTransform.position; 
+        cameraMain.transform.rotation = cameraTransform.rotation; 
         cameraMain.SetActive(false);
         bombCamera.SetActive(true);
         planting = true;
         exploradorAnimatorManager.enabled = false;
         exploradorPlayerController.enabled = false;
         ExploradorCameraManager.enabled = false;
-        characterController.enabled = false;
         animator.SetBool("Planting", true);
       
     }
@@ -147,8 +152,21 @@ public class PlantBombManager : MonoBehaviour
         exploradorAnimatorManager.enabled = true;
         exploradorPlayerController.enabled = true;
         ExploradorCameraManager.enabled = true;
-        characterController.enabled = true;
+       
+        
         animator.SetBool("Planting", false);
+        StartCoroutine(ExploradorOriginalPositionCorrutine()); 
         // Aquí puedes agregar el código para detener la lógica de la bomba
     }
+    
+    private IEnumerator ExploradorOriginalPositionCorrutine()
+    {
+
+        yield return new WaitForSeconds(0.5f); 
+        Debug.Log("Position Original");
+        exploradorCurrentPosition.transform.position = ExploradorOriginalPosition.transform.position; 
+        exploradorCurrentPosition.transform.rotation = ExploradorOriginalPosition.transform.rotation;
+
+    }
+    
 }
