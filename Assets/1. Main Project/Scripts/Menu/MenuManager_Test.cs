@@ -38,6 +38,8 @@ public class MenuManager_Test : MonoBehaviour
     [SerializeField] private GameObject loadingBackground;
     [SerializeField] private GameObject findRoomsScreen;
     [SerializeField] private GameObject createRoomScreen;
+    [SerializeField] private GameObject roomScreen;
+    [SerializeField] private GameObject exploradorButton, guiaButton;
     
     private void Start()
     {
@@ -111,9 +113,7 @@ public class MenuManager_Test : MonoBehaviour
         LeanTween.move(contractImage.GetComponent<RectTransform>(),new Vector3(0,0,0) , 0.3f).setEase(LeanTweenType.easeInSine);
         CloseLoadingScreen();
     }
-
     
-
     public void OpenMainMenu()
     {
         LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 1f, 0.6f);
@@ -145,6 +145,13 @@ public class MenuManager_Test : MonoBehaviour
         LeanTween.alphaCanvas(createRoomScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
     }
     
+    public void OpenRoom()
+    {
+        CloseLoadingScreen();
+        CloseCreateRooms();
+        LeanTween.alphaCanvas(roomScreen.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+    }
+    
     
     public void CloseContract()
     {
@@ -155,14 +162,17 @@ public class MenuManager_Test : MonoBehaviour
     public void OpenLoadingScreen()
     {
         loadingBackground.GetComponent<Image>().raycastTarget = true;
-        LeanTween.alpha(loadingScreen.GetComponent<RectTransform>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.alphaCanvas(loadingScreen.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
     }
     public void CloseLoadingScreen()
     {
         loadingBackground.GetComponent<Image>().raycastTarget = false;
-        LeanTween.alpha(loadingScreen.GetComponent<RectTransform>(), 0f, 0.8f).setEase(LeanTweenType.easeInOutBack).setOnComplete(DeactivateLoadingScreen);
+        LeanTween.alphaCanvas(loadingScreen.GetComponent<CanvasGroup>(), 0f, 0.8f).setEase(LeanTweenType.easeInOutBack);
     }
 
+    
+    
+    
     public void BackToMainMenu()
     {
         OpenMainMenu();

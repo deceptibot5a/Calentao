@@ -61,13 +61,15 @@ public class Launcher : MonoBehaviourPunCallbacks
 
 		PhotonNetwork.CreateRoom(roomNameInputField.text, options);
 		MenuManager_Test.Instance.OpenLoadingScreen();
+		Debug.Log("La sala ha sido creada");
 		
 	}
 
 	public override void OnJoinedRoom()
 	{
 		
-		//MenuManager_Test.Instance.OpenFindRooms(); AQUI VA ES EL CUARTO DONDE SE ESCOGEN PERSONAJESSSSSS
+		MenuManager_Test.Instance.OpenRoom();
+		
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
 		Player[] players = PhotonNetwork.PlayerList;
