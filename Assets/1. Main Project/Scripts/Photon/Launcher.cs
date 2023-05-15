@@ -44,7 +44,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 
 	public override void OnJoinedLobby()
 	{
-		//MenuManager_Test.Instance.OpenMenu("WelcomeMenu");
 		MenuManager_Test.Instance.CloseLoadingScreen();
 		Debug.Log("Joined Lobby");
 	}
@@ -113,12 +112,12 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public void JoinRoom(RoomInfo info)
 	{
 		PhotonNetwork.JoinRoom(info.Name);
-		//MenuManager_Test.Instance.OpenMenu("Loading");
+		MenuManager_Test.Instance.OpenLoadingScreen();
 	}
 
 	public override void OnLeftRoom()
 	{
-		//MenuManager_Test.Instance.OpenMenu("Title");
+		MenuManager_Test.Instance.OpenMainMenu();
 		cachedRoomList.Clear();
 	}
 

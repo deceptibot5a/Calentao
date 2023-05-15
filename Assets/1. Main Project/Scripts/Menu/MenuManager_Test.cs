@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,7 +40,9 @@ public class MenuManager_Test : MonoBehaviour
     [SerializeField] private GameObject findRoomsScreen;
     [SerializeField] private GameObject createRoomScreen;
     [SerializeField] private GameObject roomScreen;
+    [SerializeField] private GameObject nombreJugador;
     [SerializeField] private GameObject exploradorButton, guiaButton;
+    [SerializeField] private GameObject startGameButton;
     
     private void Start()
     {
@@ -51,27 +54,18 @@ public class MenuManager_Test : MonoBehaviour
     {
         if (playersSelected == (int)jugadoresMinimos)
         {
-            playersReadyToStart = true;
+           LeanTween.move(startGameButton.GetComponent<RectTransform>(),new Vector3(0,0,0) , 0.3f).setEase(LeanTweenType.easeInOutBack);
         }
         else
         {
-            playersReadyToStart = false;
+            LeanTween.move(startGameButton.GetComponent<RectTransform>(),new Vector3(0,-400,0) , 0.3f).setEase(LeanTweenType.easeInOutBack);
         }
         
-        if (playersReadyToStart == true)
-        {
-            startButton.interactable = true;
-        }
-        else if (playersReadyToStart == false)
-        {
-            startButton.interactable = false;
-        }
     }
 
     private void Awake()
     {
         Instance = this;
-        
     }
 
     /*
@@ -135,21 +129,27 @@ public class MenuManager_Test : MonoBehaviour
     
     public void OpenCreateRooms()
     {
-        HideButtons();
+        //HideButtons();
         CloseMainMenu();
         LeanTween.alphaCanvas(createRoomScreen.GetComponent<CanvasGroup>(), 1f, 0.3f);
     }
     public void CloseCreateRooms()
     {
-        OpenMainMenu();
         LeanTween.alphaCanvas(createRoomScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
     }
-    
+
     public void OpenRoom()
     {
         CloseLoadingScreen();
         CloseCreateRooms();
+        LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(roomScreen.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.alphaCanvas(nombreJugador.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+    }
+
+    public void CloseRoom()
+    {
+        LeanTween.alphaCanvas(roomScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
     }
     
     
@@ -175,18 +175,17 @@ public class MenuManager_Test : MonoBehaviour
     
     public void BackToMainMenu()
     {
+        LeanTween.alphaCanvas(nombreJugador.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
         OpenMainMenu();
+        CloseRoom();
         CloseFindRooms();
         CloseContract();
+        CloseCreateRooms();
     }
+
+
     
-    public void HideButtons()
-    {
-        LeanTween.moveX(createRoomButton.GetComponent<RectTransform>(), 20, 0.3f);
-        LeanTween.moveX(findRoomButton.GetComponent<RectTransform>(), -20, 0.3f);
-        //LeanTween.scale(createRoomButton.GetComponent<RectTransform>(), new Vector3(0,1.10475f,0), 0.2f);
-        //LeanTween.scale(findRoomButton.GetComponent<RectTransform>(), new Vector3(0,1.10475f,0), 0.2f);
-    }
+
     
     public void DeactivateLoadingScreen()
     {
@@ -204,28 +203,13 @@ public class MenuManager_Test : MonoBehaviour
      
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     [PunRPC]
     public void Player1Selected()
     {
         player1.GetComponent<Image>().color = Color.green;
-        //Destroy(player2);
         player1Selected = true;
         playersSelected++;
         photonView.RPC("UpdatePlayersSelected", RpcTarget.All, playersSelected);
@@ -246,7 +230,6 @@ public class MenuManager_Test : MonoBehaviour
     {
        
             player2.GetComponent<Image>().color = Color.green;
-            //Destroy(player1);
             player2Selected = true;
             playersSelected++;
             photonView.RPC("UpdatePlayersSelected", RpcTarget.All, playersSelected);
