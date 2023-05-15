@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3017342493752341141}
   - component: {fileID: 2193282257454873904}
   - component: {fileID: 4149202696027720186}
+  - component: {fileID: 5877218685314085600}
+  - component: {fileID: 7439953406898433593}
   m_Layer: 0
   m_Name: hongo liso grande
   m_TagString: Untagged
@@ -84,3 +86,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5877218685314085600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491635934668056623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7024946, y: 2.2826157, z: 4.8215265}
+  m_Center: {x: 0.16463214, y: 4.031717, z: 0.11628005}
+--- !u!65 &7439953406898433593
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491635934668056623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5189638, y: 2.8580015, z: 1.3784791}
+  m_Center: {x: 0.023490207, y: 1.4424273, z: 0.2723207}

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4664238680942809748}
   - component: {fileID: 8580887584760438065}
   - component: {fileID: 5832610678969756155}
+  - component: {fileID: 116371940883796823}
+  - component: {fileID: 5676274963353651242}
   m_Layer: 0
   m_Name: HongoPuntos
   m_TagString: Untagged
@@ -87,3 +89,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &116371940883796823
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472266015587682350}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2452755, y: 1.5486933, z: 3.194305}
+  m_Center: {x: 0.09718312, y: 4.612758, z: 0.1820608}
+--- !u!65 &5676274963353651242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472266015587682350}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.353739, y: 3.8708167, z: 1.3894696}
+  m_Center: {x: 0.14534493, y: 1.8929266, z: 0.1138095}

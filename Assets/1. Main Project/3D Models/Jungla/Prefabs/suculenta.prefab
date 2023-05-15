@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2032848126079194941}
   - component: {fileID: 3141818247839209624}
   - component: {fileID: 899888991193214034}
+  - component: {fileID: 1503481602085706365}
+  - component: {fileID: 8589430361864164828}
   m_Layer: 0
   m_Name: suculenta
   m_TagString: Untagged
@@ -83,3 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1503481602085706365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692773146458099079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.6667385, y: 11.123544, z: 13.891606}
+  m_Center: {x: 0.41749763, y: 4.7291293, z: 0.83680487}
+--- !u!65 &8589430361864164828
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692773146458099079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.860282, y: 5.356399, z: 2.9451418}
+  m_Center: {x: -0.43103075, y: 3.2003567, z: -7.6062493}

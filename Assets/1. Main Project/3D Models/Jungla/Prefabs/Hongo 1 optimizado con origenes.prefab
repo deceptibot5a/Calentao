@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6073863341391714362}
   - component: {fileID: 6020150422748996153}
   - component: {fileID: 160416996940750548}
+  - component: {fileID: 4960981693740560334}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4960981693740560334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032763360238510452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.2518964, y: 7.4827604, z: 6.200638}
+  m_Center: {x: 1.3059689, y: -0.3150753, z: 0.16812074}
 --- !u!1 &2082052801227800927
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1706652402238233573}
+  - component: {fileID: 3332829164449377315}
   m_Layer: 0
   m_Name: Hongo 1 optimizado con origenes
   m_TagString: Untagged
@@ -118,6 +133,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3332829164449377315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082052801227800927}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7626686, y: 9.1855345, z: 2.2651076}
+  m_Center: {x: -0.04411632, y: 4.092769, z: -0.06810689}
 --- !u!1 &2494059287677792782
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +157,7 @@ GameObject:
   - component: {fileID: 5485159660220606015}
   - component: {fileID: 6511619843244753995}
   - component: {fileID: 8346891492193127121}
+  - component: {fileID: 4496126630015405414}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -201,6 +230,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4496126630015405414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494059287677792782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.187463, y: 1.1383176, z: 12.018}
+  m_Center: {x: 0.0007867813, y: 2.5261943, z: -0.16657543}
 --- !u!1 &8080057604081946710
 GameObject:
   m_ObjectHideFlags: 0

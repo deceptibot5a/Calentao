@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7423447303570725418}
   - component: {fileID: 6456902567192971771}
   - component: {fileID: 4423193296439430914}
+  - component: {fileID: 1840776875160144871}
+  - component: {fileID: 2022258091620655088}
   m_Layer: 0
   m_Name: Hongo_con_plataforma1
   m_TagString: Untagged
@@ -83,6 +85,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1840776875160144871
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247174744954441651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09464325, y: 0.095643595, z: 0.085823126}
+  m_Center: {x: 0.0005265128, y: 0.023751786, z: -0.00022111926}
+--- !u!65 &2022258091620655088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247174744954441651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.010518548, y: 0.07312821, z: 0.011223987}
+  m_Center: {x: 0.0002940382, y: -0.060242094, z: -0.00062140176}
 --- !u!1 &8154485996406862386
 GameObject:
   m_ObjectHideFlags: 0

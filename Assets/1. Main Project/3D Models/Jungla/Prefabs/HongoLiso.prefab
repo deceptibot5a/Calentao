@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8391690222164870352}
   - component: {fileID: 4889394474231171957}
   - component: {fileID: 7223326401621819327}
+  - component: {fileID: 5848778783493866223}
+  - component: {fileID: 3040826762155486385}
   m_Layer: 0
   m_Name: HongoLiso
   m_TagString: Untagged
@@ -84,3 +86,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5848778783493866223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168930162596765290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7570667, y: 2.193735, z: 4.765944}
+  m_Center: {x: 0.13734597, y: 4.0645957, z: 0.12819114}
+--- !u!65 &3040826762155486385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168930162596765290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7024946, y: 3.0148954, z: 1.4122189}
+  m_Center: {x: 0.16463202, y: 1.4844722, z: 0.19821487}
