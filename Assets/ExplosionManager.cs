@@ -8,7 +8,12 @@ public class ExplosionManager : MonoBehaviour
 {
     public GameObject originalWall;
     public GameObject fracturedWall;
-    public GameObject explosionVFX; 
+    public GameObject explosionVFX;
+
+    public MeshRenderer bombMeshRenderer; 
+    
+
+    public Material targetMaterial; 
    //public GameObject rock;
     public bool CantExplode = true;
     public float fragScaleFactor = 1; 
@@ -22,6 +27,7 @@ public class ExplosionManager : MonoBehaviour
             originalWall.SetActive(false);
             fracturedWall.SetActive(true);
             explosionVFX.SetActive(true);
+            bombMeshRenderer.enabled = false; 
             //rock.transform.parent = null; 
             CantExplode = true;
 
@@ -30,9 +36,14 @@ public class ExplosionManager : MonoBehaviour
     }
     IEnumerator Shrink ()
     {
+        targetMaterial.DOFade(1f, 0f); 
         yield return new WaitForSeconds(3f);
-        fracturedWall.transform.DOScale (new Vector3 (0f, 0f, 0f), 3f);
-        yield return new WaitForSeconds(1.5f);
+        targetMaterial.DOFade(0f, 2f); 
+        //fracturedWall.transform.DOScale (new Vector3 (0f, 0f, 0f), 3f);
+        yield return new WaitForSeconds(2f);
+        fracturedWall.SetActive(false);
+        
+       
         Debug.Log("Disabled");
 
         
