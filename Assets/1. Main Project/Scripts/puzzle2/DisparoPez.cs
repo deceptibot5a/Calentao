@@ -40,7 +40,7 @@ public class DisparoPez : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         preshotParticleSystem.Play();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         ShootFish();
         
