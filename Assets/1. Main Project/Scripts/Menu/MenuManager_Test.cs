@@ -107,6 +107,11 @@ public class MenuManager_Test : MonoBehaviour
         LeanTween.move(contractImage.GetComponent<RectTransform>(),new Vector3(0,0,0) , 0.3f).setEase(LeanTweenType.easeInSine);
         CloseLoadingScreen();
     }
+    public void CloseContract()
+    {
+        DeactiveBlackBackground();
+        LeanTween.move(contractImage.GetComponent<RectTransform>(),new Vector3(0,1000,0) , 0.4f).setEase(LeanTweenType.easeInOutBack);
+    }
     
     public void OpenMainMenu()
     {
@@ -152,13 +157,6 @@ public class MenuManager_Test : MonoBehaviour
         LeanTween.alphaCanvas(roomScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
     }
     
-    
-    public void CloseContract()
-    {
-        DeactiveBlackBackground();
-        LeanTween.move(contractImage.GetComponent<RectTransform>(),new Vector3(0,1000,0) , 0.4f).setEase(LeanTweenType.easeInOutBack);
-    }
-    
     public void OpenLoadingScreen()
     {
         loadingBackground.GetComponent<Image>().raycastTarget = true;
@@ -171,8 +169,6 @@ public class MenuManager_Test : MonoBehaviour
     }
 
     
-    
-    
     public void BackToMainMenu()
     {
         LeanTween.alphaCanvas(nombreJugador.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
@@ -182,10 +178,6 @@ public class MenuManager_Test : MonoBehaviour
         CloseContract();
         CloseCreateRooms();
     }
-
-
-    
-
     
     public void DeactivateLoadingScreen()
     {
