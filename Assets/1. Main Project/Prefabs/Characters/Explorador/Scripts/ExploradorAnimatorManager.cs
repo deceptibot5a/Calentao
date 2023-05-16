@@ -20,8 +20,6 @@ public class ExploradorAnimatorManager : MonoBehaviour
         lastPosition = this.transform.position;
         playerController = GetComponentInParent<ExploradorPlayerController>();
     }
-    
-    
 
     void Update()
     {

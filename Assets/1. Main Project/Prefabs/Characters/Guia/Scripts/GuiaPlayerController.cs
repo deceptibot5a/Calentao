@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine.UI;
 using UnityEngine;
 using Photon.Pun;
@@ -12,7 +11,6 @@ public class GuiaPlayerController : MonoBehaviour
 
     CharacterController CharacterController;
     [SerializeField] private GameObject virtualCam;
-    [SerializeField] private GameObject cinemachineBrain;
 
     public bool CanControl;
     public bool UseGravity;
@@ -58,7 +56,6 @@ private void Start()
     if (!PV.IsMine)
     {
         virtualCam.SetActive(false);
-        cinemachineBrain.SetActive(false);
 
     }
 }
