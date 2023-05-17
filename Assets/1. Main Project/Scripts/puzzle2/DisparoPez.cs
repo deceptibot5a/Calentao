@@ -42,27 +42,27 @@ public class DisparoPez : MonoBehaviour
         preshotParticleSystem.Play();
         yield return new WaitForSeconds(3f);
 
-        ShootFish();
-        
+        ShootFish(); 
+        //LeanTween.rotateLocal(fishPrefab, new Vector3(-90f, 0, 0), 2.2f).setEaseInQuad(); .setEaseInOutQuart()
 
         canShoot = true;
     }
 
     private void ShootFish()
     {
-        LeanTween.moveLocalY(fishPrefab, 6.5f, 1.2f).setEaseInOutQuart().setOnComplete(ReturnToWater);
+        LeanTween.moveY(fishPrefab, 18f, 1.2f).setEaseInOutQuart().setOnComplete(ReturnToWater);
         
     }
 
     private void ReturnToWater()
     {
-        LeanTween.moveLocalY(fishPrefab, -8f, 1.8f).setEaseOutSine().setOnComplete(RestartRotationX);
-        LeanTween.rotateLocal(fishPrefab, new Vector3(-90f, 0, 0), 0.6f).setEaseInQuad();
+        LeanTween.rotateLocal(fishPrefab, new Vector3(-90f, 0, 0), 0.8f).setEaseInQuad();
+        LeanTween.moveY(fishPrefab, -8f, 1.2f).setEaseInOutQuart().setOnComplete(RestartRotationX);
         preshotParticleSystem.Stop();
     }
     public void RestartRotationX()
     {
-        LeanTween.rotateLocal(fishPrefab, new Vector3(90f, 0, 0), 0.2f);
+        LeanTween.rotateLocal(fishPrefab, new Vector3(90f, -89.603f, -1.024994f), 0.2f);
     }
     
 }
