@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SafeZone : MonoBehaviour
 {
-    public EnemyController enemyController; // Asigna el objeto EnemyController en el Inspector
+    /*public EnemyController enemyController; // Asigna el objeto EnemyController en el Inspector
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +24,6 @@ public class SafeZone : MonoBehaviour
             enemyController.playerInSafeZone = false; // Establece que el jugador ya no está en una zona segura
             Debug.Log("Player left safe zone");
         }
-    }
+    }*/
 }
 

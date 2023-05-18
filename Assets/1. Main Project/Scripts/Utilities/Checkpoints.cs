@@ -9,8 +9,6 @@ public class Checkpoints : MonoBehaviour
     public CanvasGroup deathPanel;
     public float fadeTime = 0.3f;
     
-    
-
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player1"))
@@ -26,7 +24,7 @@ public class Checkpoints : MonoBehaviour
     }
     public void TurnOffDeathPanel()
     {
-        LeanTween.alphaCanvas(deathPanel, 0f, 0.8f);
+        LeanTween.alphaCanvas(deathPanel, 0f, 0.6f);
     }
     
 }

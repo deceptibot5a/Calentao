@@ -5,122 +5,78 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public Transform[] patrolPoints;
-    public float patrolSpeed = 2f;
-    public float chaseSpeed = 5f;
-    public float chaseRange = 10f;
-    public float patrolPointRange = 3f;
-    public int currentPatrolIndex = 0;
-    public NavMeshAgent navAgent;
-    public GameObject player;
-    public bool chasingPlayer = false;
-    public bool  playerInSafeZone = false;
+    public Transform[] patrolPoints; 
+    public float patrolSpeed = 2f; 
+    public float chaseSpeed = 4f; 
+    public CanvasGroup deathPanel;
+    public Transform checkpoint;
+    public Transform playerTransform;
+    private int currentPatrolIndex = 0; 
+    private NavMeshAgent agent; 
+    private bool playerInRange = false;
+    
 
+    
     private void Start()
     {
-        navAgent = GetComponent<NavMeshAgent>();
-        StartCoroutine(AssingPLayer1());
-        navAgent.speed = patrolSpeed;
-        GoToNextPatrolPoint();
+        agent = GetComponent<NavMeshAgent>();
+        SetPatrolDestination();
+        agent.speed = patrolSpeed;
+        StartCoroutine(GetPlayerTransform());
     }
 
     private void Update()
     {
-        
-        Debug.DrawRay(transform.position, transform.forward * chaseRange,Color.red);
-        if (playerInSafeZone)
+        if (playerInRange)
         {
-            chasingPlayer = false;
-            navAgent.speed = patrolSpeed;
-            GoToNearestPatrolPoint();
+            PlayerDetected();
         }
-        if (!chasingPlayer && !playerInSafeZone)
+        else if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            Patrol();
-            Debug.DrawRay(transform.position, transform.forward * chaseRange,Color.red);
-            
-        }
-        else if (chasingPlayer && !playerInSafeZone)
-        {
-            ChasePlayer();
+            SetPatrolDestination();
         }
     }
 
-    public void Patrol()
+    private void SetPatrolDestination()
     {
-        if (navAgent.remainingDistance < 0.5f)
-        {
-            GoToNextPatrolPoint();
-        }
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-        if (distanceToPlayer < chaseRange && !playerInSafeZone)
-        {
-            chasingPlayer = true;
-            navAgent.speed = chaseSpeed;
-        }
-    }
-
-    private void GoToNextPatrolPoint()
-    {
-        navAgent.SetDestination(patrolPoints[currentPatrolIndex].position);
+        agent.destination = patrolPoints[currentPatrolIndex].position;
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
 
-    private void ChasePlayer()
+    private void OnTriggerStay(Collider other)
     {
-        navAgent.SetDestination(player.transform.position);
-
-        Debug.DrawRay(transform.position, navAgent.velocity.normalized * 3f, Color.red);
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-        if (distanceToPlayer > chaseRange)
+        if (other.CompareTag("Player1"))
         {
-            chasingPlayer = false;
-            navAgent.speed = patrolSpeed;
-            GoToNearestPatrolPoint(); 
-        }
-
-        float distanceToClosestPatrolPoint = Vector3.Distance(transform.position, patrolPoints[currentPatrolIndex].position);
-        
-        if (distanceToClosestPatrolPoint < patrolPointRange && !playerInSafeZone)
-        {
-            chasingPlayer = false;
-            navAgent.speed = patrolSpeed;
+            playerInRange = true;
+            agent.speed = chaseSpeed;
+            agent.SetDestination(other.transform.position);
+            PlayerDetected();
         }
     }
 
-    public void GoToNearestPatrolPoint()
+    private void OnTriggerExit(Collider other)
     {
-        float minDistance = Mathf.Infinity;
-        int minIndex = 0;
-
-        for (int i = 0; i < patrolPoints.Length; i++)
+        if (other.CompareTag("Player1"))
         {
-            float distance = Vector3.Distance(transform.position, patrolPoints[i].position);
-
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                minIndex = i;
-            }
+            playerInRange = false;
+            agent.speed = patrolSpeed;
+            SetPatrolDestination();
         }
+    }
 
-        currentPatrolIndex = minIndex;
-        navAgent.SetDestination(patrolPoints[currentPatrolIndex].position);
-    }
-    
-    IEnumerator AssingPLayer1()
+    private void PlayerDetected()
     {
-        yield return new WaitForSeconds(0.1f);
-        player = GameObject.FindGameObjectWithTag("Player1");
+        LeanTween.alphaCanvas(deathPanel, 1f, 0.3f).setOnComplete(TurnOffDeathPanel);
+        playerTransform.position = checkpoint.position;
+        Debug.Log("Player detected!");
     }
-    
-    private void OnDrawGizmosSelected()
+    public void TurnOffDeathPanel()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, chaseRange);
+        LeanTween.alphaCanvas(deathPanel, 0f, 0.6f);
+    }
+    IEnumerator GetPlayerTransform()
+    {
+        yield return new WaitForSeconds(0.01f);
+        playerTransform = GameObject.FindGameObjectWithTag("Player1").transform;
     }
 }
