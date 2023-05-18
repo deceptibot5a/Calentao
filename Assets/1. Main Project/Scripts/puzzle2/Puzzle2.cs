@@ -90,7 +90,7 @@ public class Puzzle2 : MonoBehaviour
             GameObject firstObject = objects[0];
             objects.RemoveAt(0);
             LeanTween.scale(firstObject, new Vector3(0f, 0f, 0f), 0.5f).setEaseOutSine();
-            firstObject.GetComponent<Puzzle2Button>().buttonRenderer.material = unpressedButtonMaterial;
+            firstObject.GetComponent<PlatformDestroyer>().DeactivatePlatform();
         }
     }
     

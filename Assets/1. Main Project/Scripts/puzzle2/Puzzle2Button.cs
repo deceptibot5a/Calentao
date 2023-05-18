@@ -10,7 +10,7 @@ public class Puzzle2Button : MonoBehaviour
     [SerializeField] Material pressedButtonMaterial;
     [SerializeField] Material unpressedButtonMaterial;
     [SerializeField] private PhotonView photonView;
-    [SerializeField] private float changeDuration = 2f;
+    [SerializeField] private float changeDuration;
     [SerializeField] private GameObject plataforma;
     [SerializeField] public bool platformOn = false;
     public static Puzzle2Button _instance;
@@ -25,20 +25,13 @@ public class Puzzle2Button : MonoBehaviour
         _instance = this;
     }
 
-    private void Update()
-    {
-        if (platformOn == false)
-        {
-            buttonRenderer.material = unpressedButtonMaterial;
-        }
-    }
-
     private void Start()
     {
         
         manager = GameObject.FindObjectOfType<Puzzle2>();
         photonView = GetComponent<PhotonView>();
         plataforma.transform.localScale = new Vector3(0, 0f, 0f);
+        //plataforma.GetComponent<BoxCollider>().enabled = false;
     }
     
     private void OnMouseDown()
@@ -64,6 +57,7 @@ public class Puzzle2Button : MonoBehaviour
         platformOn = true;
         manager.AddObject(plataforma);
         shouldCheck = true;
+        plataforma.GetComponent<BoxCollider>().enabled = true;
         //StartCoroutine(checking());
 
     }
@@ -86,7 +80,7 @@ public class Puzzle2Button : MonoBehaviour
     private IEnumerator ChangeMaterialBack()
     {
         yield return new WaitForSeconds(changeDuration);
-        LeanTween.scale(plataforma, new Vector3(0f, 0f, 0f), 0.5f).setEaseOutSine();
+        DeactivatePlatform();
     }
 
     public void DeactivatePlatform()
@@ -94,6 +88,7 @@ public class Puzzle2Button : MonoBehaviour
         buttonRenderer.material = unpressedButtonMaterial;
         LeanTween.scale(plataforma, new Vector3(0f, 0f, 0f), 0.5f).setEaseOutSine();
         platformOn = false;
+        plataforma.GetComponent<BoxCollider>().enabled = false;
     }
 
 }
