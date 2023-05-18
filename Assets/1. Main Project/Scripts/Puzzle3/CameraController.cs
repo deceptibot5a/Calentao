@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
     private AudioSource[] audioSources;
     private Animator animator;
     public CinemachineBrain brain;
+    public Button activeCamerasButton;
     
     private void Start()
     {
@@ -151,6 +152,7 @@ public void ChangeCamera(int camera)
         {
             readyToInteract = true;
             interactUI.GetComponent<CanvasGroup>().alpha = 1; 
+            activeCamerasButton.interactable = true;
         }
     }
 
@@ -160,6 +162,7 @@ public void ChangeCamera(int camera)
      {
          readyToInteract = false;
          interactUI.GetComponent<CanvasGroup>().alpha = 0;
+            activeCamerasButton.interactable = false;
      }
     }
 }

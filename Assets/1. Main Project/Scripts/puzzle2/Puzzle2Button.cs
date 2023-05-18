@@ -12,21 +12,15 @@ public class Puzzle2Button : MonoBehaviour
     [SerializeField] private float changeDuration = 2f;
     [SerializeField] private GameObject plataforma;
     
-    public Puzzle2Button _instance;
+    public static Puzzle2Button instance;
     
     private Renderer renderer;
     private Puzzle2 manager;
     private bool shouldCheck;
     public bool Highlighted = false;
-
-    private void Awake()
-    {
-        _instance = this;
-    }
-
     private void Start()
     {
-        
+        instance = this;
         manager = GameObject.FindObjectOfType<Puzzle2>();
         photonView = GetComponent<PhotonView>();
     }
@@ -78,10 +72,10 @@ public class Puzzle2Button : MonoBehaviour
 
     }
 
-public void DeactivatePlatform()
-{
-    renderer.material = originalMaterial;
-    plataforma.SetActive(false);
-}
+    public void DeactivatePlatform()
+    {
+        renderer.material = originalMaterial;
+        plataforma.SetActive(false);
+    }
 
 }
