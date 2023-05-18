@@ -11,7 +11,7 @@ public class Puzzle2 : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField]  List<GameObject> objects = new List<GameObject>();
     [SerializeField]  int maxObjects = 3;
-    
+    [SerializeField] Material unpressedButtonMaterial;
     public static bool highlighted;
 
     private Quaternion startRotation;
@@ -89,7 +89,8 @@ public class Puzzle2 : MonoBehaviour
         {
             GameObject firstObject = objects[0];
             objects.RemoveAt(0);
-            firstObject.SetActive(false);
+            LeanTween.scale(firstObject, new Vector3(0f, 0f, 0f), 0.5f).setEaseOutSine();
+            firstObject.GetComponent<Puzzle2Button>().buttonRenderer.material = unpressedButtonMaterial;
         }
     }
     

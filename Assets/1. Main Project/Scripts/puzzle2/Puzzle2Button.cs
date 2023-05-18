@@ -2,27 +2,43 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Puzzle2Button : MonoBehaviour
 {
-    [SerializeField] Material newMaterial;
-    [SerializeField] Material originalMaterial;
+    [SerializeField] Material pressedButtonMaterial;
+    [SerializeField] Material unpressedButtonMaterial;
     [SerializeField] private PhotonView photonView;
     [SerializeField] private float changeDuration = 2f;
     [SerializeField] private GameObject plataforma;
+    [SerializeField] public bool platformOn = false;
+    public static Puzzle2Button _instance;
     
-    public static Puzzle2Button instance;
-    
-    private Renderer renderer;
+    public Renderer buttonRenderer;
     private Puzzle2 manager;
     private bool shouldCheck;
     public bool Highlighted = false;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
+
+    private void Update()
+    {
+        if (platformOn == false)
+        {
+            buttonRenderer.material = unpressedButtonMaterial;
+        }
+    }
+
     private void Start()
     {
-        instance = this;
+        
         manager = GameObject.FindObjectOfType<Puzzle2>();
         photonView = GetComponent<PhotonView>();
+        plataforma.transform.localScale = new Vector3(0, 0f, 0f);
     }
     
     private void OnMouseDown()
@@ -41,40 +57,43 @@ public class Puzzle2Button : MonoBehaviour
     [PunRPC]
     public void Buttonclick()
     {
-        renderer = GetComponent<Renderer>();
-        renderer.material = newMaterial;
+        buttonRenderer = GetComponent<Renderer>();
+        buttonRenderer.material = pressedButtonMaterial;
         StartCoroutine(ChangeMaterialBack());
-        plataforma.SetActive(true);
+        LeanTween.scale(plataforma, new Vector3(2.8f, 0.3f, 2.8f), 0.5f).setEaseInSine();
+        platformOn = true;
         manager.AddObject(plataforma);
         shouldCheck = true;
-        StartCoroutine(checking());
+        //StartCoroutine(checking());
 
     }
     
     
-    IEnumerator checking() {
-        while (shouldCheck) {
+    /*IEnumerator checking() {
+        while (shouldCheck) 
+        {
             
-            if (!plataforma.activeSelf)
+            if (platformOn == false)
             {
-                renderer.material = originalMaterial;
+                buttonRenderer.material = unpressedButtonMaterial;
                 shouldCheck = false;
             }
 
             yield return new WaitForSeconds(0.5f); // Wait for half a second
         }
-    }
+    }*/
 
     private IEnumerator ChangeMaterialBack()
     {
         yield return new WaitForSeconds(changeDuration);
-        plataforma.SetActive(false);
+        LeanTween.scale(plataforma, new Vector3(0f, 0f, 0f), 0.5f).setEaseOutSine();
     }
 
     public void DeactivatePlatform()
     {
-        renderer.material = originalMaterial;
-        plataforma.SetActive(false);
+        buttonRenderer.material = unpressedButtonMaterial;
+        LeanTween.scale(plataforma, new Vector3(0f, 0f, 0f), 0.5f).setEaseOutSine();
+        platformOn = false;
     }
 
 }
