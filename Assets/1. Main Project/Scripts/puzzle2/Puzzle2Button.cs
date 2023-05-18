@@ -69,7 +69,6 @@ public class Puzzle2Button : MonoBehaviour
     {
         yield return new WaitForSeconds(changeDuration);
         plataforma.SetActive(false);
-
     }
 
     public void DeactivatePlatform()
