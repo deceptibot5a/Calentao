@@ -26,6 +26,8 @@ public class MenuManager_Test : MonoBehaviour
     private bool player1Selected = false;
     private bool player2Selected = false;
     public static MenuManager_Test Instance;
+    public bool isLoading = false;
+    
     
     [Header("Menu Settings")]
     [SerializeField] private Menu_test[] menus;
@@ -34,6 +36,7 @@ public class MenuManager_Test : MonoBehaviour
     [SerializeField] private GameObject findRoomButton;
     [SerializeField] private GameObject blackBackground;
     [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private GameObject loadingPlanetImage;
     [SerializeField] private GameObject contractImage;
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject loadingBackground;
@@ -67,40 +70,7 @@ public class MenuManager_Test : MonoBehaviour
     {
         Instance = this;
     }
-
-    /*
-    public void OpenMenu(string menuName)
-    {
-        for (int i = 0; i < menus.Length; i++)
-        {
-            if (menus[i].menuName == menuName)
-            {
-                menus[i].Open();
-            }
-            else if (menus[i].open)
-            {
-                CloseMenu(menus[i]);
-            }
-        }
-    }
-
-    public void OpenMenu(Menu_test menu)
-    {
-        for (int i = 0; i < menus.Length; i++)
-        {
-            if (menus[i].open)
-            {
-                CloseMenu(menus[i]);
-            }
-        }
-        menu.Open();
-    }
-
-    public void CloseMenu(Menu_test menu)
-    {
-        menu.Close();
-    }
-*/
+    
 
     public void OpenContract()
     {
@@ -161,11 +131,15 @@ public class MenuManager_Test : MonoBehaviour
     {
         loadingBackground.GetComponent<Image>().raycastTarget = true;
         LeanTween.alphaCanvas(loadingScreen.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        
+        isLoading = true;
     }
     public void CloseLoadingScreen()
     {
         loadingBackground.GetComponent<Image>().raycastTarget = false;
         LeanTween.alphaCanvas(loadingScreen.GetComponent<CanvasGroup>(), 0f, 0.8f).setEase(LeanTweenType.easeInOutBack);
+        isLoading = false;
+        
     }
 
     

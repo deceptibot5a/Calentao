@@ -11,7 +11,7 @@ public class PressAnyKey : MonoBehaviour
     public GameObject background;
     private void FixedUpdate()
     {
-        if (Input.anyKey)
+        if (Input.anyKey && MenuManager_Test.Instance.isLoading == false)
         {
             
             background.GetComponent<Image>().raycastTarget = false;
