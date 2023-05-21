@@ -123,6 +123,8 @@ public class InteractionsPlayer2 : MonoBehaviour
         playerControllergu.enabled = true;
         playerCamera.enabled = true;
         playerAnimator.enabled = true;
+        
+        Debug.Log("Erecto falso");
 
         animator.SetBool("IsErect", false);
         
