@@ -95,7 +95,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		errorText.text = "Room Creation Failed: " + message;
 		Debug.LogError("Room Creation Failed: " + message);
-		//MenuManager_Test.Instance.OpenMenu("Error");
+		MenuManager_Test.Instance.OpenErrorScreen();
 	}
 
 	public void StartGame()
@@ -152,7 +152,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		errorText.text = "Room is full";
 		Debug.LogError("Join Room Failed: " + message);
-		//MenuManager_Test.Instance.OpenMenu("Error");
+		MenuManager_Test.Instance.OpenErrorScreen();
 	}
 	
 	public override void OnPlayerEnteredRoom(Player newPlayer)

@@ -517,6 +517,7 @@ MonoBehaviour:
   brilloInferior: {fileID: 58214223}
   panelGuia: {fileID: 520828177}
   panelExplorador: {fileID: 1160644284}
+  errorScreen: {fileID: 1520974320}
 --- !u!114 &94185646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2998,7 +2999,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 2
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -4838,7 +4839,7 @@ PrefabInstance:
     - target: {fileID: 6718122138709292118, guid: fd9c45c8515628442847a21f9c5095dd,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70
+      value: 69.2829
       objectReference: {fileID: 0}
     - target: {fileID: 6718122138709292118, guid: fd9c45c8515628442847a21f9c5095dd,
         type: 3}
@@ -4899,11 +4900,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7919819708364170059, guid: fd9c45c8515628442847a21f9c5095dd,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -9.099998
       objectReference: {fileID: 0}
     - target: {fileID: 9171306031316674432, guid: fd9c45c8515628442847a21f9c5095dd,
         type: 3}
@@ -5198,9 +5194,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520974320}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1532286508
 GameObject:
@@ -6846,7 +6842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -48,6 +48,7 @@ public class MenuManager_Test : MonoBehaviour
     [SerializeField] private GameObject startGameButton;
     [SerializeField] private GameObject brilloInferior;
     [SerializeField] private GameObject panelGuia,panelExplorador;
+    [SerializeField] private GameObject errorScreen;
     
     private void Start()
     {
@@ -57,6 +58,7 @@ public class MenuManager_Test : MonoBehaviour
         roomScreen.SetActive(false);
         findRoomsScreen.SetActive(false);
         createRoomScreen.SetActive(false);
+        errorScreen.SetActive(false);
     }
     
     private void Update()
@@ -104,9 +106,15 @@ public class MenuManager_Test : MonoBehaviour
     public void CloseMainMenu()
     {
         LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 0f, 0.2f);
-        LeanTween.moveLocalY(mainMenuScreen, -20f, 0.4f);
+        LeanTween.moveLocalY(mainMenuScreen, -20f, 0.4f).setOnComplete(TurnOffMainMenu);
         mainMenuScreen.GetComponent<CanvasGroup>().interactable = false;
     }
+    
+    public void TurnOffMainMenu()
+    {
+        mainMenuScreen.SetActive(false);
+    }
+    
     public void BackToMainMenu()
     {
         LeanTween.alphaCanvas(nombreJugador.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
@@ -171,6 +179,7 @@ public class MenuManager_Test : MonoBehaviour
     {
         CloseLoadingScreen();
         CloseCreateRooms();
+        CloseFindRooms();
         LeanTween.moveLocalX(panelGuia, -680f, 0.6f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.moveLocalX(panelExplorador, 680f, 0.6f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(brilloInferior.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
@@ -192,6 +201,31 @@ public class MenuManager_Test : MonoBehaviour
     public void TurnOffRoom()
     {
         roomScreen.SetActive(false);
+    }
+
+    #endregion
+
+    #region ErrorScreen
+
+    public void OpenErrorScreen()
+    {
+        LeanTween.alphaCanvas(errorScreen.GetComponent<CanvasGroup>(), 1f, 0.3f);
+        LeanTween.moveLocalY(errorScreen, 10f, 0.4f);
+        errorScreen.GetComponent<CanvasGroup>().interactable = true;
+        errorScreen.SetActive(true);
+        CloseRoom();
+        CloseFindRooms();
+        CloseCreateRooms();
+        CloseMainMenu();
+    }
+    public void CloseErrorScreen()
+    {
+        LeanTween.alphaCanvas(errorScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalY(errorScreen, -20f, 0.4f).setOnComplete(TurnOffErrorScreen);
+    }
+    public void TurnOffErrorScreen()
+    {
+        errorScreen.SetActive(false);
     }
 
     #endregion
