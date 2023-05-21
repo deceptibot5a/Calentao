@@ -37,10 +37,9 @@ public class ExplosionManager : MonoBehaviour
     IEnumerator Shrink ()
     {
         targetMaterial.DOFade(1f, 0f); 
-        yield return new WaitForSeconds(3f);
-        targetMaterial.DOFade(0f, 2f); 
-        //fracturedWall.transform.DOScale (new Vector3 (0f, 0f, 0f), 3f);
         yield return new WaitForSeconds(2f);
+        targetMaterial.DOFade(0f, 2f);
+        yield return new WaitForSeconds(1.8f);
         fracturedWall.SetActive(false);
         
        

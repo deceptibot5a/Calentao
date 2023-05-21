@@ -10,21 +10,25 @@ public class EventsBomb : MonoBehaviour
     public ExploradorCameraManager ExploradorCameraManager;
     public CharacterController characterController;
     public PlantBombManager plantBombManager;
-    public GameObject areaPlant01; 
+    public GameObject areaPlant01;
+    public GameObject areaPlant02;
+
+    public PlantBombManager PlantBombManager; 
 
     public GameObject cameraMain;
     public GameObject bombCamera; 
     
     public Transform ExploradorOriginalPosition;
     public GameObject exploradorCurrentPosition;
-    public GameObject Bomb01GameObject; 
+    public GameObject Bomb01GameObject;
+    public GameObject Bomb02GameObject;
  
     public void PlantFinish()
     {
         Debug.Log("Plantado exitoso");
         plantBombManager.planting = false;
         plantBombManager.canPlant = false; 
-        areaPlant01.SetActive(false);
+        
   
         cameraMain.SetActive(true);
         bombCamera.SetActive(false);
@@ -34,7 +38,18 @@ public class EventsBomb : MonoBehaviour
         characterController.enabled = true;
         animator.SetBool("Planting", false);
         
+        
+        if (plantBombManager.bomb1)
+        {
         Bomb01GameObject.transform.parent = null; 
+        areaPlant01.SetActive(false);
+        }
+        
+        if (plantBombManager.bomb2)
+        {
+            areaPlant02.SetActive(false);
+            Bomb02GameObject.transform.parent = null; 
+        }
         
         StartCoroutine(ExploradorOriginalPositionCorrutine()); 
        
@@ -43,16 +58,20 @@ public class EventsBomb : MonoBehaviour
     public void SpawnBomb()
     
     {
+        if (plantBombManager.bomb1)
+        {
         Bomb01GameObject.SetActive(true);
+        }
+        
+        if (plantBombManager.bomb2)
+        {
+            Bomb02GameObject.SetActive(true);
+        }
+        
+        
        
     }
     
-    public void BombMeshParent()
-
-    {
-       
-
-    }
     
     private IEnumerator ExploradorOriginalPositionCorrutine()
     {

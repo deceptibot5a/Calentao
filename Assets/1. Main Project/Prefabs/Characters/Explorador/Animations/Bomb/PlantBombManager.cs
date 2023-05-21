@@ -9,6 +9,8 @@ public class PlantBombManager : MonoBehaviour
     public Animator animator;
     public bool planting;
     public bool canPlant = false; 
+    public bool bomb1 = false;
+    public bool bomb2 = false;
     public ExploradorPlayerController exploradorPlayerController;
     public ExploradorAnimatorManager exploradorAnimatorManager;
     public ExploradorCameraManager ExploradorCameraManager;
@@ -29,6 +31,7 @@ public class PlantBombManager : MonoBehaviour
     public  AudioSource _breathingRunAudioSource;
 
     public GameObject Bomb01GameObject;
+    public GameObject Bomb02GameObject;
     public GameObject bombReferencePosition;
     public GameObject handParent;
     
@@ -39,8 +42,20 @@ public class PlantBombManager : MonoBehaviour
     { 
         if (other.gameObject.CompareTag("PlantArea"))
         {
-            Debug.Log("Puede plantar ");
+            Debug.Log("Puede plantar area 1");
             canPlant = true; 
+            bomb1 = true;
+            bomb2 = false; 
+
+        }
+        
+        if  (other.gameObject.CompareTag("PlantArea2"))
+        {
+            Debug.Log("Puede plantar area 2");
+            canPlant = true; 
+            bomb2 = false; 
+            bomb2 = true; 
+
 
         }
     }
@@ -122,7 +137,19 @@ public class PlantBombManager : MonoBehaviour
         {
             Debug.Log("No puede plantar");
             canPlant = false;
-            planting = false; 
+            planting = false;
+            bomb1 = false;
+            bomb2 = false; 
+
+        }
+        
+        if (other.gameObject.CompareTag("PlantArea2"))
+        {
+            Debug.Log("No puede plantar");
+            canPlant = false;
+            planting = false;
+            bomb1 = false;
+            bomb2 = false; 
 
         }
     }
@@ -136,6 +163,7 @@ public class PlantBombManager : MonoBehaviour
             {
                 if (!planting)
                 {
+                    Debug.Log("Empezó a plantar");
                     StartPlanting();
                 }
             }
@@ -149,6 +177,8 @@ public class PlantBombManager : MonoBehaviour
 
     void StartPlanting()
     {
+        if (bomb1)
+        {
         cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
         Bomb01GameObject.transform.parent = handParent.transform; 
         Bomb01GameObject.SetActive(false);
@@ -162,11 +192,31 @@ public class PlantBombManager : MonoBehaviour
         exploradorPlayerController.enabled = false;
         ExploradorCameraManager.enabled = false;
         animator.SetBool("Planting", true);
-      
+        }
+        
+        if (bomb2)
+        {
+            cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
+            Bomb02GameObject.transform.parent = handParent.transform; 
+            Bomb02GameObject.SetActive(false);
+            StartCoroutine(FadePlayerAudios());
+            Bomb02GameObject.transform.position = bombReferencePosition.transform.position; 
+            Bomb02GameObject.transform.rotation = bombReferencePosition.transform.rotation; 
+            cameraMain.SetActive(false);
+            bombCamera.SetActive(true);
+            planting = true;
+            exploradorAnimatorManager.enabled = false;
+            exploradorPlayerController.enabled = false;
+            ExploradorCameraManager.enabled = false;
+            animator.SetBool("Planting", true);
+        }
+        
     }
 
     void CancelPlanting()
     {
+        if (bomb1)
+        {
         Bomb01GameObject.transform.parent = handParent.transform; 
         Bomb01GameObject.SetActive(false);
         cameraMain.SetActive(true);
@@ -175,11 +225,24 @@ public class PlantBombManager : MonoBehaviour
         exploradorAnimatorManager.enabled = true;
         exploradorPlayerController.enabled = true;
         ExploradorCameraManager.enabled = true;
-       
-        
         animator.SetBool("Planting", false);
         StartCoroutine(ExploradorOriginalPositionCorrutine()); 
-        // Aquí puedes agregar el código para detener la lógica de la bomba
+        }
+        
+        if (bomb2)
+        {
+            Bomb02GameObject.transform.parent = handParent.transform; 
+            Bomb02GameObject.SetActive(false);
+            cameraMain.SetActive(true);
+            bombCamera.SetActive(false);
+            planting = false;
+            exploradorAnimatorManager.enabled = true;
+            exploradorPlayerController.enabled = true;
+            ExploradorCameraManager.enabled = true;
+            animator.SetBool("Planting", false);
+            StartCoroutine(ExploradorOriginalPositionCorrutine()); 
+        }
+       
     }
     
     private IEnumerator ExploradorOriginalPositionCorrutine()
