@@ -13,10 +13,10 @@ public class PressAnyKey : MonoBehaviour
     {
         if (Input.anyKey && MenuManager_Test.Instance.isLoading == false)
         {
-            
             background.GetComponent<Image>().raycastTarget = false;
             welcomePanel.GetComponent<PressAnyKey>().enabled = false;
-            LeanTween.alpha(welcomePanel.GetComponent<RectTransform>(), 0f, 0.3f).setOnComplete(DeactivateWelcomePanel);
+            LeanTween.alpha(welcomePanel.GetComponent<RectTransform>(), 0f, 0.3f).setOnComplete(DeactivateWelcomePanel); 
+            LeanTween.alphaCanvas(MenuManager_Test.Instance.loadingPlanetImage.GetComponent<CanvasGroup>(), 0f, 0.3f);
         }
     }
     

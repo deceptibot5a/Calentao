@@ -36,7 +36,7 @@ public class MenuManager_Test : MonoBehaviour
     [SerializeField] private GameObject findRoomButton;
     [SerializeField] private GameObject blackBackground;
     [SerializeField] private GameObject loadingScreen;
-    [SerializeField] private GameObject loadingPlanetImage;
+    [SerializeField] public GameObject loadingPlanetImage;
     [SerializeField] private GameObject contractImage;
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject loadingBackground;
@@ -46,11 +46,17 @@ public class MenuManager_Test : MonoBehaviour
     [SerializeField] private GameObject nombreJugador;
     [SerializeField] private GameObject exploradorButton, guiaButton;
     [SerializeField] private GameObject startGameButton;
+    [SerializeField] private GameObject brilloInferior;
+    [SerializeField] private GameObject panelGuia,panelExplorador;
     
     private void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        OpenMainMenu();
+        roomScreen.SetActive(false);
+        findRoomsScreen.SetActive(false);
+        createRoomScreen.SetActive(false);
     }
     
     private void Update()
@@ -70,7 +76,8 @@ public class MenuManager_Test : MonoBehaviour
     {
         Instance = this;
     }
-    
+
+    #region Contract screen
 
     public void OpenContract()
     {
@@ -82,51 +89,115 @@ public class MenuManager_Test : MonoBehaviour
         DeactiveBlackBackground();
         LeanTween.move(contractImage.GetComponent<RectTransform>(),new Vector3(0,1000,0) , 0.4f).setEase(LeanTweenType.easeInOutBack);
     }
+
+    #endregion
     
+    #region Main Menu
+
     public void OpenMainMenu()
     {
-        LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 1f, 0.6f);
+        LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 1f, 0.3f);
+        LeanTween.moveLocalY(mainMenuScreen, 8f, 0.4f);
+        mainMenuScreen.GetComponent<CanvasGroup>().interactable = true;
     }
     
     public void CloseMainMenu()
     {
         LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 0f, 0.2f);
+        LeanTween.moveLocalY(mainMenuScreen, -20f, 0.4f);
+        mainMenuScreen.GetComponent<CanvasGroup>().interactable = false;
     }
-    
-    public void OpenFindRooms()
-    { 
-        LeanTween.alphaCanvas(findRoomsScreen.GetComponent<CanvasGroup>(), 1f, 0.3f).setOnComplete(CloseMainMenu);
-    }
-    public void CloseFindRooms()
+    public void BackToMainMenu()
     {
-        LeanTween.alphaCanvas(findRoomsScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.alphaCanvas(nombreJugador.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.alphaCanvas(brilloInferior.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        OpenMainMenu();
+        CloseRoom();
+        CloseFindRooms();
+        CloseContract();
+        CloseCreateRooms();
     }
+
+    #endregion
     
+    #region Create rooms
     public void OpenCreateRooms()
     {
         //HideButtons();
         CloseMainMenu();
         LeanTween.alphaCanvas(createRoomScreen.GetComponent<CanvasGroup>(), 1f, 0.3f);
+        LeanTween.moveLocalY(createRoomScreen, 10f, 0.4f);
+        createRoomScreen.GetComponent<CanvasGroup>().interactable = true;
+        createRoomScreen.SetActive(true);
+        
     }
     public void CloseCreateRooms()
     {
         LeanTween.alphaCanvas(createRoomScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalY(createRoomScreen, -20f, 0.4f).setOnComplete(TurnOffCreateRoom);
     }
+    
+    public void TurnOffCreateRoom()
+    {
+        createRoomScreen.SetActive(false);
+    }
+    #endregion
+    
+    #region Find rooms 
+
+    public void OpenFindRooms()
+    { 
+        LeanTween.alphaCanvas(findRoomsScreen.GetComponent<CanvasGroup>(), 1f, 0.3f);
+        LeanTween.moveLocalY(findRoomsScreen, 10f, 0.4f);
+        CloseMainMenu();
+        findRoomsScreen.GetComponent<CanvasGroup>().interactable = true;
+        findRoomsScreen.SetActive(true);
+    }
+    public void CloseFindRooms()
+    {
+        LeanTween.alphaCanvas(findRoomsScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalY(findRoomsScreen, -20f, 0.4f).setOnComplete(TurnOffFindRoom);
+    }
+    public void TurnOffFindRoom()
+    {
+        findRoomsScreen.SetActive(false);
+    }
+
+    #endregion
+
+    #region Room Functions
 
     public void OpenRoom()
     {
         CloseLoadingScreen();
         CloseCreateRooms();
+        LeanTween.moveLocalX(panelGuia, 680f, 0.6f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalX(panelExplorador, -680f, 0.6f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.alphaCanvas(brilloInferior.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(roomScreen.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(nombreJugador.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        
+        roomScreen.SetActive(true);
+        
     }
 
     public void CloseRoom()
     {
-        LeanTween.alphaCanvas(roomScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalX(panelGuia, 1280f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalX(panelExplorador, -1280f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.alphaCanvas(roomScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack).setOnComplete(TurnOffRoom);
     }
     
+    public void TurnOffRoom()
+    {
+        roomScreen.SetActive(false);
+    }
+
+    #endregion
+
+    #region Loading screen
+
     public void OpenLoadingScreen()
     {
         loadingBackground.GetComponent<Image>().raycastTarget = true;
@@ -138,25 +209,14 @@ public class MenuManager_Test : MonoBehaviour
     {
         loadingBackground.GetComponent<Image>().raycastTarget = false;
         LeanTween.alphaCanvas(loadingScreen.GetComponent<CanvasGroup>(), 0f, 0.8f).setEase(LeanTweenType.easeInOutBack);
+        //LeanTween.moveX(loadingPlanetImage.GetComponent<RectTransform>(), 850f, 0.8f).setEaseInOutSine();
         isLoading = false;
-        
     }
 
+    #endregion
     
-    public void BackToMainMenu()
-    {
-        LeanTween.alphaCanvas(nombreJugador.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
-        OpenMainMenu();
-        CloseRoom();
-        CloseFindRooms();
-        CloseContract();
-        CloseCreateRooms();
-    }
-    
-    public void DeactivateLoadingScreen()
-    {
-        loadingScreen.SetActive(false);
-    }
+    #region Background Activators
+
     public void ActivateBlackBackground()
     {
         LeanTween.alpha(blackBackground.GetComponent<RectTransform>(), 0.75f, 0.3f);
@@ -166,12 +226,19 @@ public class MenuManager_Test : MonoBehaviour
         blackBackground.GetComponent<Image>().raycastTarget = false;
         LeanTween.alpha(blackBackground.GetComponent<RectTransform>(), 0f, 0.3f);
     }
-     
-    
-    
+    public void DeactivateGameObject(GameObject gameObjectToTurnOff)
+    {
+        gameObjectToTurnOff.SetActive(false);
+    }
+
+    #endregion
 
     
-    
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
+    #region Player selection logic
     [PunRPC]
     public void Player1Selected()
     {
@@ -240,9 +307,5 @@ public class MenuManager_Test : MonoBehaviour
     {
         player2Button.interactable = false;
     }
-    
-    public void CloseGame()
-    {
-        Application.Quit();
-    }
+    #endregion
 }
