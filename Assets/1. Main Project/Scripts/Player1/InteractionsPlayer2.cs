@@ -29,6 +29,8 @@ public class InteractionsPlayer2 : MonoBehaviour
     private GuiaPlayerController playerControllergu;
     private GuiaCameraManager playerCamera;
     private GuiaAnimationManager playerAnimator;
+    public PlayersAudioManager PlayersAudioManager; 
+    
 
     private void Start()
     {
@@ -60,6 +62,7 @@ public class InteractionsPlayer2 : MonoBehaviour
         photonView = GameObject.FindWithTag("Player2").GetComponent<PhotonView>();
         playerCamera = GameObject.Find("CM vcam1 Guia").GetComponent<GuiaCameraManager>();
         playerAnimator = GameObject.Find("GuiaMesh").GetComponent<GuiaAnimationManager>();
+        PlayersAudioManager = GameObject.Find("PlayerController2").GetComponent<PlayersAudioManager>();
     }
 
     public void uiInteraction()
@@ -85,6 +88,8 @@ public class InteractionsPlayer2 : MonoBehaviour
         activecamera.m_Priority = 10;
         
         animator.SetBool("IsErect", true);
+        
+        PlayersAudioManager.FadeAudios();
         
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

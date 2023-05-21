@@ -29,6 +29,7 @@ public class InteractionsPlayer1 : MonoBehaviour
     private ExploradorPlayerController playerControllerex;
     private ExploradorCameraManager playerCamera;
     private ExploradorAnimatorManager playerAnimator;
+    public PlayersAudioManager PlayersAudioManager;
 
 
 
@@ -63,6 +64,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         playerControllerex = GameObject.FindWithTag("Player1").GetComponent<ExploradorPlayerController>();
         playerCamera = GameObject.Find("CM vcam1 explorador").GetComponent<ExploradorCameraManager>();
         playerAnimator = GameObject.Find("ExploradorFINALv1").GetComponent<ExploradorAnimatorManager>();
+        PlayersAudioManager = GameObject.Find("PlayerController").GetComponent<PlayersAudioManager>();
         
     }
 
@@ -89,6 +91,8 @@ public class InteractionsPlayer1 : MonoBehaviour
         activecamera.m_Priority = 16;
         
         animator.SetBool("IsErect", true);
+        
+        PlayersAudioManager.FadeAudios();
         
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

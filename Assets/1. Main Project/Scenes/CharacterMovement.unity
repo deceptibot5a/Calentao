@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.077954456, g: 0.039736383, b: 0.13456278, a: 1}
+  m_IndirectSpecularColor: {r: 0.12521377, g: 0.06718779, b: 0.21580233, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3076,6 +3076,7 @@ MonoBehaviour:
   caninteract: 0
   isinpuzzle: 0
   puzzle2: {fileID: 2398440684783776779}
+  PlayersAudioManager: {fileID: 0}
 --- !u!65 &313467329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5098,6 +5099,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990b2ea04761f3546ad71294d3944a2c, type: 3}
+--- !u!1 &509793482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509793483}
+  m_Layer: 0
+  m_Name: Puzzle 1 - explorador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &509793483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509793482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.056017842, z: -0.036009844}
+  m_LocalScale: {x: 1.4242808, y: 1.5650032, z: 1.2489659}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7719091199708751959}
+  - {fileID: 7719091199771932850}
+  - {fileID: 551549895}
+  m_Father: {fileID: 809525263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517344302 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1515545280954513964, guid: 990b2ea04761f3546ad71294d3944a2c,
@@ -5327,11 +5362,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551549894}
   m_LocalRotation: {x: -0, y: -0, z: 2.6787461e-12, w: 1}
-  m_LocalPosition: {x: -0.34, y: 0.167, z: 1.487}
-  m_LocalScale: {x: 1.7137468, y: 0.7292055, z: 1.1386927}
+  m_LocalPosition: {x: -0.23867914, y: 0.14250088, z: 1.2194186}
+  m_LocalScale: {x: 1.2032366, y: 0.4659451, z: 0.9117084}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 809525263}
+  m_Father: {fileID: 509793483}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &551549896
@@ -8387,9 +8422,7 @@ Transform:
   m_LocalScale: {x: 0.5835168, y: 1.3713554, z: 0.87819993}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7719091199708751959}
-  - {fileID: 7719091199771932850}
-  - {fileID: 551549895}
+  - {fileID: 509793483}
   m_Father: {fileID: 2030702600}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21763,10 +21796,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc967d2e890dd6143810ca0d170d2f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeCamera1: {fileID: 0}
-  activeCamera2: {fileID: 0}
-  activeCamera3: {fileID: 0}
-  activeCamera4: {fileID: 0}
+  activeCamera1: {fileID: 178373523}
+  activeCamera2: {fileID: 997944061}
+  activeCamera3: {fileID: 470503121}
+  activeCamera4: {fileID: 65387012}
   uiCamera1: {fileID: 503585655013273095}
   uiCamera2: {fileID: 503585655744948496}
   uiCamera3: {fileID: 503585655524883617}
@@ -59116,16 +59149,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719091199708751956}
-  m_LocalRotation: {x: 0.0010753636, y: -0.9808292, z: -0.19485411, w: -0.0022330058}
-  m_LocalPosition: {x: 0, y: -0.056, z: -0.036}
-  m_LocalScale: {x: 1.4242804, y: 1.5650033, z: 1.2489656}
+  m_LocalRotation: {x: 0.0010753635, y: -0.9808291, z: -0.19485405, w: -0.0022330054}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000013911312}
+  m_LocalScale: {x: 1, y: 1.0203478, z: 0.949346}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7719091198056290580}
   - {fileID: 754127005}
   - {fileID: 207147541}
   - {fileID: 7719091199140217717}
-  m_Father: {fileID: 809525263}
+  m_Father: {fileID: 509793483}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -22.473, y: -180.246, z: -0.077}
 --- !u!23 &7719091199708751960
@@ -59376,13 +59409,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719091199771932848}
-  m_LocalRotation: {x: -0.00012751554, y: -0.94321895, z: 0.3321622, w: -0.0025324614}
-  m_LocalPosition: {x: -0.009, y: 1.039, z: 1.147}
-  m_LocalScale: {x: 1.7137212, y: 0.84909517, z: 0.93299013}
+  m_LocalRotation: {x: -0.00012751554, y: -0.9432189, z: 0.33216223, w: -0.0025324617}
+  m_LocalPosition: {x: -0.006279097, y: 0.6996891, z: 0.9471901}
+  m_LocalScale: {x: 1.2032235, y: 0.57664484, z: 0.66276145}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7719091198470487244}
-  m_Father: {fileID: 809525263}
+  m_Father: {fileID: 509793483}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 38.8, y: -180.345, z: -0.106}
 --- !u!114 &7719091199771932851
@@ -59495,6 +59528,7 @@ MonoBehaviour:
   caninteract: 0
   isinpuzzle: 0
   puzzle2: {fileID: 0}
+  PlayersAudioManager: {fileID: 0}
 --- !u!65 &7723733349570674827
 BoxCollider:
   m_ObjectHideFlags: 0

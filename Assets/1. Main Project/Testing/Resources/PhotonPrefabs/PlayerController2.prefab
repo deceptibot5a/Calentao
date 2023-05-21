@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 979526569882412447}
   - component: {fileID: 3132284255580422673}
   - component: {fileID: 2413910838293821230}
+  - component: {fileID: 4924398795818560906}
   m_Layer: 0
   m_Name: PlayerController2
   m_TagString: Player2
@@ -796,6 +797,22 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 8792615687627094151}
   resumeButton: {fileID: 6525267868582961383}
   photonView: {fileID: 979526569882412445}
+--- !u!114 &4924398795818560906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980907987258022756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a060f83eff54e434c8064aba8e8b29a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _walkAudioSource: {fileID: 865155730133283342}
+  _runAudioSource: {fileID: 865155730133283343}
+  _breathingNormalAudioSource: {fileID: 865155730133283440}
+  _breathingRunAudioSource: {fileID: 865155730133283441}
 --- !u!1 &1504434576947645852
 GameObject:
   m_ObjectHideFlags: 0
@@ -3201,8 +3218,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8727311442178549506}
-  m_LocalRotation: {x: -0, y: 0.99208826, z: -0, w: -0.12554277}
-  m_LocalPosition: {x: 159.33028, y: 285.68463, z: -145.96083}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.1359863, z: 0.8080139}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

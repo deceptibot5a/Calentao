@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 9125872555009991098}
   - component: {fileID: 2795351836122636905}
   - component: {fileID: 78023058257487102}
+  - component: {fileID: 1128248433560983405}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player1
@@ -1595,6 +1596,22 @@ MonoBehaviour:
   photonView: {fileID: 3448269082942420550}
   pauseMenuPanel: {fileID: 5348953240565650059}
   resumeButton: {fileID: 7687786735001225963}
+--- !u!114 &1128248433560983405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2402807954187156464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a060f83eff54e434c8064aba8e8b29a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _walkAudioSource: {fileID: 2361356290525598362}
+  _runAudioSource: {fileID: 2361356290525598363}
+  _breathingNormalAudioSource: {fileID: 2361356290525598436}
+  _breathingRunAudioSource: {fileID: 2361356290525598437}
 --- !u!1 &2541519864382116851
 GameObject:
   m_ObjectHideFlags: 0

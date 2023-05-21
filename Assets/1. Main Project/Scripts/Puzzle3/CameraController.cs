@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
     {
         if (readyToInteract && Input.GetKeyDown(KeyCode.E))
         {
-            puzzleCamera.Priority = 10;
+            StartCoroutine(ChangeBrainBlending(CinemachineBlendDefinition.Style.Cut));
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             crosshair.SetActive(false);
@@ -44,7 +44,7 @@ public class CameraController : MonoBehaviour
             playerControllergu.enabled = false;
             playerCamera.enabled = false;
             playerAnimator.enabled = false;
-            StartCoroutine(ChangeBrainBlending(CinemachineBlendDefinition.Style.Cut));
+            
         }
         if(readyToInteract && Input.GetKeyDown(KeyCode.F))
         {
@@ -56,7 +56,6 @@ public class CameraController : MonoBehaviour
             playerControllergu.enabled = true;
             playerCamera.enabled = true;
             playerAnimator.enabled = true;
-            StartCoroutine(ChangeBrainBlending(CinemachineBlendDefinition.Style.EaseInOut));
             ResetCamerasPriorityAndUI();
         }
     }
@@ -128,8 +127,10 @@ public void ChangeCamera(int camera)
 
     IEnumerator ChangeBrainBlending(CinemachineBlendDefinition.Style style)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         brain.m_DefaultBlend.m_Style = style;
+        yield return new WaitForSeconds(0.1f);
+        ChangeCamera(1);
     }
     
 
