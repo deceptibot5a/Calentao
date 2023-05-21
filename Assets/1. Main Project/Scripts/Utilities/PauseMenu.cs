@@ -8,96 +8,62 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI, tutorialImage, backButton;
-    private bool isPaused = false;
-    private bool assigned;
+    
     [SerializeField] ExploradorCameraManager playerCamera;
     [SerializeField] private ExploradorPlayerController playerControllerex;
     [SerializeField] ExploradorAnimatorManager playerAnimator;
     [SerializeField] Animator animator;
+    [SerializeField] PhotonView photonView; 
 
-
-
-
-    void Start()
-    {
-        StartCoroutine(PauseInstance());
-        pauseMenuUI.SetActive(false);
-        tutorialImage.SetActive(false);
-        backButton.SetActive(false);
-
-  
-    }
+    public GameObject pauseMenuPanel;
+    public Button resumeButton;
+    private bool isPaused = false;
     
-    IEnumerator PauseInstance()
-    {
-        yield return new WaitForSeconds(0.1f);
-        playerControllerex = GameObject.FindWithTag("Player1").GetComponent<ExploradorPlayerController>();
-        playerCamera = GameObject.Find("CM vcam1 explorador").GetComponent<ExploradorCameraManager>();
-        playerAnimator = GameObject.Find("ExploradorFINALv1").GetComponent<ExploradorAnimatorManager>();
-        animator = GameObject.Find("ExploradorFINALv1").GetComponent<Animator>();
 
-    }
-    
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Desactivar el menú de pausa al iniciar el juego
+        pauseMenuPanel.SetActive(false);
+        resumeButton.onClick.AddListener(ResumeGame);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && PhotonNetwork.IsConnected && photonView.IsMine)
         {
             if (isPaused)
             {
-                Resume();
+                ResumeGame();
             }
             else
             {
-                Pause();
+                PauseGame();
             }
         }
     }
 
-    public void Pause()
+    private void PauseGame()
     {
         isPaused = true;
-        pauseMenuUI.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         playerCamera.enabled = false;
         playerControllerex.enabled = false;
         playerAnimator.enabled = false;
         animator.SetBool("IsErect", true);
+        pauseMenuPanel.SetActive(true);
+    }
 
-    }
-    
-    public void ShowTutorial()
+    public void ResumeGame()
     {
-        tutorialImage.SetActive(true);
-        backButton.SetActive(true);
-    }
-    
-    public void HideTutorial()
-    {
-        tutorialImage.SetActive(false);
-        backButton.SetActive(false);
-    }
-    
         
-    public void Resume()
-    {
         isPaused = false;
-        pauseMenuUI.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera.enabled = true;
         playerControllerex.enabled = true;
         playerAnimator.enabled = true;
         animator.SetBool("IsErect", false);
-
+        pauseMenuPanel.SetActive(false);
     }
-
-    public void LoadScene(string sceneName)
-    {
-        PhotonNetwork.LeaveRoom(); // Para desconectar de la sala actual antes de cargar una nueva escena
-        SceneManager.LoadScene(sceneName);
-    }
-    
-
 }

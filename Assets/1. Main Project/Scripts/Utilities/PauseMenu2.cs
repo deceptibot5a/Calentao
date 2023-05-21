@@ -8,53 +8,41 @@ using UnityEngine.UI;
 
 public class PauseMenu2 : MonoBehaviour
 {
-    public GameObject pauseMenuUI, tutorialImage, backButton;
-    private bool isPaused = false;
-    private bool assigned;
+    
     [SerializeField] GuiaCameraManager playerCamera2;
     [SerializeField] private GuiaPlayerController playerControllerex2;
     [SerializeField] GuiaAnimationManager playerAnimator2;
     [SerializeField] Animator animator2;
-
-     
     
-
-    void Start()
+    public GameObject pauseMenuUI;
+    private bool isPaused = false;
+    private bool assigned;
+    public Button resumeButton;
+    public PhotonView photonView;
+    
+    private void Start()
     {
-        StartCoroutine(PauseInstance());
+        // Desactivar el menú de pausa al iniciar el juego
         pauseMenuUI.SetActive(false);
-        tutorialImage.SetActive(false);
-        backButton.SetActive(false);
-
-  
+        resumeButton.onClick.AddListener(ResumeGame);
     }
-    
-    IEnumerator PauseInstance()
-    {
-        yield return new WaitForSeconds(0.1f);
-        playerControllerex2 = GameObject.FindWithTag("Player2").GetComponent<GuiaPlayerController>();
-        playerCamera2 = GameObject.Find("CM vcam1 Guia").GetComponent<GuiaCameraManager>();
-        playerAnimator2 = GameObject.Find("GuiaMesh").GetComponent<GuiaAnimationManager>();
-        animator2 = GameObject.Find("GuiaMesh").GetComponent<Animator>();
 
-    }
-    
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && PhotonNetwork.IsConnected && photonView.IsMine)
         {
             if (isPaused)
             {
-                Resume();
+                ResumeGame();
             }
             else
             {
-                Pause();
+                PauseGame();
             }
         }
     }
 
-    public void Pause()
+    public void PauseGame()
     {
         isPaused = true;
         pauseMenuUI.SetActive(true);
@@ -67,20 +55,8 @@ public class PauseMenu2 : MonoBehaviour
 
     }
     
-    public void ShowTutorial()
-    {
-        tutorialImage.SetActive(true);
-        backButton.SetActive(true);
-    }
-    
-    public void HideTutorial()
-    {
-        tutorialImage.SetActive(false);
-        backButton.SetActive(false);
-    }
-    
         
-    public void Resume()
+    public void ResumeGame()
     {
         isPaused = false;
         pauseMenuUI.SetActive(false);
@@ -92,12 +68,5 @@ public class PauseMenu2 : MonoBehaviour
         animator2.SetBool("IsErect", false);
 
     }
-
-    public void LoadScene(string sceneName)
-    {
-        PhotonNetwork.LeaveRoom(); // Para desconectar de la sala actual antes de cargar una nueva escena
-        SceneManager.LoadScene(sceneName);
-    }
-    
 
 }

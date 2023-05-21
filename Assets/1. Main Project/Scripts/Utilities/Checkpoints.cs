@@ -10,17 +10,12 @@ public class Checkpoints : MonoBehaviour
     public Transform checkpoint;
     public CanvasGroup deathPanel;
     public bool isDead;
-    
+    public float TPdelayTime = 0.5f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1"))
         {
-            StartCoroutine(TurnTrue());
-            if (isDead = true)
-            {
-                other.transform.position = checkpoint.position;
-                isDead = false;
-            }
+            Invoke("TeleportPlayer", TPdelayTime);
 
             StartCoroutine(FadeInAndOut());
             Debug.Log("Toque el checkpoint");
@@ -30,27 +25,28 @@ public class Checkpoints : MonoBehaviour
     
     IEnumerator FadeInAndOut()
     {
-        yield return new WaitForSeconds(0.01f);
         TurnOnDeathPanel();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         TurnOffDeathPanel();
         Debug.Log("si hice el fade");
     }
 
     public void TurnOnDeathPanel()
     {
-    LeanTween.alphaCanvas(deathPanel, 1f, 1f).setOnComplete(TurnOffDeathPanel);
+        LeanTween.alphaCanvas(deathPanel, 1f, 0.3f);
     }
     public void TurnOffDeathPanel()
     {
-        LeanTween.alphaCanvas(deathPanel, 0f, 1f);
-    }
-    IEnumerator TurnTrue()
-    {
-        yield return new WaitForSeconds(6f);
-        isDead = true;
-        Debug.Log("isDead = true");
+        LeanTween.alphaCanvas(deathPanel, 0f, 0.5f);
     }
     
+    private void TeleportPlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player1");
+        if (player != null)
+        {
+            player.transform.position = checkpoint.transform.position;
+        }
+    }
     
 }
