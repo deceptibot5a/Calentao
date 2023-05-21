@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Unity.VisualScripting;
 using WebSocketSharp;
 
 public class MenuManager_Test : MonoBehaviour
@@ -49,6 +50,7 @@ public class MenuManager_Test : MonoBehaviour
     [SerializeField] private GameObject brilloInferior;
     [SerializeField] private GameObject panelGuia,panelExplorador;
     [SerializeField] private GameObject errorScreen;
+    [SerializeField] private bool playersReady = false;
     
     private void Start()
     {
@@ -63,16 +65,27 @@ public class MenuManager_Test : MonoBehaviour
     
     private void Update()
     {
-        if (playersSelected == (int)jugadoresMinimos)
+        if (playersSelected == (int)jugadoresMinimos )
         {
-           LeanTween.move(startGameButton.GetComponent<RectTransform>(),new Vector3(0,0,0) , 0.3f).setEase(LeanTweenType.easeInOutBack);
+           ShowStartButton();
+        }
+    }
+    void ShowStartButton()
+    {
+        if (playersReady == false)
+        {
+            LeanTween.moveLocalY(startGameButton, -500, 0.3f).setEase(LeanTweenType.easeInOutBack);
+            playersReady = true;
+            Debug.Log("aqui te muestro cuantas veces me llaman");
         }
         else
         {
-            LeanTween.move(startGameButton.GetComponent<RectTransform>(),new Vector3(0,-400,0) , 0.3f).setEase(LeanTweenType.easeInOutBack);
+            Debug.Log("no te voy a mostrar el boton porque ya lo hice");
         }
         
     }
+    
+    
 
     private void Awake()
     {
@@ -101,6 +114,7 @@ public class MenuManager_Test : MonoBehaviour
         LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 1f, 0.3f);
         LeanTween.moveLocalY(mainMenuScreen, 8f, 0.4f);
         mainMenuScreen.GetComponent<CanvasGroup>().interactable = true;
+        mainMenuScreen.SetActive(true);
     }
     
     public void CloseMainMenu()
@@ -119,6 +133,7 @@ public class MenuManager_Test : MonoBehaviour
     {
         LeanTween.alphaCanvas(nombreJugador.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(brilloInferior.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
+        CloseErrorScreen();
         OpenMainMenu();
         CloseRoom();
         CloseFindRooms();
@@ -217,6 +232,7 @@ public class MenuManager_Test : MonoBehaviour
         CloseFindRooms();
         CloseCreateRooms();
         CloseMainMenu();
+        CloseLoadingScreen();
     }
     public void CloseErrorScreen()
     {
