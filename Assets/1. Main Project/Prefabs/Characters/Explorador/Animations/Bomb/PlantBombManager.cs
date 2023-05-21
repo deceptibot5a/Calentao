@@ -16,6 +16,8 @@ public class PlantBombManager : MonoBehaviour
     public ExploradorCameraManager ExploradorCameraManager;
     public CharacterController characterController;
 
+    public CanvasGroup interact; 
+
     public GameObject cameraMain;
     public GameObject bombCamera;
 
@@ -43,6 +45,7 @@ public class PlantBombManager : MonoBehaviour
         if (other.gameObject.CompareTag("PlantArea"))
         {
             Debug.Log("Puede plantar area 1");
+            interact.alpha = 1f; 
             canPlant = true; 
             bomb1 = true;
             bomb2 = false; 
@@ -51,9 +54,10 @@ public class PlantBombManager : MonoBehaviour
         
         if  (other.gameObject.CompareTag("PlantArea2"))
         {
+            interact.alpha = 1f; 
             Debug.Log("Puede plantar area 2");
             canPlant = true; 
-            bomb2 = false; 
+            bomb1 = false; 
             bomb2 = true; 
 
 
@@ -136,6 +140,7 @@ public class PlantBombManager : MonoBehaviour
         if (other.gameObject.CompareTag("PlantArea"))
         {
             Debug.Log("No puede plantar");
+            interact.alpha = 0f; 
             canPlant = false;
             planting = false;
             bomb1 = false;
@@ -146,6 +151,7 @@ public class PlantBombManager : MonoBehaviour
         if (other.gameObject.CompareTag("PlantArea2"))
         {
             Debug.Log("No puede plantar");
+            interact.alpha = 0f; 
             canPlant = false;
             planting = false;
             bomb1 = false;
@@ -163,6 +169,7 @@ public class PlantBombManager : MonoBehaviour
             {
                 if (!planting)
                 {
+                    interact.alpha = 0f; 
                     Debug.Log("Empezó a plantar");
                     StartPlanting();
                 }
@@ -215,6 +222,11 @@ public class PlantBombManager : MonoBehaviour
 
     void CancelPlanting()
     {
+        
+        if (canPlant)
+        {
+            interact.alpha = 1f; 
+        }
         if (bomb1)
         {
         Bomb01GameObject.transform.parent = handParent.transform; 

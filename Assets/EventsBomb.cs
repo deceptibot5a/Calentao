@@ -13,6 +13,9 @@ public class EventsBomb : MonoBehaviour
     public GameObject areaPlant01;
     public GameObject areaPlant02;
 
+    public ExplosionManager explosionManager; 
+    public ExplosionManager2 explosionManager02; 
+
     public PlantBombManager PlantBombManager; 
 
     public GameObject cameraMain;
@@ -22,14 +25,31 @@ public class EventsBomb : MonoBehaviour
     public GameObject exploradorCurrentPosition;
     public GameObject Bomb01GameObject;
     public GameObject Bomb02GameObject;
+    
+    private void Start()
+    {
+     
+        StartCoroutine(AssignAreas());
+       
+    }
+    
+    IEnumerator AssignAreas()
+    {
+        yield return new WaitForSeconds(0.5f);
+  
+        areaPlant01 = GameObject.Find("AreaPlant01");
+        areaPlant02 = GameObject.Find("AreaPlant02");
+
+    }
  
     public void PlantFinish()
     {
         Debug.Log("Plantado exitoso");
         plantBombManager.planting = false;
-        plantBombManager.canPlant = false; 
+        plantBombManager.canPlant = false;
+
         
-  
+        
         cameraMain.SetActive(true);
         bombCamera.SetActive(false);
         exploradorAnimatorManager.enabled = true;
@@ -40,13 +60,15 @@ public class EventsBomb : MonoBehaviour
         
         
         if (plantBombManager.bomb1)
-        {
+        { 
+            explosionManager.enabled = true;
         Bomb01GameObject.transform.parent = null; 
         areaPlant01.SetActive(false);
         }
         
         if (plantBombManager.bomb2)
         {
+            explosionManager02.enabled = true;
             areaPlant02.SetActive(false);
             Bomb02GameObject.transform.parent = null; 
         }

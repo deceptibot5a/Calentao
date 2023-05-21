@@ -402,7 +402,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947415175248011877}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d3a7b3488e581149abedb9870f2e6b7, type: 3}
   m_Name: 
@@ -410,6 +410,7 @@ MonoBehaviour:
   originalWall: {fileID: 0}
   fracturedWall: {fileID: 0}
   explosionVFX: {fileID: 0}
+  bombManager01: {fileID: 0}
   bombMeshRenderer: {fileID: 1595709565525509040}
   targetMaterial: {fileID: 2100000, guid: d83ff22055e8d9a4ca42486b4c71fdb1, type: 2}
   CantExplode: 0
@@ -676,6 +677,8 @@ MonoBehaviour:
   plantBombManager: {fileID: 2795351836122636905}
   areaPlant01: {fileID: 0}
   areaPlant02: {fileID: 0}
+  explosionManager: {fileID: 1595709565525509042}
+  explosionManager02: {fileID: 1230045244253260573}
   PlantBombManager: {fileID: 2795351836122636905}
   cameraMain: {fileID: 6186041537258660971}
   bombCamera: {fileID: 6653650612237203726}
@@ -792,7 +795,7 @@ GameObject:
   - component: {fileID: 631934553973678235}
   - component: {fileID: 6742580520147571836}
   - component: {fileID: 4940767454674120803}
-  - component: {fileID: 6043618431325957698}
+  - component: {fileID: 1230045244253260573}
   m_Layer: 0
   m_Name: Bomba02
   m_TagString: Untagged
@@ -878,25 +881,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04806286, y: 0.06609732, z: 0.18503955}
   m_Center: {x: -0.0000000028312992, y: 0.00000023841858, z: -0.01002141}
---- !u!114 &6043618431325957698
+--- !u!114 &1230045244253260573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2316798606103463437}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3a7b3488e581149abedb9870f2e6b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9adbc6d953fb1bc4d849df52c07307b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalWall: {fileID: 0}
-  fracturedWall: {fileID: 0}
-  explosionVFX: {fileID: 0}
-  bombMeshRenderer: {fileID: 6742580520147571836}
-  targetMaterial: {fileID: 2100000, guid: d83ff22055e8d9a4ca42486b4c71fdb1, type: 2}
-  CantExplode: 0
-  fragScaleFactor: 1
+  CantExplode: 1
 --- !u!1 &2350704726997400683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,6 +1563,7 @@ MonoBehaviour:
   exploradorAnimatorManager: {fileID: 5420124466252383056}
   ExploradorCameraManager: {fileID: 6186041537258660969}
   characterController: {fileID: 5462589145226037417}
+  interact: {fileID: 1000061642654510969}
   cameraMain: {fileID: 6186041537258660971}
   bombCamera: {fileID: 6653650612237203726}
   cinemachineBrain: {fileID: 6186041538000471956}
@@ -1576,7 +1574,7 @@ MonoBehaviour:
   _breathingNormalAudioSource: {fileID: 2361356290525598436}
   _breathingRunAudioSource: {fileID: 2361356290525598437}
   Bomb01GameObject: {fileID: 947415175248011877}
-  Bomb02GameObject: {fileID: 0}
+  Bomb02GameObject: {fileID: 2316798606103463437}
   bombReferencePosition: {fileID: 2612241405586729508}
   handParent: {fileID: 4610862020879061955}
 --- !u!114 &78023058257487102
@@ -3105,7 +3103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6186041538000471958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000003963709, y: 1.2979999, z: 0.55000156}
+  m_LocalPosition: {x: 0.000003963709, y: 1.2980001, z: 0.55000156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
