@@ -2747,7 +2747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3102,7 +3102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6186041538000471958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000003963709, y: 1.2980001, z: 0.55000156}
+  m_LocalPosition: {x: -0.000000014901161, y: 1.298, z: 0.5500002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4527,6 +4527,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1845542270152182483}
     m_Modifications:
+    - target: {fileID: 295079697080232734, guid: 340c1b1c0efc8ba4b9c1e2b88efcad47,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2189558692183411571, guid: 340c1b1c0efc8ba4b9c1e2b88efcad47,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
