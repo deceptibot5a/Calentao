@@ -62,7 +62,7 @@ public class InteractionsPlayer2 : MonoBehaviour
         photonView = GameObject.FindWithTag("Player2").GetComponent<PhotonView>();
         playerCamera = GameObject.Find("CM vcam1 Guia").GetComponent<GuiaCameraManager>();
         playerAnimator = GameObject.Find("GuiaMesh").GetComponent<GuiaAnimationManager>();
-        PlayersAudioManager = GameObject.Find("PlayerController2").GetComponent<PlayersAudioManager>();
+        PlayersAudioManager = GameObject.FindWithTag("Player2").GetComponent<PlayersAudioManager>();
     }
 
     public void uiInteraction()

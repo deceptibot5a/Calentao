@@ -8,11 +8,13 @@ public class PuzzleInteractions2 : MonoBehaviour
 {
 
     public CinemachineVirtualCamera puzzlecam;
+    
 
     public int PuzzleNumber;
 
     public InteractionsPlayer2 interactions;
 
+ 
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,7 +34,7 @@ public class PuzzleInteractions2 : MonoBehaviour
         {
             Debug.Log("no hay camaras asignadas");
             interactions.uiInteractionOff();
-            interactions.activecamera = null;
+           // interactions.activecamera = null;
             interactions.puzzletype = 0;
         }
     }

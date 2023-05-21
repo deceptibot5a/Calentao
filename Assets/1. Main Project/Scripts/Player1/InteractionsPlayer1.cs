@@ -64,7 +64,7 @@ public class InteractionsPlayer1 : MonoBehaviour
         playerControllerex = GameObject.FindWithTag("Player1").GetComponent<ExploradorPlayerController>();
         playerCamera = GameObject.Find("CM vcam1 explorador").GetComponent<ExploradorCameraManager>();
         playerAnimator = GameObject.Find("ExploradorFINALv1").GetComponent<ExploradorAnimatorManager>();
-        PlayersAudioManager = GameObject.Find("PlayerController").GetComponent<PlayersAudioManager>();
+        PlayersAudioManager = GameObject.FindWithTag("Player1").GetComponent<PlayersAudioManager>();
         
     }
 
