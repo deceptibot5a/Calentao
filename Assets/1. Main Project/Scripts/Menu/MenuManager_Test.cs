@@ -171,8 +171,8 @@ public class MenuManager_Test : MonoBehaviour
     {
         CloseLoadingScreen();
         CloseCreateRooms();
-        LeanTween.moveLocalX(panelGuia, 680f, 0.6f).setEase(LeanTweenType.easeInOutBack);
-        LeanTween.moveLocalX(panelExplorador, -680f, 0.6f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalX(panelGuia, -680f, 0.6f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalX(panelExplorador, 680f, 0.6f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(brilloInferior.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(mainMenuScreen.GetComponent<CanvasGroup>(), 0f, 0.3f).setEase(LeanTweenType.easeInOutBack);
         LeanTween.alphaCanvas(roomScreen.GetComponent<CanvasGroup>(), 1f, 0.3f).setEase(LeanTweenType.easeInOutBack);
