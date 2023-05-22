@@ -28,7 +28,7 @@ public class PlayersAudioManager : MonoBehaviour
             {
                 _breathingNormalAudioSource.Play();
             }
-            float fadeTime = 0.4f; // tiempo para desvanecer el sonido
+            float fadeTime = 0.1f; // tiempo para desvanecer el sonido
 
             // Desvanece el volumen del _breathingNormalAudioSource
             float startVolume = _breathingNormalAudioSource.volume;

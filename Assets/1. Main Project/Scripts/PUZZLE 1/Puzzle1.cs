@@ -132,7 +132,7 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
     
     void ActivateFinishChallenge()
     {
-        Debug.Log("HOLAAAAAAAAAAAAAAAAA");
+        FinishChallenge.Play();
     }
 
     [PunRPC]
