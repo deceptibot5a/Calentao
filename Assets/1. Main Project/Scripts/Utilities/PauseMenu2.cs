@@ -14,7 +14,12 @@ public class PauseMenu2 : MonoBehaviour
     [SerializeField] GuiaAnimationManager playerAnimator2;
     [SerializeField] Animator animator2;
     
+    
+    
     public GameObject pauseMenuUI;
+    public Image pauseMenuBackground;
+    public GameObject pauseMenuContainer;
+    public GameObject fotoJugador;
     private bool isPaused = false;
     private bool assigned;
     public Button resumeButton;
@@ -52,6 +57,9 @@ public class PauseMenu2 : MonoBehaviour
         playerControllerex2.enabled = false;
         playerAnimator2.enabled = false;
         animator2.SetBool("IsErect", true);
+        LeanTween.alphaCanvas(pauseMenuBackground.GetComponent<CanvasGroup>(), 1f, 0.3f);
+        LeanTween.moveLocal(pauseMenuContainer, new Vector3(124.5f,-3,-2), 0.3f).setEaseInSine();
+        LeanTween.moveLocalX(fotoJugador, -960, 0.3f).setEaseInSine();
 
     }
     
@@ -59,14 +67,21 @@ public class PauseMenu2 : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
-        pauseMenuUI.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera2.enabled = true;
         playerControllerex2.enabled = true;
         playerAnimator2.enabled = true;
         animator2.SetBool("IsErect", false);
+        LeanTween.alphaCanvas(pauseMenuBackground.GetComponent<CanvasGroup>(), 0f, 0.3f);
+        LeanTween.moveLocal(pauseMenuContainer, new Vector3(124.5f,1018,-2), 0.3f).setEaseInSine();
+        LeanTween.moveX(fotoJugador, -560, 0.3f).setEaseInSine().setEaseInSine().setOnComplete(TurnOffPause);
 
+    }
+    
+    void TurnOffPause()
+    {
+        pauseMenuUI.SetActive(false);
     }
 
 }

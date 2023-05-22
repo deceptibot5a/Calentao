@@ -10,7 +10,14 @@ public class Checkpoints : MonoBehaviour
     public Transform checkpoint;
     public CanvasGroup deathPanel;
     public bool isDead;
-    public float TPdelayTime = 0.5f;
+    public float TPdelayTime = 0.42f;
+    public static Checkpoints instance;
+    
+    private void Awake()
+    {
+        instance = this;
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1"))
@@ -21,9 +28,8 @@ public class Checkpoints : MonoBehaviour
             Debug.Log("Toque el checkpoint");
         }
     }
-    
-    
-    IEnumerator FadeInAndOut()
+
+    public IEnumerator FadeInAndOut()
     {
         TurnOnDeathPanel();
         yield return new WaitForSeconds(0.8f);

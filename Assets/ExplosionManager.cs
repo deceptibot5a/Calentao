@@ -64,6 +64,5 @@ public class ExplosionManager : MonoBehaviour
        
         Debug.Log("Disabled");
 
-        
     }
 }

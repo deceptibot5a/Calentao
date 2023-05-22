@@ -8,7 +8,7 @@ using UnityEngine;
 public class MaterialChangers : MonoBehaviour
 {
    public Material nuevoMaterial; 
-   public Renderer renderer;
+   public List<Renderer> renderersList = new List<Renderer>();
    public PhotonView photonView;
 
    private void Start()
@@ -20,7 +20,10 @@ public class MaterialChangers : MonoBehaviour
    {
        if (other.gameObject.CompareTag("Player1") && photonView.IsMine)
        {
-              renderer.material = nuevoMaterial;
+           foreach (var _renderer in renderersList)
+           {
+               _renderer.material = nuevoMaterial;
+           }
        }
    }
    IEnumerator AssignPhotonView()

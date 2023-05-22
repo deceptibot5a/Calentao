@@ -7,22 +7,18 @@ public class EnemyController : MonoBehaviour
 {
     public Transform[] patrolPoints; 
     public float patrolSpeed = 2f; 
-    public float chaseSpeed = 4f; 
-    public CanvasGroup deathPanel;
+    public float chaseSpeed = 4f;
     public Transform checkpoint;
-    public Transform playerTransform;
     private int currentPatrolIndex = 0; 
     private NavMeshAgent agent; 
     private bool playerInRange = false;
-    
-
+    public float TPdelayTime = 0.42f;
     
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         SetPatrolDestination();
         agent.speed = patrolSpeed;
-        StartCoroutine(GetPlayerTransform());
     }
 
     private void Update()
@@ -66,17 +62,17 @@ public class EnemyController : MonoBehaviour
 
     private void PlayerDetected()
     {
-        LeanTween.alphaCanvas(deathPanel, 1f, 0.3f).setOnComplete(TurnOffDeathPanel);
-        playerTransform.position = checkpoint.position;
+        StartCoroutine(Checkpoints.instance.FadeInAndOut());
+        Invoke("TeleportPlayer", TPdelayTime);
         Debug.Log("Player detected!");
     }
-    public void TurnOffDeathPanel()
+    
+    private void TeleportPlayer()
     {
-        LeanTween.alphaCanvas(deathPanel, 0f, 0.6f);
-    }
-    IEnumerator GetPlayerTransform()
-    {
-        yield return new WaitForSeconds(0.01f);
-        playerTransform = GameObject.FindGameObjectWithTag("Player1").transform;
+        GameObject player = GameObject.FindGameObjectWithTag("Player1");
+        if (player != null)
+        {
+            player.transform.position = checkpoint.transform.position;
+        }
     }
 }

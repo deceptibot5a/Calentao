@@ -4,6 +4,7 @@ using Calentao.PlayerContol;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using TreeEditor;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -16,14 +17,15 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] PhotonView photonView; 
 
     public GameObject pauseMenuPanel;
+    public Image pauseMenuBackground;
+    public GameObject pauseMenuContainer;
+    public GameObject fotoJugador;
     public Button resumeButton;
     private bool isPaused = false;
-    
 
     private void Start()
     {
         // Desactivar el menú de pausa al iniciar el juego
-        pauseMenuPanel.SetActive(false);
         resumeButton.onClick.AddListener(ResumeGame);
     }
 
@@ -52,6 +54,9 @@ public class PauseMenu : MonoBehaviour
         playerAnimator.enabled = false;
         animator.SetBool("IsErect", true);
         pauseMenuPanel.SetActive(true);
+        LeanTween.alphaCanvas(pauseMenuBackground.GetComponent<CanvasGroup>(), 1f, 0.3f);
+        LeanTween.moveLocal(pauseMenuContainer, new Vector3(124.5f,-3,-2), 0.3f).setEaseInSine();
+        LeanTween.moveLocalX(fotoJugador, -960, 0.3f).setEaseInSine();
     }
 
     public void ResumeGame()
@@ -64,6 +69,19 @@ public class PauseMenu : MonoBehaviour
         playerControllerex.enabled = true;
         playerAnimator.enabled = true;
         animator.SetBool("IsErect", false);
+        LeanTween.alphaCanvas(pauseMenuBackground.GetComponent<CanvasGroup>(), 0f, 0.3f);
+        LeanTween.moveLocal(pauseMenuContainer, new Vector3(124.5f,1018,-2), 0.3f).setEaseInSine();
+        LeanTween.moveX(fotoJugador, -560, 0.3f).setEaseInSine().setEaseInSine().setOnComplete(TurnOffPause);
+    }
+   
+    void TurnOffPause()
+    {
+        pauseMenuPanel.SetActive(false);
+    }
+    
+    IEnumerator TurnOffPauseMenu()
+    {
+        yield return new WaitForSeconds(0.2f);
         pauseMenuPanel.SetActive(false);
     }
 }
