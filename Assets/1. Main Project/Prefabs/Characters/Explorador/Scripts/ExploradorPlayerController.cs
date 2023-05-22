@@ -186,4 +186,19 @@ void Update()
 
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("Cambiar audio a grass");
+            _walkAudioSource.clip = _GrasswalkAudio;
+            _runAudioSource.clip = _GrassRunAudio; 
+        }
+        
+        if (hit.gameObject.CompareTag("Metal"))
+        {
+            _walkAudioSource.clip = _metalwalkAudio;
+            _runAudioSource.clip = _metalRunAudio; 
+        }
+    }
 }
