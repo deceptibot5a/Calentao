@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class WinManager : MonoBehaviour
+public class WinManager : MonoBehaviourPunCallbacks 
 {
     [SerializeField] private Timer timer;
     [SerializeField] private SaveTime saveTime;
@@ -31,16 +31,17 @@ public class WinManager : MonoBehaviour
     }
 
     void DisplayTime(float timeToDisplay) {
-        int temp = (int)timeToDisplay;
-        dataToSave = temp.ToString();
-        saveTime.AppendText(dataToSave, rawTimesPath);
-
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        dataToSave = string.Format("{0:00}:{1:00}", minutes, seconds);
-        saveTime.AppendText(dataToSave, timesPath);
+        if (PhotonNetwork.IsMasterClient) {
+            int temp = (int)timeToDisplay;
+            dataToSave = temp.ToString();
+            saveTime.AppendText(dataToSave, rawTimesPath);
 
+            dataToSave = string.Format("{0:00}:{1:00}", minutes, seconds);
+            saveTime.AppendText(dataToSave, timesPath);
+        }
         dataToSave = ("Felicidades, completaron la misión!\nTiempo: " + string.Format("{0:00}:{1:00}", minutes, seconds));
         saveTime.OverwriteText(dataToSave);
     }

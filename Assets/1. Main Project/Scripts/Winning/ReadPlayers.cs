@@ -3,9 +3,10 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 using TMPro;
 
-public class ReadPlayers : MonoBehaviour
+public class ReadPlayers : MonoBehaviourPunCallbacks
 {
     private string[] playersNames;
     private string[] playersTimes;
@@ -52,6 +53,7 @@ public class ReadPlayers : MonoBehaviour
             }
         }
     }
+
     private void ConvertArray() {
         playersRawTimes = File.ReadAllLines(rawTimesPath);
         rawTimes = new int[playersRawTimes.Length];
@@ -60,6 +62,7 @@ public class ReadPlayers : MonoBehaviour
             int.TryParse(playersRawTimes[i], out rawTimes[i]);
         }
     }
+
     public void DisplayNames() {
         for (int i = 0; i < playersNames.Length; i++) {
             TextMeshProUGUI newText = Instantiate(textPrefab);

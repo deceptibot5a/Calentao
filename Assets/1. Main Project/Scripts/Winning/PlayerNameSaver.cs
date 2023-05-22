@@ -21,8 +21,7 @@ public class PlayerNameSaver : MonoBehaviour
 
     public void SaveName() {
         playerName = txtInput.text;
-
-        AppendText(playerName, playerPath);
+        if(PhotonNetwork.IsMasterClient) AppendText(playerName, playerPath);
         ShowLeaderboard();
     }
 
