@@ -93,6 +93,7 @@ public class MenuManager_Test : MonoBehaviour
     [PunRPC]
     public void Player1Selected()
     {
+        
         player1.GetComponent<Image>().color = Color.green;
         //Destroy(player2);
         player1Selected = true;
@@ -115,17 +116,16 @@ public class MenuManager_Test : MonoBehaviour
     [PunRPC]
     public void Player2Selected()
     {
-       
-            player2.GetComponent<Image>().color = Color.green;
-            //Destroy(player1);
-            player2Selected = true;
-            playersSelected++;
-            photonView.RPC("UpdatePlayersSelected", RpcTarget.All, playersSelected);
-            player1Button.interactable = false;
-            player2Button.interactable = false;
-            photonView.RPC("DisablePlayer2", RpcTarget.All);
-            player1Button.onClick.RemoveAllListeners();
-        
+
+        player2.GetComponent<Image>().color = Color.green;
+        //Destroy(player1);
+        player2Selected = true;
+        playersSelected++;
+        photonView.RPC("UpdatePlayersSelected", RpcTarget.All, playersSelected);
+        player1Button.interactable = false;
+        player2Button.interactable = false;
+        photonView.RPC("DisablePlayer2", RpcTarget.All);
+        player1Button.onClick.RemoveAllListeners();
     }
 
     [PunRPC]
