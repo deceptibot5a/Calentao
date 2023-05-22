@@ -1290,7 +1290,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ea8ad7ec45bb5a4498433ecb10d6e8f4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -3997,8 +3997,9 @@ GameObject:
   - component: {fileID: 7019211536560691713}
   - component: {fileID: 3138679885225338733}
   - component: {fileID: 6040954228142446573}
+  - component: {fileID: 4861996188264250720}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ExploradorCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4112,6 +4113,18 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!225 &4861996188264250720
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521578138087124061}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8052589583121528401
 GameObject:
   m_ObjectHideFlags: 0

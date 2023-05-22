@@ -1,6 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using DG;
+using DG.Tweening;
 
 public class ExploradorTimelineEvents : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class ExploradorTimelineEvents : MonoBehaviour
     private ExploradorCameraManager playerCamera;
     private ExploradorAnimatorManager playerAnimator;
     private SkinnedMeshRenderer playerSkinnedMesh;
+    private CinemachineBrain _cinemachineBrain;
+    private CanvasGroup exploradorCanvas; 
     
     private void Start()
     {
@@ -22,6 +26,8 @@ public class ExploradorTimelineEvents : MonoBehaviour
         playerCamera = GameObject.Find("CM vcam1 explorador").GetComponent<ExploradorCameraManager>();
         playerAnimator = GameObject.Find("ExploradorFINALv1").GetComponent<ExploradorAnimatorManager>();
         playerSkinnedMesh = GameObject.Find("ExploradorBody").GetComponent<SkinnedMeshRenderer>();
+        _cinemachineBrain = GameObject.Find("ExpCinemachineBrain").GetComponent<CinemachineBrain>();
+        exploradorCanvas = GameObject.Find("ExploradorCanvas").GetComponent<CanvasGroup>();  
 
     }
 
@@ -29,10 +35,12 @@ public class ExploradorTimelineEvents : MonoBehaviour
 
     {
         Debug.Log("Mover main character"); 
+        _cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
         playerControllerex.enabled = true;
         playerCamera.enabled = true;
         playerAnimator.enabled = true;
-        playerSkinnedMesh.enabled = true; 
+        playerSkinnedMesh.enabled = true;
+        exploradorCanvas.DOFade(1, 0.5f);
     }
 
     

@@ -1,13 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
 using System.IO;
-using Photon.Pun.UtilityScripts;
-using UnityEngine.UI;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 public class PlayerManager : MonoBehaviour
 {
