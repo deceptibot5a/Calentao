@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2985805096248801161
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.50496
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.794556
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.3981018
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847628115580504469, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033243482175775489, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_Name
+      value: Grass_01_LOD0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208662748436266792, guid: 65146518731ac074c918c0af2d85fc8d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1722f8fa9be84be4789cce883dd84b1a, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65146518731ac074c918c0af2d85fc8d, type: 3}
+--- !u!1 &6067249182501426312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9033243482175775489, guid: 65146518731ac074c918c0af2d85fc8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2985805096248801161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &447974792373441824
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067249182501426312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28887224, y: 0.3790605, z: 0.29128027}
+  m_Center: {x: 0.026811115, y: 0.18182376, z: -0.0010569319}
