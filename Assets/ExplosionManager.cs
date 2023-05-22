@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening; 
 using UnityEngine.UI; 
@@ -14,7 +12,7 @@ public class ExplosionManager : MonoBehaviour
 
     public UI_Explosion UIExplosion;
 
-    public Button bombButton; 
+    public GameObject button1; 
 
     public BombManager01 bombManager01; 
 
@@ -30,9 +28,6 @@ public class ExplosionManager : MonoBehaviour
     {
         UIExplosion = GameObject.Find("CanvasCameras").GetComponent<UI_Explosion>();
         
-        bombButton = GameObject.Find("BombButton1").GetComponent<Button>();
-
-        bombButton.interactable = true;  
         
         UIExplosion.AssingBomb();
         
@@ -44,6 +39,9 @@ public class ExplosionManager : MonoBehaviour
         
         explosionVFX = bombManager01.gameObjectsList.Find(obj => obj.name == "ExplosionVFX");
 
+        button1 = bombManager01.gameObjectsList.Find(obj => obj.name == "BombButton1"); 
+        
+        button1.SetActive(true);
 
     }
     
@@ -74,7 +72,7 @@ public class ExplosionManager : MonoBehaviour
             bombMeshRenderer.enabled = false; 
             //rock.transform.parent = null; 
             CantExplode = true;
-
+            button1.SetActive(false);
             StartCoroutine(Shrink());
         }
         

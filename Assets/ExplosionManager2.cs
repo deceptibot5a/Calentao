@@ -1,20 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening; 
+using UnityEngine.UI; 
+
 
 
 public class ExplosionManager2 : MonoBehaviour
 {
-
-
-    void Update()
+    public UI_Explosion UIExplosion;
+    
+    
+    public BombManager01 bombManager01;
+    
+    public GameObject button2; 
+    
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Cinematica FINAl");
-       
-        }
+        
+        bombManager01 = GameObject.Find("ExplosionManager01").GetComponent<BombManager01>();
+        
+        UIExplosion = GameObject.Find("CanvasCameras").GetComponent<UI_Explosion>();
+        
+        
+        button2 = bombManager01.gameObjectsList.Find(obj => obj.name == "BombButton2");
+
+        button2.SetActive(true);
+        
+        UIExplosion.AssingBomb2();
+        
+
     }
+    
+    public void Explosion2()
+    {
+        button2.SetActive(false);
+        Debug.Log("Cinematica FINAl");
+    }
+    
 
 }
