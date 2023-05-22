@@ -1,7 +1,6 @@
 using System.Collections;
 using Cinemachine;
 using UnityEngine;
-using DG;
 using DG.Tweening;
 
 public class ExploradorTimelineEvents : MonoBehaviour

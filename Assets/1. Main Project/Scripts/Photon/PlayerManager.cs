@@ -15,11 +15,13 @@ public class PlayerManager : MonoBehaviour
     
     
     public string playerPrefabName;
+    public string playerPrefabName2;
 
     void Awake()
     {
         PV = GetComponent<PhotonView>();
-        if (playerPrefabName == "PlayerController") StartCoroutine(CameraCinematica()); 
+        if (playerPrefabName == "PlayerController") StartCoroutine(CameraCinematica());
+        if (playerPrefabName == "PlayerController2") StartCoroutine(CameraCinematica2());
         player1Spawnpoint = GameObject.Find("SpawnPlayer1").transform;
         player2Spawnpoint = GameObject.Find("SpawnPlayer2").transform;
     }
@@ -66,6 +68,12 @@ public class PlayerManager : MonoBehaviour
     {
         yield return new WaitUntil(() => CameraPlayerAssing.instance != null); 
         CameraPlayerAssing.instance.EnableCamera(); 
+    }
+    
+    IEnumerator CameraCinematica2()
+    {
+        yield return new WaitUntil(() => CameraPlayerAssing2.instance != null); 
+        CameraPlayerAssing2.instance.EnableCamera(); 
     }
     
 }
