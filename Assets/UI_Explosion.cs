@@ -10,8 +10,7 @@ public class UI_Explosion : MonoBehaviour
     
     public void AssingBomb()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+   
         ExplosionManager = GameObject.Find("Bomba01").GetComponent<ExplosionManager>();
 
 

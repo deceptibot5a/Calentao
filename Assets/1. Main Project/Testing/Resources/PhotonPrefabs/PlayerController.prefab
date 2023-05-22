@@ -71,7 +71,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284636931345947013}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -410,6 +410,8 @@ MonoBehaviour:
   originalWall: {fileID: 0}
   fracturedWall: {fileID: 0}
   explosionVFX: {fileID: 0}
+  UIExplosion: {fileID: 0}
+  button1: {fileID: 0}
   bombManager01: {fileID: 0}
   bombMeshRenderer: {fileID: 1595709565525509040}
   targetMaterial: {fileID: 2100000, guid: d83ff22055e8d9a4ca42486b4c71fdb1, type: 2}
@@ -608,7 +610,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626883602042913683}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0e62a437a6d8634cbc2360964a8f4df, type: 3}
   m_Name: 
@@ -891,6 +893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9adbc6d953fb1bc4d849df52c07307b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIExplosion: {fileID: 0}
+  bombManager01: {fileID: 0}
+  button2: {fileID: 0}
 --- !u!1 &2350704726997400683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1048,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2402807954187156464}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38ad222edeb017745a074fdeb7a3e222, type: 3}
   m_Name: 
@@ -2960,7 +2965,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6186041537258660971}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b47730bd92bbedc47aac947ee5df31b4, type: 3}
   m_Name: 
@@ -4121,7 +4126,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7521578138087124061}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
