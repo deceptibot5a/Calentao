@@ -6,10 +6,18 @@ using UnityEngine.SceneManagement;
 public class WinManager : MonoBehaviour
 {
     [SerializeField] private Timer timer;
-    [SerializeField] private SaveFile saveFile;
-    [SerializeField] private FileManager fileManager;
-    //private string timeText;
+    [SerializeField] private SaveTime saveTime;
+    
     private float finishTime;
+    private string dataToSave;
+
+    private string timesPath;
+    private string rawTimesPath;
+
+    void Start() {
+        timesPath = Application.dataPath + "/times.txt";
+        rawTimesPath = Application.dataPath + "/rawTimes.txt";
+    }
 
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player1")) {
@@ -17,17 +25,24 @@ public class WinManager : MonoBehaviour
         }
     }
     void WinTheGame() {
-        Debug.Log("Ganamos");
-        SceneManager.LoadScene(2, LoadSceneMode.Additive);
-        finishTime = timer.timeRemaining;
+        finishTime = 605 - timer.timeRemaining;
         DisplayTime(finishTime);
+        SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 
     void DisplayTime(float timeToDisplay) {
+        int temp = (int)timeToDisplay;
+        dataToSave = temp.ToString();
+        saveTime.AppendText(dataToSave, rawTimesPath);
+
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        saveFile.timeData = ("Completado en: " + string.Format("{0:00}:{1:00}", minutes, seconds));
-        fileManager.Save();
-        //timeText = ("Completado en: " + string.Format("{0:00}:{1:00}", minutes, seconds));
+
+        dataToSave = string.Format("{0:00}:{1:00}", minutes, seconds);
+        saveTime.AppendText(dataToSave, timesPath);
+
+        dataToSave = ("Felicidades, completaron la misión!\nTiempo: " + string.Format("{0:00}:{1:00}", minutes, seconds));
+        saveTime.OverwriteText(dataToSave);
     }
+
 }
