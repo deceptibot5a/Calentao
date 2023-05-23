@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,5 +9,13 @@ public class PlatformDestroyer : MonoBehaviour
     public void DeactivatePlatform()
     {
         puzzle2Button.DeactivatePlatform();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pez"))
+        {
+            DeactivatePlatform();
+        }
     }
 }

@@ -46,7 +46,6 @@ public class DisparoPez : MonoBehaviour
         
         yield return new WaitForSeconds(2f);
         ShootFish();
-        StartCoroutine(DeactivatePlatform());
         yield return new WaitForSeconds(2.4f);
         canShoot = true;
     }
@@ -71,7 +70,7 @@ public class DisparoPez : MonoBehaviour
     IEnumerator DeactivatePlatform()
     {
         yield return new WaitForSeconds(0.85f);
-        platformDestroyer.DeactivatePlatform();
+        
     }
     
 }
