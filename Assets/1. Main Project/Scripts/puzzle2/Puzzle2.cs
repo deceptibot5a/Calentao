@@ -93,6 +93,11 @@ public class Puzzle2 : MonoBehaviour
             firstObject.GetComponent<PlatformDestroyer>().DeactivatePlatform();
         }
     }
+    public void RemoveObject(GameObject plataforma)
+    {
+        objects.Remove(plataforma);
+    }
+    
     
 
 }

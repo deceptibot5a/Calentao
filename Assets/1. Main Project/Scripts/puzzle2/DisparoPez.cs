@@ -71,7 +71,7 @@ public class DisparoPez : MonoBehaviour
     
     IEnumerator DeactivatePlatform()
     {
-        yield return new WaitForSeconds(0.85f);
+        yield return new WaitForSeconds(1.2f);
         platformDestroyer.DeactivatePlatform();
     }
     

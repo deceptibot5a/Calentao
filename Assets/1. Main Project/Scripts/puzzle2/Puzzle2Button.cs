@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Photon.Pun;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Puzzle2Button : MonoBehaviour
@@ -89,6 +86,6 @@ public class Puzzle2Button : MonoBehaviour
         LeanTween.scale(plataforma, new Vector3(0f, 0f, 0f), 0.5f).setEaseOutSine();
         platformOn = false;
         plataforma.GetComponent<BoxCollider>().enabled = false;
+        manager.RemoveObject(plataforma);
     }
-
 }

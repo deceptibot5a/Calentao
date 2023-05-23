@@ -106,7 +106,7 @@ public class EventsBomb : MonoBehaviour
         Debug.Log("Position Original");
         exploradorCurrentPosition.transform.position = ExploradorOriginalPosition.transform.position; 
         exploradorCurrentPosition.transform.rotation = ExploradorOriginalPosition.transform.rotation;
-
+        
     }
  
 }
