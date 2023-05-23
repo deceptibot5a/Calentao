@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using DG.Tweening;
+using Photon.Pun;
 
 public class GuiaTimelineEvents : MonoBehaviour
 {
@@ -12,6 +12,8 @@ public class GuiaTimelineEvents : MonoBehaviour
     private SkinnedMeshRenderer playerSkinnedMesh;
     private CinemachineBrain _cinemachineBrain;
     private CanvasGroup guiaCanvas; 
+    
+    PhotonView PV;
 
     private void Start()
     {
@@ -29,11 +31,13 @@ public class GuiaTimelineEvents : MonoBehaviour
         guiaCanvas = GameObject.Find("GuiaCanvas").GetComponent<CanvasGroup>();  
 
     }
-
+    
+    [PunRPC]
     public void EnableGuiaMovement()
 
     {
         Debug.Log("Guia Enabled"); 
+        PV.RPC("EnableGuiaMovement", RpcTarget.Others);
         _cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
         playerControllerex.enabled = true;
         playerCamera.enabled = true;

@@ -27,6 +27,7 @@ public class UI_Explosion : MonoBehaviour
    public void BombExplosion1()
    
    {
+       
        ExplosionManager.Explosion1();
 
    }

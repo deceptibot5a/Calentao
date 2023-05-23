@@ -2,6 +2,7 @@ using System.Collections;
 using Cinemachine;
 using UnityEngine;
 using DG.Tweening;
+using Photon.Pun;
 
 public class ExploradorTimelineEvents : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ExploradorTimelineEvents : MonoBehaviour
     private SkinnedMeshRenderer playerSkinnedMesh;
     private CinemachineBrain _cinemachineBrain;
     private CanvasGroup exploradorCanvas; 
+    
+    PhotonView PV;
     
     private void Start()
     {
@@ -30,10 +33,12 @@ public class ExploradorTimelineEvents : MonoBehaviour
 
     }
 
+    [PunRPC]
     public void EnablePlayerMovement()
 
     {
         Debug.Log("Mover main character"); 
+        PV.RPC("EnablePlayerMovement", RpcTarget.Others);
         _cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
         playerControllerex.enabled = true;
         playerCamera.enabled = true;

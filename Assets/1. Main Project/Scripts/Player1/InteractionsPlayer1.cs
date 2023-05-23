@@ -1,12 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Calentao.PlayerContol;
 using UnityEngine;
 using Cinemachine;
 using Photon.Pun;
-using Unity.VisualScripting;
+
 
 public class InteractionsPlayer1 : MonoBehaviour
 {
