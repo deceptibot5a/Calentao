@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class EventsBomb : MonoBehaviour
@@ -25,6 +26,7 @@ public class EventsBomb : MonoBehaviour
     public GameObject exploradorCurrentPosition;
     public GameObject Bomb01GameObject;
     public GameObject Bomb02GameObject;
+    public PhotonView photonView;
     
     private void Start()
     {
@@ -41,15 +43,21 @@ public class EventsBomb : MonoBehaviour
         areaPlant02 = GameObject.Find("AreaPlant02");
 
     }
- 
-    public void PlantFinish()
+
+    /*public void PlantFinish()
+    {
+        
+    }*/
+    
+    
+    
+    
+    public void PlantFinishRPC()
     {
         Debug.Log("Plantado exitoso");
         plantBombManager.planting = false;
         plantBombManager.canPlant = false;
 
-        
-        
         cameraMain.SetActive(true);
         bombCamera.SetActive(false);
         exploradorAnimatorManager.enabled = true;
