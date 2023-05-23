@@ -1,10 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
 using System.IO;
-
+using Photon.Pun.UtilityScripts;
+using UnityEngine.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -15,13 +18,10 @@ public class PlayerManager : MonoBehaviour
     
     
     public string playerPrefabName;
-    public string playerPrefabName2;
 
     void Awake()
     {
         PV = GetComponent<PhotonView>();
-        if (playerPrefabName == "PlayerController") StartCoroutine(CameraCinematica());
-        if (playerPrefabName == "PlayerController2") StartCoroutine(CameraCinematica2());
         player1Spawnpoint = GameObject.Find("SpawnPlayer1").transform;
         player2Spawnpoint = GameObject.Find("SpawnPlayer2").transform;
     }
@@ -39,7 +39,6 @@ public class PlayerManager : MonoBehaviour
         if (playerPrefabName == "PlayerController") // Si es el jugador 1
         {
             controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", playerPrefabName), player1Spawnpoint.position, player1Spawnpoint.rotation);
-          
         }
         else if (playerPrefabName == "PlayerController2") // Si es el jugador 2
         {
@@ -62,18 +61,6 @@ public class PlayerManager : MonoBehaviour
     {
         playerPrefabName = "PlayerController2";
         
-    }
-    
-    IEnumerator CameraCinematica()
-    {
-        yield return new WaitUntil(() => CameraPlayerAssing.instance != null); 
-        CameraPlayerAssing.instance.EnableCamera(); 
-    }
-    
-    IEnumerator CameraCinematica2()
-    {
-        yield return new WaitUntil(() => CameraPlayerAssing2.instance != null); 
-        CameraPlayerAssing2.instance.EnableCamera(); 
     }
     
 }

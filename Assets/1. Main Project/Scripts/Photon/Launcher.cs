@@ -32,7 +32,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 		PhotonNetwork.ConnectUsingSettings();
 		PhotonNetwork.ConnectToRegion(("us"));
 		PhotonNetwork.AutomaticallySyncScene = true;
-		initialRoom.SetActive(false);
+		
 	}
 
 	public override void OnConnectedToMaster()
@@ -44,7 +44,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
 	public override void OnJoinedLobby()
 	{
-		MenuManager_Test.Instance.OpenMenu("Title");
+		MenuManager_Test.Instance.CloseLoadingScreen();
 		Debug.Log("Joined Lobby");
 	}
 
@@ -59,12 +59,16 @@ public class Launcher : MonoBehaviourPunCallbacks
 		options.MaxPlayers = 2;
 
 		PhotonNetwork.CreateRoom(roomNameInputField.text, options);
-		MenuManager_Test.Instance.OpenMenu("Loading");
+		MenuManager_Test.Instance.OpenLoadingScreen();
+		Debug.Log("La sala ha sido creada");
+		
 	}
 
 	public override void OnJoinedRoom()
 	{
-		MenuManager_Test.Instance.OpenMenu("Room");
+		
+		MenuManager_Test.Instance.OpenRoom();
+		
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
 		Player[] players = PhotonNetwork.PlayerList;
@@ -91,7 +95,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		errorText.text = "Room Creation Failed: " + message;
 		Debug.LogError("Room Creation Failed: " + message);
-		MenuManager_Test.Instance.OpenMenu("Error");
+		MenuManager_Test.Instance.OpenErrorScreen();
 	}
 
 	public void StartGame()
@@ -102,18 +106,18 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public void LeaveRoom()
 	{
 		PhotonNetwork.LeaveRoom();
-		MenuManager_Test.Instance.OpenMenu("Loading");
+		MenuManager_Test.Instance.OpenLoadingScreen();
 	}
 
 	public void JoinRoom(RoomInfo info)
 	{
 		PhotonNetwork.JoinRoom(info.Name);
-		MenuManager_Test.Instance.OpenMenu("Loading");
+		MenuManager_Test.Instance.OpenLoadingScreen();
 	}
 
 	public override void OnLeftRoom()
 	{
-		MenuManager_Test.Instance.OpenMenu("Title");
+		MenuManager_Test.Instance.OpenMainMenu();
 		cachedRoomList.Clear();
 	}
 
@@ -148,7 +152,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		errorText.text = "Room is full";
 		Debug.LogError("Join Room Failed: " + message);
-		MenuManager_Test.Instance.OpenMenu("Error");
+		MenuManager_Test.Instance.OpenErrorScreen();
 	}
 	
 	public override void OnPlayerEnteredRoom(Player newPlayer)

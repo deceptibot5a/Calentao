@@ -8,6 +8,5 @@ public class PlatformDestroyer : MonoBehaviour
     public void DeactivatePlatform()
     {
         puzzle2Button.DeactivatePlatform();
-        Debug.Log("DeactivatePlatform");
     }
 }

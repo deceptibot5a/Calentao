@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,13 +12,15 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
     public TMP_Text passwordText;
     public TMP_Text currentPassText;
     public GameObject door;
-    public Slider Slider;
+    public Slider sliderExplorador, sliderGuia;
     public Animator error;
     public Animator Correct;
     public GameObject correctobj;
+    public GameObject completedDialogBox;
     private int digitsEntered;
     private float currentTime;
     private bool solved = false;
+    
 
     [SerializeField] private InteractionsPlayer1 buttoncamera;
     [SerializeField] private string password;
@@ -69,7 +72,8 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
             timer = 30.0f;
         }
 
-        Slider.value = timer / 30.0f;
+        sliderExplorador.value = timer / 30.0f;
+        sliderGuia.value = timer / 30.0f;
         UpdateCurrentPasswordText();
     }
 
@@ -92,8 +96,10 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
                 if (currentPassword == password)
                 {
                     solved = true;
-                    //door.SetActive(false);
                     photonView.RPC("ActivateFinishChallengeRPC", RpcTarget.All, null); // Llama al método RPC para activar el timeline
+                    
+                    //Poner aqui dialogo de que se completo el primer reto
+                    StartCoroutine(MoveDialog());
                     correctobj.SetActive(true);
                     buttoncamera.correct = true;
                     buttoncamera.stopInteraction();
@@ -135,9 +141,18 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
         FinishChallenge.Play();
     }
 
+    IEnumerator MoveDialog()
+    {
+        yield return new WaitForSeconds(0.1f);
+        LeanTween.moveX(completedDialogBox, 50, 0.5f).setEase(LeanTweenType.easeInOutBack);
+        yield return new WaitForSeconds(8f);
+        LeanTween.moveX(completedDialogBox, -700, 0.5f).setEase(LeanTweenType.easeInOutBack);
+    }
+    
     [PunRPC]
     void ActivateFinishChallengeRPC()
     {
         ActivateFinishChallenge();
     }
+    
 }

@@ -12,13 +12,11 @@ public class PlayerNameManager : MonoBehaviour
     [SerializeField] TMP_Text welcomeText;
     
     
-    
     public void SetPlayerName()
     {
         PhotonNetwork.NickName = playerNameInputField.text;
-        welcomePanel.SetActive(true);
-        welcomeText.text = "Preparate para la aventura," + PhotonNetwork.NickName + "!";
-        Destroy(inputfield);
-        Destroy(acceptButton);
+        MenuManager_Test.Instance.CloseContract();
+        LeanTween.move(welcomePanel.GetComponent<RectTransform>(),new Vector3(-515,440,0), 0.3f).setEase(LeanTweenType.easeInOutBack);
+        welcomeText.text = "Bienvenido al sistema," + PhotonNetwork.NickName + "!";
     }
 }
