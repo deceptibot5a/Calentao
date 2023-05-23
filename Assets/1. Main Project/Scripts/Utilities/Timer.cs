@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +14,10 @@ public class Timer : MonoBehaviour
     public GameObject audioBox;
     public float audioTime = 6f;
     public AudioSource audioGarbanzo;
+ 
+
+    
+  
 
     void Update()
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10216027, g: 0.052847035, b: 0.17364283, a: 1}
+  m_IndirectSpecularColor: {r: 0.16207236, g: 0.08431518, b: 0.26216903, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1712019
 Transform:
   m_ObjectHideFlags: 0
@@ -1393,7 +1393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &79854231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13219,7 +13219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &996420914
 Transform:
   m_ObjectHideFlags: 0
@@ -13264,6 +13264,10 @@ PlayableDirector:
     value: {fileID: 7158651728998573159}
   - key: {fileID: 7193956262071464814, guid: 61c117598852ded4ca7e69631901ff47, type: 2}
     value: {fileID: 6186041536982808986}
+  - key: {fileID: -732957863230148636, guid: 61c117598852ded4ca7e69631901ff47, type: 2}
+    value: {fileID: 1582588613}
+  - key: {fileID: 4281676220093190458, guid: 61c117598852ded4ca7e69631901ff47, type: 2}
+    value: {fileID: 79854230}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &996420916
@@ -14082,7 +14086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1038894117
 Transform:
   m_ObjectHideFlags: 0
@@ -18641,7 +18645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1582588614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18661,6 +18665,7 @@ MonoBehaviour:
   audioBox: {fileID: 1006773910}
   audioTime: 6
   audioGarbanzo: {fileID: 1582588616}
+  timerUI: {fileID: 79854230}
 --- !u!4 &1582588615
 Transform:
   m_ObjectHideFlags: 0
@@ -21040,7 +21045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1719423343
 Transform:
   m_ObjectHideFlags: 0
@@ -37266,7 +37271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1743709853351696939
 Transform:
   m_ObjectHideFlags: 0
@@ -55544,7 +55549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3969215257580089353
 Transform:
   m_ObjectHideFlags: 0
@@ -60835,7 +60840,13 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:LeftFoot'\n\tTransform 'mixamorig:LeftHandThumb2'\n\tTransform
+    'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:LeftHandPinky2'\n\tTransform
+    'mixamorig:RightHandRing2'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+    'mixamorig:LeftHandThumb3'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tand
+    more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -64042,7 +64053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6186041536982808987
 Transform:
   m_ObjectHideFlags: 0
