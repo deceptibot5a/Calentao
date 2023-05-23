@@ -99,7 +99,6 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
                     photonView.RPC("ActivateFinishChallengeRPC", RpcTarget.All, null); // Llama al método RPC para activar el timeline
                     
                     //Poner aqui dialogo de que se completo el primer reto
-                    StartCoroutine(MoveDialog());
                     correctobj.SetActive(true);
                     buttoncamera.correct = true;
                     buttoncamera.stopInteraction();
@@ -139,6 +138,7 @@ public class Puzzle1 : MonoBehaviourPunCallbacks
     void ActivateFinishChallenge()
     {
         FinishChallenge.Play();
+        StartCoroutine(MoveDialog());
     }
 
     IEnumerator MoveDialog()
