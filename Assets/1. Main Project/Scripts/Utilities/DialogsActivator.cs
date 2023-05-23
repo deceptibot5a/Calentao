@@ -44,7 +44,7 @@ public class DialogsActivator : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         LeanTween.moveX(dialogBox, 115, 0.5f).setEase(LeanTweenType.easeInOutBack);
         yield return new WaitForSeconds(dialogTime);
-        LeanTween.moveX(dialogBox, -700, 0.5f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveX(dialogBox, -700, 0.5f).setEase(LeanTweenType.easeInOutBack).setOnComplete(TurnOffDialog);
     }
     IEnumerator moveAudioDialog()
     {
@@ -54,6 +54,10 @@ public class DialogsActivator : MonoBehaviour
         LeanTween.moveX(audioBox, -700, 0.5f).setEase(LeanTweenType.easeInOutBack);
     }
     
+    private void TurnOffDialog()
+    {
+        dialogBox.SetActive(false);
+    }
     
     
     

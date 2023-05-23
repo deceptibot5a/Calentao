@@ -4,7 +4,6 @@ using Calentao.PlayerContol;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
-using TreeEditor;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
