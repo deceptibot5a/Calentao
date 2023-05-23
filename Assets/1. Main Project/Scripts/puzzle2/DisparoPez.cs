@@ -5,7 +5,6 @@ using Photon.Pun;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
 public class DisparoPez : MonoBehaviour
 {
     public GameObject fishPrefab;
@@ -21,7 +20,6 @@ public class DisparoPez : MonoBehaviour
     {
         photonView = GetComponent<PhotonView>();
     }
-
     private void Update()
     {
         if (PhotonNetwork.IsMasterClient && canShoot) // Solo el master client dispara los peces
@@ -40,12 +38,12 @@ public class DisparoPez : MonoBehaviour
     private IEnumerator ShootFish(float delay)
     {
         yield return new WaitForSeconds(delay-2f);
-
         preshotParticleSystem.Play();
         
         
         yield return new WaitForSeconds(2f);
         ShootFish();
+        StartCoroutine(DeactivatePlatform());
         yield return new WaitForSeconds(2.4f);
         canShoot = true;
     }
@@ -70,7 +68,7 @@ public class DisparoPez : MonoBehaviour
     IEnumerator DeactivatePlatform()
     {
         yield return new WaitForSeconds(0.85f);
-        
+        platformDestroyer.DeactivatePlatform();
     }
     
 }
