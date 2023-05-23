@@ -27,21 +27,15 @@ public class DisparoPez : MonoBehaviour
         if (PhotonNetwork.IsMasterClient && canShoot) // Solo el master client dispara los peces
         {
             float delay = Random.Range(minShootDelay, maxShootDelay);
-            ShootFishesToEveryOne();
+            photonView.RPC("ShootFishRPC", RpcTarget.All, PhotonNetwork.Time + delay);
             canShoot = false;
         }
     }
-    
-    
-    public void ShootFishesToEveryOne()
-    {
-        photonView.RPC("ShootFishRPC", RpcTarget.All);
-    }
-    
+
     [PunRPC]
-    private void ShootFishRPC(float delay)
+    private void ShootFishRPC(double delay)
     {
-        StartCoroutine(ShootFish(delay));
+        StartCoroutine(ShootFish((float)(delay - PhotonNetwork.Time)));
     }
     
     private IEnumerator ShootFish(float delay)
@@ -53,6 +47,7 @@ public class DisparoPez : MonoBehaviour
         
         yield return new WaitForSeconds(2f);
         ShootFish();
+        StartCoroutine(DeactivatePlatform());
         yield return new WaitForSeconds(2.4f);
         canShoot = true;
     }
@@ -77,7 +72,7 @@ public class DisparoPez : MonoBehaviour
     IEnumerator DeactivatePlatform()
     {
         yield return new WaitForSeconds(0.85f);
-        
+        platformDestroyer.DeactivatePlatform();
     }
     
 }
