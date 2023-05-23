@@ -30,15 +30,19 @@ public class ExploradorTimelineEvents : MonoBehaviour
         playerSkinnedMesh = GameObject.Find("ExploradorBody").GetComponent<SkinnedMeshRenderer>();
         _cinemachineBrain = GameObject.Find("ExpCinemachineBrain").GetComponent<CinemachineBrain>();
         exploradorCanvas = GameObject.Find("ExploradorCanvas").GetComponent<CanvasGroup>();  
+        yield return new WaitForSeconds(0.005f);
+        Debug.Log("Explorador desahibilitado");
+        playerControllerex.enabled = false;
+        playerCamera.enabled = false;
+        playerAnimator.enabled = false;
+        playerSkinnedMesh.enabled = false;
 
     }
-
-    [PunRPC]
+    
     public void EnablePlayerMovement()
 
     {
-        Debug.Log("Mover main character"); 
-        PV.RPC("EnablePlayerMovement", RpcTarget.Others);
+        Debug.Log("Mover main character");
         _cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
         playerControllerex.enabled = true;
         playerCamera.enabled = true;

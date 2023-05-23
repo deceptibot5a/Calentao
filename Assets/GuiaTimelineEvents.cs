@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Cinemachine;
 using DG.Tweening;
-using Photon.Pun;
+
 
 public class GuiaTimelineEvents : MonoBehaviour
 {
@@ -13,8 +13,6 @@ public class GuiaTimelineEvents : MonoBehaviour
     private CinemachineBrain _cinemachineBrain;
     private CanvasGroup guiaCanvas; 
     
-    PhotonView PV;
-
     private void Start()
     {
         StartCoroutine(AssignPlayerInteractions());
@@ -28,16 +26,22 @@ public class GuiaTimelineEvents : MonoBehaviour
         playerAnimator = GameObject.Find("GuiaMesh").GetComponent<GuiaAnimationManager>();
         playerSkinnedMesh = GameObject.Find("GuiaBody").GetComponent<SkinnedMeshRenderer>();
         _cinemachineBrain = GameObject.Find("GuiaCinemachineBrain").GetComponent<CinemachineBrain>();
-        guiaCanvas = GameObject.Find("GuiaCanvas").GetComponent<CanvasGroup>();  
-
+        guiaCanvas = GameObject.Find("GuiaCanvas").GetComponent<CanvasGroup>(); 
+        yield return new WaitForSeconds(0.005f);
+        Debug.Log("Guia Desahabiitado");
+        playerControllerex.enabled = false;
+        playerCamera.enabled = false;
+        playerAnimator.enabled = false;
+        playerSkinnedMesh.enabled = false;
     }
     
-    [PunRPC]
+    
+
     public void EnableGuiaMovement()
 
     {
         Debug.Log("Guia Enabled"); 
-        PV.RPC("EnableGuiaMovement", RpcTarget.Others);
+     
         _cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
         playerControllerex.enabled = true;
         playerCamera.enabled = true;
@@ -45,4 +49,6 @@ public class GuiaTimelineEvents : MonoBehaviour
         playerSkinnedMesh.enabled = true;
         guiaCanvas.DOFade(1, 0.5f);
     }
+    
+    
 }
