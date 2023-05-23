@@ -40,6 +40,9 @@ public class PlantBombManager : MonoBehaviour
     PhotonView PV;
     
     
+  
+    
+
 
 
     private void Start()
@@ -80,6 +83,7 @@ public class PlantBombManager : MonoBehaviour
 
     {
         PV = GetComponent<PhotonView>();
+        
 
     }
     
@@ -230,6 +234,14 @@ public class PlantBombManager : MonoBehaviour
         }
         
     }
+    
+    private void FixedUpdate()
+    {
+        if(!PV.IsMine)
+            return;
+  
+    }
+
 
     void CancelPlanting()
     {

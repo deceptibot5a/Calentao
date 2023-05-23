@@ -10,7 +10,7 @@ public class UI_Explosion : MonoBehaviour
     
     public void AssingBomb()
     {
-   
+        
         ExplosionManager = GameObject.Find("Bomba01").GetComponent<ExplosionManager>();
 
 

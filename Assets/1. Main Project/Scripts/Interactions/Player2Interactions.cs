@@ -28,15 +28,25 @@ public class Player2Interactions : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(!PV.IsMine)
+            return;
+  
+    }
+
     
 
     private void Awake()
     {
         highlightedButton = FindObjectOfType<Puzzle2Button>();
+        PV = GetComponent<PhotonView>();
     }
     
     private void Update()
     {
+        if(!PV.IsMine)
+            return;
         if (!canray) return;
         // Unhighlight the previously highlighted object
         if (highlightedObject != null)
