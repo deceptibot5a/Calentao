@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class EventsBomb : MonoBehaviour
@@ -25,6 +25,8 @@ public class EventsBomb : MonoBehaviour
     public GameObject exploradorCurrentPosition;
     public GameObject Bomb01GameObject;
     public GameObject Bomb02GameObject;
+
+    public PhotonView PV;
     
     private void Start()
     {
@@ -49,8 +51,10 @@ public class EventsBomb : MonoBehaviour
         plantBombManager.canPlant = false;
 
         
-        
+        if (PV.IsMine)
+        {
         cameraMain.SetActive(true);
+        }
         bombCamera.SetActive(false);
         exploradorAnimatorManager.enabled = true;
         exploradorPlayerController.enabled = true;
