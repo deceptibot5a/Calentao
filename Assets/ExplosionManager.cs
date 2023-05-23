@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using DG.Tweening; 
-using UnityEngine.UI; 
+using DG.Tweening;
+using Photon.Pun;
 
 
 public class ExplosionManager : MonoBehaviour
@@ -23,6 +23,8 @@ public class ExplosionManager : MonoBehaviour
     //public GameObject rock;
     public bool CantExplode = true;
     public float fragScaleFactor = 1;
+
+    public PhotonView PV; 
 
     private void Start()
     {
@@ -61,7 +63,8 @@ public class ExplosionManager : MonoBehaviour
         
     }
     
-    public void Explosion1()
+    [PunRPC]
+    public void ExplosionRPC()
     
     {
         if (!CantExplode)
@@ -76,6 +79,12 @@ public class ExplosionManager : MonoBehaviour
             StartCoroutine(Shrink());
         }
         
+    }
+    
+    public void Explosion1()
+
+    {
+        PV.RPC("ExplosionRPC", RpcTarget.All); 
     }
     
 }

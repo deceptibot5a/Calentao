@@ -1,6 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; 
-
+using Photon.Pun;
 
 
 public class ExplosionManager2 : MonoBehaviour
@@ -11,6 +10,10 @@ public class ExplosionManager2 : MonoBehaviour
     public BombManager01 bombManager01;
     
     public GameObject button2; 
+    
+    public PhotonView PV;
+    
+    
     
     private void Start()
     {
@@ -29,10 +32,20 @@ public class ExplosionManager2 : MonoBehaviour
 
     }
     
-    public void Explosion2()
+ 
+    
+    [PunRPC]
+    public void ExplosionRPC2()
+    
     {
         button2.SetActive(false);
+        Checkpoints.instance.TurnOnDeathPanel();
         Debug.Log("Cinematica FINAl");
+    }
+    
+    public void Explosion2()
+    {
+        PV.RPC("ExplosionRPC2", RpcTarget.All); 
     }
     
 

@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 1595709565525509040}
   - component: {fileID: 1595709565525509043}
   - component: {fileID: 1595709565525509042}
+  - component: {fileID: 4646071727448642845}
   m_Layer: 0
   m_Name: Bomba01
   m_TagString: Untagged
@@ -417,6 +418,29 @@ MonoBehaviour:
   targetMaterial: {fileID: 2100000, guid: d83ff22055e8d9a4ca42486b4c71fdb1, type: 2}
   CantExplode: 0
   fragScaleFactor: 1
+  PV: {fileID: 4646071727448642845}
+--- !u!114 &4646071727448642845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947415175248011877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &978071937553649225
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +821,7 @@ GameObject:
   - component: {fileID: 6742580520147571836}
   - component: {fileID: 4940767454674120803}
   - component: {fileID: 1230045244253260573}
+  - component: {fileID: 1702529855051595408}
   m_Layer: 0
   m_Name: Bomba02
   m_TagString: Untagged
@@ -897,6 +922,29 @@ MonoBehaviour:
   UIExplosion: {fileID: 0}
   bombManager01: {fileID: 0}
   button2: {fileID: 0}
+  PV: {fileID: 1702529855051595408}
+--- !u!114 &1702529855051595408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2316798606103463437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2350704726997400683
 GameObject:
   m_ObjectHideFlags: 0
