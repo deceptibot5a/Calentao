@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Calentao.PlayerContol;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 using Photon.Pun;
 using UnityEngine.UI;
 
@@ -13,8 +13,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private ExploradorPlayerController playerControllerex;
     [SerializeField] ExploradorAnimatorManager playerAnimator;
     [SerializeField] Animator animator;
-    [SerializeField] PhotonView photonView; 
-
+    [SerializeField] PhotonView photonView;
     public GameObject pauseMenuPanel;
     public Image pauseMenuBackground;
     public GameObject pauseMenuContainer;

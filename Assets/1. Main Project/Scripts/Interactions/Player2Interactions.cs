@@ -9,10 +9,25 @@ public class Player2Interactions : MonoBehaviour
     [SerializeField] private Color highlightColor = Color.magenta;
     [SerializeField] private float highlightWidth = 7f;
     
+    public GameObject virtualCam;
+    
     public bool canray = false;
     private Transform highlightedObject;
     private Outline highlightedOutline;
     private Puzzle2Button highlightedButton;
+    
+    PhotonView PV;
+
+    
+    private void Start()
+    {
+        if (!PV.IsMine)
+        {
+            virtualCam.SetActive(false);
+
+        }
+    }
+
     
 
     private void Awake()

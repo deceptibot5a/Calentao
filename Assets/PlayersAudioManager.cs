@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayersAudioManager : MonoBehaviour
@@ -10,6 +10,7 @@ public class PlayersAudioManager : MonoBehaviour
     public AudioSource _runAudioSource;
     public  AudioSource _breathingNormalAudioSource;
     public  AudioSource _breathingRunAudioSource;
+    
     
     
     public void FadeAudios()

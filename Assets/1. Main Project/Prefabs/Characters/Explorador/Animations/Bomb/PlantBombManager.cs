@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using Photon.Pun;
 
 public class PlantBombManager : MonoBehaviour
 {
+    public GameObject virtualCam; 
     public Animator animator;
     public bool planting;
     public bool canPlant = false; 
@@ -15,7 +15,7 @@ public class PlantBombManager : MonoBehaviour
     public ExploradorAnimatorManager exploradorAnimatorManager;
     public ExploradorCameraManager ExploradorCameraManager;
     public CharacterController characterController;
-
+    
     public CanvasGroup interact; 
 
     public GameObject cameraMain;
@@ -39,6 +39,17 @@ public class PlantBombManager : MonoBehaviour
     
     PhotonView PV;
     
+    
+
+
+    private void Start()
+    {
+        if (!PV.IsMine)
+        {
+            virtualCam.SetActive(false);
+
+        }
+    }
     
     private void OnTriggerEnter(Collider other) 
     { 
