@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,7 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent agent; 
     private bool playerInRange = false;
     public float TPdelayTime = 0.42f;
+    public PhotonView photonView;
     
     private void Start()
     {
@@ -63,10 +65,11 @@ public class EnemyController : MonoBehaviour
     private void PlayerDetected()
     {
         StartCoroutine(Checkpoints.instance.FadeInAndOut());
-        TeleportPlayer();
+        photonView.RPC("TeleportPlayer", RpcTarget.All);
         Debug.Log("Player detected!");
     }
-    
+
+    [PunRPC]
     private void TeleportPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player1");
