@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   photonView: {fileID: 94185651}
-  jugadoresMinimos: 2
+  jugadoresMinimos: 1
   player1: {fileID: 1532286508}
   player2: {fileID: 2055395714}
   player1Button: {fileID: 1532286510}
@@ -519,6 +519,7 @@ MonoBehaviour:
   panelExplorador: {fileID: 1160644284}
   errorScreen: {fileID: 1520974320}
   playersReady: 0
+  timeLine: {fileID: 262368736}
 --- !u!114 &94185646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,8 +569,8 @@ Canvas:
   m_GameObject: {fileID: 94185643}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1346315017}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -578,7 +579,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &94185649
 RectTransform:
@@ -1035,7 +1036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &262368737
 Transform:
   m_ObjectHideFlags: 0
@@ -1068,6 +1069,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -4139154464950916583, guid: 501a9dd1b54b9eb43b483b11cd05c57b, type: 2}
     value: {fileID: 963079058}
+  - key: {fileID: 4905590218442224203, guid: 501a9dd1b54b9eb43b483b11cd05c57b, type: 2}
+    value: {fileID: 963079055}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &275114579
@@ -3663,7 +3666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &963079056
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5595,6 +5598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919819708364170059, guid: fd9c45c8515628442847a21f9c5095dd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.799999
       objectReference: {fileID: 0}
     - target: {fileID: 9171306031316674432, guid: fd9c45c8515628442847a21f9c5095dd,
         type: 3}
@@ -7871,7 +7879,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.5463, y: -20.8839}
+  m_AnchoredPosition: {x: -9.546299, y: -20.883896}
   m_SizeDelta: {x: 1880.9, y: 1041.4617}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984840818

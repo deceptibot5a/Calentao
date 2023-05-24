@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using WebSocketSharp;
 
 public class MenuManager_Test : MonoBehaviour
@@ -51,9 +52,11 @@ public class MenuManager_Test : MonoBehaviour
     [SerializeField] private GameObject panelGuia,panelExplorador;
     [SerializeField] private GameObject errorScreen;
     [SerializeField] private bool playersReady = false;
+    public GameObject timeLine;
     
     private void Start()
     {
+        SceneManager.LoadScene("IntroScene", LoadSceneMode.Additive);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         OpenMainMenu();
