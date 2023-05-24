@@ -23,6 +23,7 @@ public class PauseMenu : MonoBehaviour
     public AudioSource UI_Sounds;
     public AudioClip pauseSounds; 
     private bool isPaused = false;
+    public PauseMenuPanelsManager optionsManager, instructionsManager;
 
     public AudioSource[] audioSources; 
 
@@ -65,8 +66,7 @@ public class PauseMenu : MonoBehaviour
         playerCamera.enabled = false;
         playerControllerex.enabled = false;
         playerAnimator.enabled = false;
-       
-
+        
         foreach (AudioSource audioSource in audioSources)
         {
             audioSource.volume = 0f;
@@ -91,6 +91,8 @@ public class PauseMenu : MonoBehaviour
         LeanTween.alphaCanvas(pauseMenuBackground.GetComponent<CanvasGroup>(), 0f, 0.3f);
         LeanTween.moveLocal(pauseMenuContainer, new Vector3(124.5f,1018,-2), 0.3f).setEaseInSine();
         LeanTween.moveX(fotoJugador, -560, 0.3f).setEaseInSine().setEaseInSine().setOnComplete(TurnOffPause);
+        optionsManager.ClosePanel();
+        instructionsManager.ClosePanel();
     }
 
     public void GoToMainMenu()
