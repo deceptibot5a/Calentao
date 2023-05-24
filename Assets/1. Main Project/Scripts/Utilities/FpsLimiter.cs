@@ -8,7 +8,7 @@ public class FpsLimiter : MonoBehaviour
 
     void Awake()
     {
-        Application.targetFrameRate = targetFPS; // Establece el FPS objetivo en el inicio del juego
+        Application.targetFrameRate = targetFPS; 
     }
 }
 

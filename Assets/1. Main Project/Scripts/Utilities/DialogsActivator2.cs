@@ -18,17 +18,20 @@ public class DialogsActivator2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
+            if (!wasActivated) // Verificar si no ha sido activado previamente
+            {
+                wasActivated = true; // Marcar como activado
+                if (dialogBox != null)
+                {
+                    StartCoroutine(MoveDialog());
+                    Debug.Log("Dialog Activated");
+                }
 
-            if (dialogBox != null)
-            {
-                StartCoroutine(MoveDialog());
-                Debug.Log("Dialog Activated");
-            }
-            
-            if (audioGarbanzo != null)
-            {
-                ActiveAudio();
-                StartCoroutine(moveAudioDialog());
+                if (audioGarbanzo != null)
+                {
+                    ActiveAudio();
+                    StartCoroutine(moveAudioDialog());
+                }
             }
         }
     }

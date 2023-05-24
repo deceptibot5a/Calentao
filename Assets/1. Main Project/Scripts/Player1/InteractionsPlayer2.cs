@@ -44,7 +44,7 @@ public class InteractionsPlayer2 : MonoBehaviour
             interacted();
         }
         
-        if (Input.GetKeyDown(KeyCode.F) && (isinpuzzle))
+        if (Input.GetKeyDown(KeyCode.F) || (Input.GetKeyDown(KeyCode.Escape)) && (isinpuzzle))
         {
             stopInteraction();
         }
