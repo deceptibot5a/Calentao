@@ -16294,6 +16294,10 @@ PlayableDirector:
     value: {fileID: 1582588613}
   - key: {fileID: 4281676220093190458, guid: 61c117598852ded4ca7e69631901ff47, type: 2}
     value: {fileID: 79854230}
+  - key: {fileID: -5116525352435864065, guid: 61c117598852ded4ca7e69631901ff47, type: 2}
+    value: {fileID: 590757683}
+  - key: {fileID: 2684377381663676959, guid: 61c117598852ded4ca7e69631901ff47, type: 2}
+    value: {fileID: 590757683}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &996420916
@@ -21696,7 +21700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1334687768
 Transform:
   m_ObjectHideFlags: 0
@@ -69555,7 +69559,13 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:LeftFoot'\n\tTransform 'mixamorig:LeftHandThumb2'\n\tTransform
+    'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:LeftHandPinky2'\n\tTransform
+    'mixamorig:RightHandRing2'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+    'mixamorig:LeftHandThumb3'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tand
+    more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0

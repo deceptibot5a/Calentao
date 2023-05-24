@@ -42,6 +42,10 @@ public class ExploradorPlayerController : MonoBehaviour
     public AudioClip _StoneWalkAudio;
     public AudioClip _StoneRunAudio;
     
+    public GameObject ExploradorAudioSources;
+
+    public GameObject GuiaAudioSources; 
+    
     PhotonView PV;
     
     
@@ -64,6 +68,26 @@ private void Start()
         virtualCam.SetActive(false);
 
     }
+    StartCoroutine(AssingAudioGlobals()); 
+}
+
+IEnumerator AssingAudioGlobals()
+{
+    yield return new WaitForSeconds(0.1f);
+    ExploradorAudioSources = GameObject.Find("ExploradorGlobalAudioSources");
+    GuiaAudioSources = GameObject.Find("GuiaGlobalAudioSources"); 
+    if (!PV.IsMine)
+    {
+        ExploradorAudioSources.SetActive(false);
+
+    }
+    
+    if (PV.IsMine)
+    {
+        GuiaAudioSources.SetActive(false);
+
+    }
+    
 }
 
 
