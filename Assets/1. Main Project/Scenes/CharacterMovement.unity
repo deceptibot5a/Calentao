@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1601686, g: 0.08278265, b: 0.25839397, a: 1}
+  m_IndirectSpecularColor: {r: 0.023424365, g: 0.011261765, b: 0.04986971, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12682,6 +12682,11 @@ PrefabInstance:
       propertyPath: deathPanel
       value: 
       objectReference: {fileID: 415655516}
+    - target: {fileID: 6611896229115486639, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
+        type: 3}
+      propertyPath: TPdelayTime
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 6611896229115486639, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
         type: 3}
       propertyPath: playerTransform
@@ -28185,6 +28190,11 @@ PrefabInstance:
       propertyPath: deathPanel
       value: 
       objectReference: {fileID: 415655516}
+    - target: {fileID: 6611896229115486639, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
+        type: 3}
+      propertyPath: TPdelayTime
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 6611896229115486639, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
         type: 3}
       propertyPath: playerTransform
