@@ -20,13 +20,25 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuContainer;
     public GameObject fotoJugador;
     public Button resumeButton;
+    public AudioSource UI_Sounds;
+    public AudioClip pauseSounds; 
     private bool isPaused = false;
+
+    public AudioSource[] audioSources; 
+
+    private PhotonView PV; 
 
     private void Start()
     {
-        // Desactivar el menú de pausa al iniciar el juego
+        if (!PV.IsMine)
+        {
+            UI_Sounds.enabled = false; 
+
+        }
         resumeButton.onClick.AddListener(ResumeGame);
     }
+    
+ 
 
     private void Update()
     {
@@ -45,12 +57,19 @@ public class PauseMenu : MonoBehaviour
 
     private void PauseGame()
     {
+        Debug.Log("Debería sonar"); 
+        UI_Sounds.PlayOneShot(pauseSounds);
         isPaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         playerCamera.enabled = false;
         playerControllerex.enabled = false;
         playerAnimator.enabled = false;
+        
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.volume = 0f;
+        }
         animator.SetBool("IsErect", true);
         pauseMenuPanel.SetActive(true);
         LeanTween.alphaCanvas(pauseMenuBackground.GetComponent<CanvasGroup>(), 1f, 0.3f);
@@ -60,7 +79,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        
+        UI_Sounds.PlayOneShot(pauseSounds);
         isPaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -75,6 +94,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        UI_Sounds.PlayOneShot(pauseSounds);
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu_Oficial");
     }

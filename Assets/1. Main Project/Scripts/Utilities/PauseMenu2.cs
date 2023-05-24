@@ -25,10 +25,18 @@ public class PauseMenu2 : MonoBehaviour
     public Button resumeButton;
     public PhotonView photonView;
     
+    public AudioSource UI_Sounds;
+    public AudioClip pauseSounds;
+    public AudioSource[] audioSources;
+    
     private void Start()
     {
-        // Desactivar el menú de pausa al iniciar el juego
-        pauseMenuUI.SetActive(false);
+        if (!photonView.IsMine)
+        {
+            UI_Sounds.enabled = false; 
+
+        }
+
         resumeButton.onClick.AddListener(ResumeGame);
     }
 
@@ -49,6 +57,12 @@ public class PauseMenu2 : MonoBehaviour
 
     public void PauseGame()
     {
+        Debug.Log("Debería sonar"); 
+        UI_Sounds.PlayOneShot(pauseSounds);
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.volume = 0f;
+        }
         isPaused = true;
         pauseMenuUI.SetActive(true);
         Cursor.visible = true;
@@ -66,6 +80,7 @@ public class PauseMenu2 : MonoBehaviour
         
     public void ResumeGame()
     {
+        UI_Sounds.PlayOneShot(pauseSounds);
         isPaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
