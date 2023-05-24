@@ -38,7 +38,9 @@ public class GuiaPlayerController : MonoBehaviour
     public AudioClip _metalwalkAudio;
     public AudioClip _metalRunAudio; 
     public AudioClip _GrasswalkAudio;
-    public AudioClip _GrassRunAudio; 
+    public AudioClip _GrassRunAudio;
+
+    public GameObject GuiaGlobalAudioSources; 
     
     PhotonView PV;
 
@@ -56,6 +58,19 @@ private void Start()
     if (!PV.IsMine)
     {
         virtualCam.SetActive(false);
+
+    }
+    StartCoroutine(AssingAudioGlobals()); 
+
+}
+
+IEnumerator AssingAudioGlobals()
+{
+    yield return new WaitForSeconds(0.1f);
+    GuiaGlobalAudioSources = GameObject.Find("GuiaGlobalAudioSources");
+    if (!PV.IsMine)
+    {
+        GuiaGlobalAudioSources.SetActive(false);
 
     }
 }

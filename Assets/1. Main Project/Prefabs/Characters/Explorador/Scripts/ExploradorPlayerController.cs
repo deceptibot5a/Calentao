@@ -39,6 +39,8 @@ public class ExploradorPlayerController : MonoBehaviour
     public AudioClip _metalRunAudio; 
     public AudioClip _GrasswalkAudio;
     public AudioClip _GrassRunAudio; 
+    public AudioClip _StoneWalkAudio;
+    public AudioClip _StoneRunAudio;
     
     PhotonView PV;
     
@@ -199,6 +201,12 @@ void Update()
         {
             _walkAudioSource.clip = _metalwalkAudio;
             _runAudioSource.clip = _metalRunAudio; 
+        }
+        
+        if (hit.gameObject.CompareTag("Stone"))
+        {
+            _walkAudioSource.clip = _StoneWalkAudio;
+            _runAudioSource.clip = _StoneRunAudio; 
         }
     }
 }

@@ -1107,8 +1107,8 @@ MonoBehaviour:
   UseGravity: 1
   CantWalk: 0
   CanRun: 1
-  WalkSpeed: 4
-  RunSpeed: 8
+  WalkSpeed: 3
+  RunSpeed: 6
   Speed: 0
   Gravity: 20
   IsFalling: 0
@@ -1123,6 +1123,8 @@ MonoBehaviour:
   _metalRunAudio: {fileID: 8300000, guid: 52191cdc4805b5c4ebd7564c444a0374, type: 3}
   _GrasswalkAudio: {fileID: 8300000, guid: 95131718c9c07234bb32a05249db4151, type: 3}
   _GrassRunAudio: {fileID: 8300000, guid: b50264f2672ddd84fa88407a8dfbf009, type: 3}
+  _StoneWalkAudio: {fileID: 8300000, guid: 05dd935de758e3d4daa85cb4455fc1d2, type: 3}
+  _StoneRunAudio: {fileID: 8300000, guid: 47e13f8d10c777846bc045297c5cabc0, type: 3}
 --- !u!143 &5462589145226037417
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3177,7 +3179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6186041538000471958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000000014901161, y: 1.298, z: 0.5500002}
+  m_LocalPosition: {x: 0.0000063478947, y: 1.2980042, z: 0.5499924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
