@@ -40,7 +40,7 @@ public class PlantBombManager : MonoBehaviour
     PhotonView PV;
     
     
-  
+    //que es todo este espacio desperdiciado por dios
     
 
 

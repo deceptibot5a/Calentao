@@ -12,8 +12,8 @@ public class ExplosionManager2 : MonoBehaviour
     public GameObject button2; 
     
     public PhotonView PV;
-    
-    
+
+    WinManager winManag;
     
     private void Start()
     {
@@ -28,8 +28,8 @@ public class ExplosionManager2 : MonoBehaviour
         button2.SetActive(true);
         
         UIExplosion.AssingBomb2();
-        
 
+        winManag = FindObjectOfType<WinManager>();
     }
     
  
@@ -39,7 +39,8 @@ public class ExplosionManager2 : MonoBehaviour
     
     {
         button2.SetActive(false);
-        Checkpoints.instance.TurnOnDeathPanel();
+        //Checkpoints.instance.TurnOnDeathPanel();
+        WinManager.instance.WinTheGame();
         Debug.Log("Cinematica FINAl");
     }
     
