@@ -14,6 +14,8 @@ public class ExplosionManager2 : MonoBehaviour
     public PhotonView PV;
 
     WinManager winManag;
+
+    public GameObject allScene;
     
     private void Start()
     {
@@ -24,6 +26,8 @@ public class ExplosionManager2 : MonoBehaviour
         
         
         button2 = bombManager01.gameObjectsList.Find(obj => obj.name == "BombButton2");
+        
+        allScene = bombManager01.gameObjectsList.Find(obj => obj.name == "AllScene");
 
         button2.SetActive(true);
         
