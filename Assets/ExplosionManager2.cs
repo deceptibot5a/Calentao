@@ -16,6 +16,8 @@ public class ExplosionManager2 : MonoBehaviour
     WinManager winManag;
 
     public GameObject allScene;
+
+    public GameObject player1, player2;
     
     private void Start()
     {
@@ -28,6 +30,9 @@ public class ExplosionManager2 : MonoBehaviour
         button2 = bombManager01.gameObjectsList.Find(obj => obj.name == "BombButton2");
         
         allScene = bombManager01.gameObjectsList.Find(obj => obj.name == "AllScene");
+        
+        player1 = GameObject.FindWithTag("Player1");
+        player2 = GameObject.FindWithTag("Player2");
 
         button2.SetActive(true);
         
@@ -42,6 +47,8 @@ public class ExplosionManager2 : MonoBehaviour
     public void ExplosionRPC2()
     
     {
+        player1.SetActive(false);
+        player2.SetActive(false);
         button2.SetActive(false);
         //Checkpoints.instance.TurnOnDeathPanel();
         WinManager.instance.WinTheGame();

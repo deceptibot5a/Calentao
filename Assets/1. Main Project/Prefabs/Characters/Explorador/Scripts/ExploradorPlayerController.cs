@@ -41,7 +41,7 @@ public class ExploradorPlayerController : MonoBehaviour
     public AudioClip _GrassRunAudio; 
     public AudioClip _StoneWalkAudio;
     public AudioClip _StoneRunAudio;
-    
+    public GameObject presioneEUI;
     public GameObject ExploradorAudioSources;
 
     public GameObject GuiaAudioSources; 
@@ -66,6 +66,12 @@ private void Start()
     if (!PV.IsMine)
     {
         virtualCam.SetActive(false);
+        presioneEUI.SetActive(false);
+
+    }
+    if (PV.IsMine)
+    {
+        presioneEUI.SetActive(true);
 
     }
     StartCoroutine(AssingAudioGlobals()); 
