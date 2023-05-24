@@ -16,7 +16,11 @@ public class ExplosionManager : MonoBehaviour
 
     public BombManager01 bombManager01; 
 
-    public MeshRenderer bombMeshRenderer; 
+    public MeshRenderer bombMeshRenderer;
+
+    public AudioSource explosionSource;
+
+    public AudioClip explosionSOUND; 
     
 
     public Material targetMaterial; 
@@ -42,6 +46,8 @@ public class ExplosionManager : MonoBehaviour
         explosionVFX = bombManager01.gameObjectsList.Find(obj => obj.name == "ExplosionVFX");
 
         button1 = bombManager01.gameObjectsList.Find(obj => obj.name == "BombButton1"); 
+        
+        explosionSource = bombManager01.gameObjectsList.Find(obj => obj.name == "SFX_EXPLORADOR").GetComponent<AudioSource>();
         
         button1.SetActive(true);
 
@@ -69,6 +75,7 @@ public class ExplosionManager : MonoBehaviour
     {
         if (!CantExplode)
         {
+            explosionSource.PlayOneShot(explosionSOUND);
             originalWall.SetActive(false);
             fracturedWall.SetActive(true);
             explosionVFX.SetActive(true);

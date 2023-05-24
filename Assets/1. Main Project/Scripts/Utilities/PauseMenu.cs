@@ -65,7 +65,8 @@ public class PauseMenu : MonoBehaviour
         playerCamera.enabled = false;
         playerControllerex.enabled = false;
         playerAnimator.enabled = false;
-        
+       
+
         foreach (AudioSource audioSource in audioSources)
         {
             audioSource.volume = 0f;
