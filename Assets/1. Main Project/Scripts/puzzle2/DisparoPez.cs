@@ -45,7 +45,7 @@ public class DisparoPez : MonoBehaviour
         preshotParticleSystem.Play();
         
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         ShootFish();
         StartCoroutine(DeactivatePlatform());
         yield return new WaitForSeconds(2.4f);
@@ -55,13 +55,13 @@ public class DisparoPez : MonoBehaviour
     
     private void ShootFish()
     {
-        LeanTween.moveLocalY(fishPrefab, -80f, 1.2f).setEaseInOutQuart().setOnComplete(ReturnToWater);
+        LeanTween.moveLocalY(fishPrefab, -80f, 2f).setEaseInOutQuart().setOnComplete(ReturnToWater);
     }
     
     private void ReturnToWater()
     {
         LeanTween.rotateLocal(fishPrefab, new Vector3(-90f, 0, 0), 0.8f).setEaseInQuad();
-        LeanTween.moveLocalY(fishPrefab, -93.5f, 1.2f).setEaseInOutQuart().setOnComplete(ResetXrotation);
+        LeanTween.moveLocalY(fishPrefab, -93.5f, 1.4f).setEaseInOutQuart().setOnComplete(ResetXrotation);
         preshotParticleSystem.Stop();
     }
     public void ResetXrotation()
@@ -71,7 +71,7 @@ public class DisparoPez : MonoBehaviour
     
     IEnumerator DeactivatePlatform()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.4f);
         platformDestroyer.DeactivatePlatform();
     }
     

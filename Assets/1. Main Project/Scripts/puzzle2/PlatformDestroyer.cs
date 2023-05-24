@@ -11,11 +11,5 @@ public class PlatformDestroyer : MonoBehaviour
         puzzle2Button.DeactivatePlatform();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Pez"))
-        {
-            DeactivatePlatform();
-        }
-    }
+   
 }

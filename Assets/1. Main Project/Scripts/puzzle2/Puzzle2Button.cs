@@ -87,5 +87,6 @@ public class Puzzle2Button : MonoBehaviour
         platformOn = false;
         plataforma.GetComponent<BoxCollider>().enabled = false;
         manager.RemoveObject(plataforma);
+        Debug.Log("desactivado");
     }
 }
