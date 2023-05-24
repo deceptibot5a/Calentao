@@ -65,11 +65,11 @@ public class EnemyController : MonoBehaviour
     private void PlayerDetected()
     {
         StartCoroutine(Checkpoints.instance.FadeInAndOut());
-        photonView.RPC("TeleportPlayer", RpcTarget.All);
+        Invoke("TeleportPlayer", TPdelayTime);
         Debug.Log("Player detected!");
     }
 
-    [PunRPC]
+    
     private void TeleportPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player1");
