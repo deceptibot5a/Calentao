@@ -42,6 +42,8 @@ public class ExplosionManager2 : MonoBehaviour
         //Checkpoints.instance.TurnOnDeathPanel();
         WinManager.instance.WinTheGame();
         Debug.Log("Cinematica FINAl");
+        Timer.instance.StopTimer();
+        
     }
     
     public void Explosion2()
