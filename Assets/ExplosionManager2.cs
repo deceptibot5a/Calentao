@@ -47,7 +47,7 @@ public class ExplosionManager2 : MonoBehaviour
         WinManager.instance.WinTheGame();
         Debug.Log("Cinematica FINAl");
         Timer.instance.StopTimer();
-        
+        allScene.SetActive(false);
     }
     
     public void Explosion2()
