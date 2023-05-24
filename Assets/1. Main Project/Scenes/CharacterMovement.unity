@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.023424365, g: 0.011261765, b: 0.04986971, a: 1}
+  m_IndirectSpecularColor: {r: 0.022132715, g: 0.010524597, b: 0.047272455, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12684,6 +12684,11 @@ PrefabInstance:
       objectReference: {fileID: 415655516}
     - target: {fileID: 6611896229115486639, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
         type: 3}
+      propertyPath: photonView
+      value: 
+      objectReference: {fileID: 806862211}
+    - target: {fileID: 6611896229115486639, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
+        type: 3}
       propertyPath: TPdelayTime
       value: 0.45
       objectReference: {fileID: 0}
@@ -13084,6 +13089,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7d70e5ea7569f4ab5256e6899b0f8d, type: 3}
+--- !u!1 &806862210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4666521854373249142, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 806862209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &806862211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806862210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 9
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &809494871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2141685402966596844, guid: 5aae10637bb5a644397bd62d37c9ef1b,
@@ -28192,6 +28225,11 @@ PrefabInstance:
       objectReference: {fileID: 415655516}
     - target: {fileID: 6611896229115486639, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
         type: 3}
+      propertyPath: photonView
+      value: 
+      objectReference: {fileID: 2007858991}
+    - target: {fileID: 6611896229115486639, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
+        type: 3}
       propertyPath: TPdelayTime
       value: 0.45
       objectReference: {fileID: 0}
@@ -28597,6 +28635,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7d70e5ea7569f4ab5256e6899b0f8d, type: 3}
+--- !u!1 &1904815045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4666521854373249142, guid: bf7d70e5ea7569f4ab5256e6899b0f8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1904815044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1906577678 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1515545280954513964, guid: 990b2ea04761f3546ad71294d3944a2c,
@@ -29662,6 +29706,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1904815044}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007858991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904815045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 95
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &2020369396
 PrefabInstance:
   m_ObjectHideFlags: 0
