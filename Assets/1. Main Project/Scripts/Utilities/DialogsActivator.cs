@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using Photon.Pun;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class DialogsActivator : MonoBehaviour
 {
@@ -12,7 +9,9 @@ public class DialogsActivator : MonoBehaviour
     public float dialogTime = 10f;
     public bool wasActivated = false;
     
+    
     public AudioSource audioGarbanzo;
+    public PlayableDirector reto3; 
     
     
     private void OnTriggerEnter(Collider other)
@@ -36,6 +35,7 @@ public class DialogsActivator : MonoBehaviour
     
     public void ActiveAudio ()
     {
+        reto3.Play();
         audioGarbanzo.Play();
     }
     
