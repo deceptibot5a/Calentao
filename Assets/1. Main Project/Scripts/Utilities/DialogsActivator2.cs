@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 
-
-public class DialogsActivator : MonoBehaviour
+public class DialogsActivator2 : MonoBehaviour
 {
     [SerializeField] private GameObject dialogBox;
     [SerializeField] private GameObject audioBox;
@@ -11,7 +11,7 @@ public class DialogsActivator : MonoBehaviour
     
     
     public AudioSource audioGarbanzo;
-     
+    public PlayableDirector reto3; 
     
     
     private void OnTriggerEnter(Collider other)
@@ -35,6 +35,7 @@ public class DialogsActivator : MonoBehaviour
     
     public void ActiveAudio ()
     {
+        reto3.Play();
         audioGarbanzo.Play();
     }
     
