@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SelectionManager : MonoBehaviour
 {
-    [SerializeField] private Camera camera;
+   /* [SerializeField] private Camera camera;
     [SerializeField] private float distance = 3f;
     private Transform highlight;
     private Transform selection;
@@ -48,5 +48,5 @@ public class SelectionManager : MonoBehaviour
                 highlight = null;
             }
         }
-    }
+    }*/
 }
