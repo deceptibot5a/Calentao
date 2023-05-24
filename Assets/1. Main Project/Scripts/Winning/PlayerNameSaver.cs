@@ -33,11 +33,23 @@ public class PlayerNameSaver : MonoBehaviour
     }
 
     public void GoBackToMain() {
-        PhotonNetwork.LeaveRoom();
+        ExpulsarClientes();
         PhotonNetwork.LoadLevel("MainMenu");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+    
+    
+    public void ExpulsarClientes()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.LeaveRoom();
+        }
+    }
+    
 
     private void AppendText(string txtInput, string appendFile) {
         if (!File.Exists(appendFile)) {
