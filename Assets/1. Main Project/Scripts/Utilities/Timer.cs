@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Photon.Pun;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,11 +18,20 @@ public class Timer : MonoBehaviour
     public float audioTime = 6f;
     public AudioSource audioGarbanzo;
     public static Timer instance;
+    public GameObject player1, player2;
+    public GameObject allScene;
     
     private void Awake()
     {
         instance = this;
     }
+
+    private void Start()
+    {
+        StartCoroutine(AssignPlayers());
+    }
+
+
     void Update()
     {
         if (timeRemaining > 0)
@@ -36,6 +48,9 @@ public class Timer : MonoBehaviour
             timerPanel.SetActive(false);
             SceneManager.LoadScene("LooseCinematic", LoadSceneMode.Additive);
             hasFinished = true;
+            player1.SetActive(false);
+            player2.SetActive(false);
+            allScene.SetActive(false);
         }
 
         if (timeRemaining <= 60 && garbanzoMessage == false)
@@ -75,5 +90,12 @@ public class Timer : MonoBehaviour
     {
         StopAllCoroutines(); 
         hasFinished = true;
+    }
+    IEnumerator AssignPlayers()
+    {
+        yield return new WaitForSeconds(0.1f);
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player2 = GameObject.FindGameObjectWithTag("Player2");
+        
     }
 }
