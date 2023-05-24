@@ -13,6 +13,7 @@ public class CinematicEnded : MonoBehaviour
     [SerializeField] private FadeToBlack fading;
     [SerializeField] private GameObject playerTime;
     [SerializeField] private GameObject playerTimeItems;
+    [SerializeField] private GameObject playerFirstButton;
     [SerializeField] private TextMeshProUGUI finalTimeText;
     private string filePath;
 
@@ -42,6 +43,7 @@ public class CinematicEnded : MonoBehaviour
             finalTimeText.text = fileContent;
             playerTime.SetActive(true);
             if(!PhotonNetwork.IsMasterClient) playerTimeItems.SetActive(false);
+            if(PhotonNetwork.IsMasterClient) playerFirstButton.SetActive(false);
         }
     }
     
