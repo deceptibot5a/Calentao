@@ -10,7 +10,6 @@ using TMPro;
 public class CinematicEnded : MonoBehaviour
 {
     [SerializeField] VideoPlayer cinematic;
-    [SerializeField] private FadeToBlack fading;
     [SerializeField] private GameObject playerTime;
     [SerializeField] private GameObject playerTimeItems;
     [SerializeField] private GameObject playerFirstButton;
@@ -23,8 +22,7 @@ public class CinematicEnded : MonoBehaviour
     }
 
     private void EndCinematic(VideoPlayer vp) {
-        fading.fadeIn = true;
-        fading.firstTime = false;
+   
         StartCoroutine(ShowTime());
     }
 
