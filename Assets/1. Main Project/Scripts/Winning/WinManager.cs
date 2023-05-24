@@ -46,7 +46,7 @@ public class WinManager : MonoBehaviourPunCallbacks
             dataToSave = string.Format("{0:00}:{1:00}", minutes, seconds);
             saveTime.AppendText(dataToSave, timesPath);
         }
-        dataToSave = ("Felicidades, completaron la misión!\nTiempo: " + string.Format("{0:00}:{1:00}", minutes, seconds));
+        dataToSave = (string.Format("{0:00}:{1:00}", minutes, seconds));
         saveTime.OverwriteText(dataToSave);
     }
 
