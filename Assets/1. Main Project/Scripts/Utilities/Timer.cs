@@ -1,13 +1,14 @@
 using System.Collections;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
     public float timeRemaining = 600f;
     public Text timeText;
-    public GameObject losePanel;
+    public GameObject timerPanel;
     private bool hasFinished = false;
     public bool garbanzoMessage = false;
     public GameObject audioBox;
@@ -32,8 +33,8 @@ public class Timer : MonoBehaviour
         {
             timeRemaining = 0;
             DisplayTime(timeRemaining);
-            losePanel.SetActive(true);
-            StartCoroutine(BacktoMenu());
+            timerPanel.SetActive(false);
+            SceneManager.LoadScene("LooseCinematic", LoadSceneMode.Additive);
             hasFinished = true;
         }
 
@@ -54,14 +55,14 @@ public class Timer : MonoBehaviour
         timeText.text =( string.Format("{0:00}:{1:00}", minutes, seconds));
     }
     
-    IEnumerator BacktoMenu()
+    void BackToMainMenu()
     {
-        yield return new WaitForSeconds(5);
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("MainMenu");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+    
     IEnumerator moveAudioDialog()
     {
         yield return new WaitForSeconds(0.1f);
