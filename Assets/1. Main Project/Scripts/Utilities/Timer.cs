@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Photon.Pun;
 using UnityEngine;
@@ -14,82 +13,66 @@ public class Timer : MonoBehaviour
     public GameObject audioBox;
     public float audioTime = 6f;
     public AudioSource audioGarbanzo;
-    public bool isTimerRunning = false;
     public static Timer instance;
     
     private void Awake()
     {
         instance = this;
     }
-
-
     void Update()
     {
-        if (isTimerRunning)
+        if (timeRemaining > 0)
         {
-            if (timeRemaining > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
-            }
-            else if (!hasFinished)
-            {
-                StopTimer();
-                timeRemaining = 0;
-                DisplayTime(timeRemaining);
-                losePanel.SetActive(true);
-                StartCoroutine(BacktoMenu());
-                hasFinished = true;
-            }
+            timeRemaining -= Time.deltaTime;
+            DisplayTime(timeRemaining);
+        }
+        
+        
+        else if (!hasFinished)
+        {
+            timeRemaining = 0;
+            DisplayTime(timeRemaining);
+            losePanel.SetActive(true);
+            StartCoroutine(BacktoMenu());
+            hasFinished = true;
+        }
 
-            else if (!hasFinished)
-            {
-                timeRemaining = 0;
-                DisplayTime(timeRemaining);
-                losePanel.SetActive(true);
-                StartCoroutine(BacktoMenu());
-                hasFinished = true;
-            }
-
-            if (timeRemaining <= 60 && garbanzoMessage == false)
-            {
-                StartCoroutine(moveAudioDialog());
-                garbanzoMessage = true;
-                audioGarbanzo.Play();
-                Debug.Log("Garbanzo");
-            }
+        if (timeRemaining <= 60 && garbanzoMessage == false)
+        {
+            StartCoroutine(moveAudioDialog());
+            garbanzoMessage = true;
+            audioGarbanzo.Play();
+            Debug.Log("Garbanzo");
         }
     }
     
-        public void StopTimer()
-        {
-            isTimerRunning = false;
-        }
-
-        void DisplayTime(float timeToDisplay)
-        {
-            float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-            timeText.text = (string.Format("{0:00}:{1:00}", minutes, seconds));
-        }
-
-        IEnumerator BacktoMenu()
-        {
-            yield return new WaitForSeconds(5);
-            PhotonNetwork.LeaveRoom();
-            PhotonNetwork.LoadLevel("MainMenu");
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-
-        IEnumerator moveAudioDialog()
-        {
-            yield return new WaitForSeconds(0.1f);
-            LeanTween.moveX(audioBox, 60, 0.5f).setEase(LeanTweenType.easeInOutBack);
-            yield return new WaitForSeconds(audioTime);
-            LeanTween.moveX(audioBox, -700, 0.5f).setEase(LeanTweenType.easeInOutBack);
-        }
-        
-        
     
+    void DisplayTime(float timeToDisplay)
+    {
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        timeText.text =( string.Format("{0:00}:{1:00}", minutes, seconds));
+    }
+    
+    IEnumerator BacktoMenu()
+    {
+        yield return new WaitForSeconds(5);
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel("MainMenu");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    IEnumerator moveAudioDialog()
+    {
+        yield return new WaitForSeconds(0.1f);
+        LeanTween.moveX(audioBox, 60, 0.5f).setEase(LeanTweenType.easeInOutBack);
+        yield return new WaitForSeconds(audioTime);
+        LeanTween.moveX(audioBox, -700, 0.5f).setEase(LeanTweenType.easeInOutBack);
+    }
+    
+    public void StopTimer()
+    {
+        StopAllCoroutines(); 
+        hasFinished = true;
+    }
 }
