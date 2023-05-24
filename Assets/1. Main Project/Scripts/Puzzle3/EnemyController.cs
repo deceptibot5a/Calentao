@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1"))
         {
@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
     private void PlayerDetected()
     {
         StartCoroutine(Checkpoints.instance.FadeInAndOut());
-        Invoke("TeleportPlayer", TPdelayTime);
+        TeleportPlayer();
         Debug.Log("Player detected!");
     }
     
