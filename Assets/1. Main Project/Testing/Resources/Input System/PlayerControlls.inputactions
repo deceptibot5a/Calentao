@@ -33,18 +33,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "1609523d-e033-4a43-b332-42418c43b304",
+                    "id": "da36130b-6bd6-40af-99ab-e832a613044b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
+                    "name": "Interact2",
                     "type": "Button",
-                    "id": "912b3a15-714c-453f-a24b-48f45434d2e9",
+                    "id": "2bdf58a8-d9e1-4333-8606-81acd2520d9d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ColliderInteract",
+                    "type": "Button",
+                    "id": "ffcd988a-37b6-4af1-8732-fbb561b50e53",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ExitInteraction",
+                    "type": "Button",
+                    "id": "4701a335-0de6-4a58-a383-dfc0847c68d9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -131,23 +149,45 @@
                 },
                 {
                     "name": "",
-                    "id": "ce985a41-0e19-4710-9024-42e427e266cd",
-                    "path": "<Keyboard>/space",
+                    "id": "1f087c44-3020-4cdf-ba71-564d5dc75680",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "a7408408-2f7e-42b8-ad35-e415a265d32f",
-                    "path": "<Keyboard>/leftCtrl",
+                    "id": "4309829d-5749-4030-b5d7-d863d459b27c",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Crouch",
+                    "action": "Interact2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a060ca69-c403-4db4-a7ab-0e3fac51e838",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColliderInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a32ac66-e311-4a10-b3c6-5f0c79839e29",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitInteraction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

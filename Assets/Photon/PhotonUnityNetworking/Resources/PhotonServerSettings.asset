@@ -28,7 +28,7 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: 
+  DevRegion: cae
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -39,6 +39,48 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - AumentarNumero
+  - UpdateSolutionOnline
+  - UpdateSequence
+  - ButtonPressed
+  - SyncButtonPressed
+  - PuzzleComplete
+  - InteractWithButton
+  - <Update>g__InteractWithButton|8_0
+  - SelectObject
+  - DeselectObject
+  - <Update>g__SyncInteractedObject|3_0
+  - DestroyObjectRPC
+  - DestroyOtherObjectRPC
+  - SyncPassword
+  - GeneratePassword
+  - CompletePuzzle1
+  - SendPassword
+  - SyncInteractionState
+  - Player1Selected
+  - Player2Selected
+  - UpdatePlayersSelected
+  - ActivateFinishChallengeRPC
+  - DisablePlayerButton
+  - DisablePlayer1
+  - DisablePlayer2
+  - ResetSelection
+  - DesactivateStartButton
+  - SyncInteractedObject
+  - Buttonclick
+  - ShootFishRPC
+  - RPCSetMaterialCambiado
+  - ChangeMaterial
+  - CambiarMaterialRPC
+  - ShootFishWithDelay
+  - DeactivatePlatformRPC
+  - ShowDialog
+  - EnablePlayerMovement
+  - EnableGuiaMovement
+  - Explosion1
+  - ExplosionRPC
+  - ExplosionRPC2
+  - TeleportPlayer
   DisableAutoOpenWizard: 1
   ShowSettings: 1
-  DevRegionSetOnce: 0
+  DevRegionSetOnce: 1
